@@ -1,7 +1,12 @@
-<p>
-  procedures works!
-</p>
-<li *ngFor="let procedure of procedures">
-  <span>{{procedure.title}} / </span>
-  <span>{{procedure.text}} / </span>
-</li>
+<div class="procedures-container">
+  <div class="procedure-container" *ngFor="let procedure of procedures">
+    <img src="assets/img/default-img.png" alt="Italian Trulli">
+    <p class="title">{{procedure.title}}</p>
+<!--    <p class="title">{{procedure.text}}</p>-->
+    <div class="action-btns-container">
+      <button mat-raised-button (click)="editProcedure()" class="edit-btn">Змінити</button>
+      <button mat-raised-button (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
+    </div>
+  </div>
+</div>
+

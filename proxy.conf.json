@@ -2,6 +2,7 @@
    "/api/**": {
       "target": "http://localhost/api/public/index.php/",
       "secure": false,
+      "changeOrigin": true,
       "logLevel": "debug"
    }
 }

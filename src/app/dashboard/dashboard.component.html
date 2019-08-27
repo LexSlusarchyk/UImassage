@@ -1,7 +1,38 @@
-<h1>
-  dashboard works!
-</h1>
 <a routerLink="/"><h1>Home</h1></a>
-<h3>Процедури</h3>
-<button type="button" class="navbar-toggle collapsed" (click)="addProcedure()">Додати процедуру</button>
-<app-procedures></app-procedures>
+<div class="wrapper">
+  <div class="left-bar">
+    <div class="nav-link-container">
+      <h3>Процедури</h3>
+    </div>
+    <div class="nav-link-container">
+      <h3>Прайс</h3>
+    </div>
+    <div class="nav-link-container">
+      <h3>Новини/Акції</h3>
+    </div>
+    <div class="nav-link-container">
+      <h3>Домашній догляд</h3>
+    </div>
+    <div class="nav-link-container">
+      <h3>Працівники</h3>
+    </div>
+    <div class="nav-link-container">
+      <h3>Контакти</h3>
+    </div>
+  </div>
+
+  <div class="content-container">
+    <form [formGroup]="procedureForm" class="procedure-form">
+      <mat-form-field class="field">
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <textarea matInput placeholder="Text" formControlName="text"></textarea>
+      </mat-form-field>
+    </form>
+
+    <button mat-button (click)="addProcedure()">Додати процедуру</button>
+    <app-procedures></app-procedures>
+  </div>
+</div>

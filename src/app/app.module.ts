@@ -16,6 +16,8 @@ import {MaterialModule} from './material.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import { CreateProcedureModalComponent } from './dashboard/modals/create-procedure-modal/create-procedure-modal.component';
+import { FileUploaderComponent } from './dashboard/file-uploader/file-uploader.component';
 
 
 
@@ -26,6 +28,8 @@ import { MatInputModule } from '@angular/material';
     DashboardComponent,
     HomeComponent,
     ProceduresComponent,
+    CreateProcedureModalComponent,
+    FileUploaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,9 @@ import { MatInputModule } from '@angular/material';
 
     ReactiveFormsModule,
   ],
+
+  entryComponents: [CreateProcedureModalComponent],
+
   providers: [],
   bootstrap: [AppComponent]
 })

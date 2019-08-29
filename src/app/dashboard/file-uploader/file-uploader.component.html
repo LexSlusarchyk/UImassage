@@ -1,0 +1,12 @@
+<mat-card class="uploaded-img-card">
+  <img mat-card-image src="assets/img/upload-image.jpg"  alt="default image" *ngIf="!fileUrl" (click)="fileInput.click()">
+  <img [src]="fileUrl" alt="uploaded image" *ngIf="fileUrl" (click)="fileInput.click()">
+  <mat-card-actions>
+    <button mat-button class="browse-btn" (click)="fileInput.click()">Вибрати зображення</button>
+    <input #fileInput name="image" type="file" accept=".jpg" (change)="onFileSelected($event)" style="display:none;">
+  </mat-card-actions>
+</mat-card>
+
+
+
+

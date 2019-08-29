@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProceduresService } from '../procedures/procedures.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
-import {FormControl, FormGroup} from '@angular/forms';
-
+import {MatDialog} from '@angular/material';
+import {CreateProcedureModalComponent} from './modals/create-procedure-modal/create-procedure-modal.component';
 
 
 @Component({
@@ -12,25 +9,22 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  procedureForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    text: new FormControl('')
-  });
-
-  constructor(private proceduresService: ProceduresService) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
   addProcedure() {
-    let x = this.procedureForm.get('title').value;
-    let y  = this.procedureForm.get('text').value;
-    this.proceduresService.addProcedure({
-      title: this.procedureForm.get('title').value, text: this.procedureForm.get('text').value
-    });
+    this.showCreateProcedureModal();
   }
 
+  showCreateProcedureModal() {
+    const dialogRef = this.dialog.open(CreateProcedureModalComponent, {
+      width: '900px'
+    });
 
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

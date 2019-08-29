@@ -32,11 +32,10 @@ export class ProceduresService {
   }
 
   updateProcedure(procedure): any {
-    return this.http.put('/api/procedures/update/' + procedure.id, procedure).toPromise();
-  }
-
-  editProcedure() {
-    console.log('edit');
+    return this.http.put('/api/procedures/update/' + procedure.id, procedure).subscribe((res) => {
+      this.proceduresUpdated.next();
+      return res;
+    });
   }
 
   deleteProcedure(id) {

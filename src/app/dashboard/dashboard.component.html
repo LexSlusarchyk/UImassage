@@ -22,16 +22,6 @@
   </div>
 
   <div class="content-container">
-    <form [formGroup]="procedureForm" class="procedure-form">
-      <mat-form-field class="field">
-        <input matInput placeholder="Title" formControlName="title">
-      </mat-form-field>
-
-      <mat-form-field class="field">
-        <textarea matInput placeholder="Text" formControlName="text"></textarea>
-      </mat-form-field>
-    </form>
-
     <button mat-button (click)="addProcedure()">Додати процедуру</button>
     <app-procedures></app-procedures>
   </div>

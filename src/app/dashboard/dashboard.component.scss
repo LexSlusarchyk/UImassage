@@ -3,21 +3,4 @@
   flex-flow: row;
 }
 
-.left-bar {
-  .nav-link-container {
-    width: 300px;
-    padding: 20px;
-    background-color: lightgrey;
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-
-.procedure-form {
-  .field {
-    display: block;
-  }
-}

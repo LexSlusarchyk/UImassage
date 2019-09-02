@@ -1,15 +1,15 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ProceduresService} from '../../../procedures/procedures.service';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
+import {EmployeesService} from '../../../employees/employees.service';
 
 @Component({
-  selector: 'app-create-procedure-modal',
-  templateUrl: './create-procedure-modal.component.html',
-  styleUrls: ['./create-procedure-modal.component.scss']
+  selector: 'app-create-employee-modal',
+  templateUrl: './create-employee-modal.component.html',
+  styleUrls: ['./create-employee-modal.component.scss']
 })
-export class CreateProcedureModalComponent implements OnInit {
+export class CreateEmployeeModalComponent implements OnInit {
 
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
@@ -19,10 +19,10 @@ export class CreateProcedureModalComponent implements OnInit {
   fileUrl: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<CreateProcedureModalComponent>,
-              private proceduresService: ProceduresService,
+              public dialogRef: MatDialogRef<CreateEmployeeModalComponent>,
+              private employeesService: EmployeesService,
               private fileUploadService: FileUploadService) {
-    this.proceduresService.proceduresUpdated$.subscribe(() => {
+    this.employeesService.proceduresUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
@@ -31,10 +31,10 @@ export class CreateProcedureModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setProcedureFields();
+    this.setItemFields();
   }
 
-  setProcedureFields() {
+  setItemFields() {
     if (this.isEdited()) {
       this.fileUploadService.setFileUrl(this.data.procedure.image);
       this.procedureForm.patchValue({
@@ -45,18 +45,18 @@ export class CreateProcedureModalComponent implements OnInit {
   }
 
   confirm() {
-    this.isEdited() ? this.editProcedure() : this.addProcedure();
+    this.isEdited() ? this.editItem() : this.addItem();
   }
 
-  addProcedure() {
-    this.proceduresService.addProcedure(this.getProcedure());
+  addItem() {
+    this.employeesService.addItem(this.getItem());
   }
 
-  editProcedure() {
-    this.proceduresService.updateProcedure(this.getProcedure());
+  editItem() {
+    this.employeesService.updateItem(this.getItem());
   }
 
-  getProcedure() {
+  getItem() {
     return {
       id: this.isEdited() ? this.data.procedure.id : null,
       title: this.procedureForm.get('title').value,

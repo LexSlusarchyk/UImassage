@@ -1,0 +1,12 @@
+
+.left-bar {
+  .nav-link-container {
+    width: 200px;
+    padding: 20px;
+    background-color: lightgrey;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

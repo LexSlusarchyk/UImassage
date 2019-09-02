@@ -1,15 +1,16 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {EmployeesService} from '../../../employees/employees.service';
+import {FileUploadService} from '../../file-uploader/file-upload.service';
+import {ProductsService} from '../../../products/products.service';
 
 @Component({
-  selector: 'app-create-employee-modal',
-  templateUrl: './create-employee-modal.component.html',
-  styleUrls: ['./create-employee-modal.component.scss']
+  selector: 'app-create-product-modal',
+  templateUrl: './create-product-modal.component.html',
+  styleUrls: ['./create-product-modal.component.scss']
 })
-export class CreateEmployeeModalComponent implements OnInit {
+export class CreateProductModalComponent implements OnInit {
 
   itemForm: FormGroup = new FormGroup({
     title: new FormControl(''),
@@ -19,10 +20,10 @@ export class CreateEmployeeModalComponent implements OnInit {
   fileUrl: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<CreateEmployeeModalComponent>,
-              private employeesService: EmployeesService,
+              public dialogRef: MatDialogRef<CreateProductModalComponent>,
+              private productsService: ProductsService,
               private fileUploadService: FileUploadService) {
-    this.employeesService.employeesUpdated$.subscribe(() => {
+    this.productsService.productsUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
@@ -49,11 +50,11 @@ export class CreateEmployeeModalComponent implements OnInit {
   }
 
   addItem() {
-    this.employeesService.addItem(this.getItem());
+    this.productsService.addItem(this.getItem());
   }
 
   editItem() {
-    this.employeesService.updateItem(this.getItem());
+    this.productsService.updateItem(this.getItem());
   }
 
   getItem() {

@@ -1,0 +1,9 @@
+<mat-sidenav-container class="dashboard-container">
+  <mat-sidenav mode="side" opened>
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-button (click)="addProduct()">Додати новий товар</button>
+    <app-products></app-products>
+  </mat-sidenav-content>
+</mat-sidenav-container>

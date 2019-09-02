@@ -8,8 +8,7 @@ import {Subject} from 'rxjs';
 })
 export class ProceduresService {
 
-  private proceduresUrl = '/api/procedures';
-  private procedureUrl = '/api/procedure';
+  private apiUrl = '/api/procedures';
 
   constructor(private http: HttpClient) { }
 
@@ -17,11 +16,11 @@ export class ProceduresService {
   proceduresUpdated$ = this.proceduresUpdated.asObservable();
 
   getProcedure(id): any {
-    return this.http.get<Procedure[]>(this.procedureUrl + id).toPromise();
+    return this.http.get<Procedure[]>(this.apiUrl + id).toPromise();
   }
 
   getProcedures(): any {
-    return this.http.get<Procedure[]>(this.proceduresUrl).toPromise();
+    return this.http.get<Procedure[]>(this.apiUrl).toPromise();
   }
 
   addProcedure(procedure): any {

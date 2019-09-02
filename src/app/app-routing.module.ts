@@ -4,13 +4,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import {EmployeesManagementComponent} from './dashboard/employees-management/employees-management.component';
 import {ProceduresManagmentComponent} from './dashboard/procedures-managment/procedures-managment.component';
+import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', component: EmployeesManagementComponent },
-  { path: 'procedures', component: ProceduresManagmentComponent }
+  { path: 'procedures', component: ProceduresManagmentComponent },
+  { path: 'products', component: ProductsManagementComponent }
 ];
 
 @NgModule({

@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateEmployeeModalComponent} from '../dashboard/modals/create-employee-modal/create-employee-modal.component';
-import {EmployeesService} from './employees.service';
+import {CreateProductModalComponent} from '../dashboard/modals/create-product-modal/create-product-modal.component';
+import {ProductsService} from './products.service';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class EmployeesComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
   items = null;
 
-  constructor(private employeesService: EmployeesService,
+  constructor(private productsService: ProductsService,
               private fileUploadService: FileUploadService,
               public dialog: MatDialog) {
 
-    this.employeesService.employeesUpdated$.subscribe(() => {
+    this.productsService.productsUpdated$.subscribe(() => {
       this.loadItemsList();
     });
   }
@@ -27,7 +27,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.employeesService.getItems().then((response) => {
+    this.productsService.getItems().then((response) => {
       this.items = this.mapItemsList(response);
     });
   }
@@ -49,11 +49,11 @@ export class EmployeesComponent implements OnInit {
   }
 
   deleteItem(id) {
-    this.employeesService.deleteItem(id);
+    this.productsService.deleteItem(id);
   }
 
   showEditModal(procedure) {
-    const dialogRef = this.dialog.open(CreateEmployeeModalComponent, {
+    const dialogRef = this.dialog.open(CreateProductModalComponent, {
       width: '900px',
       data: { procedure: procedure },
     });
@@ -62,4 +62,5 @@ export class EmployeesComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
 }

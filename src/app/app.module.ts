@@ -23,6 +23,9 @@ import { SideNavComponent } from './dashboard/side-nav/side-nav.component';
 import { EmployeesManagementComponent } from './dashboard/employees-management/employees-management.component';
 import { ProceduresManagmentComponent } from './dashboard/procedures-managment/procedures-managment.component';
 import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
+import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
+import { ProductsComponent } from './products/products.component';
+import { CreateProductModalComponent } from './dashboard/modals/create-product-modal/create-product-modal.component';
 
 
 
@@ -40,6 +43,9 @@ import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee
     EmployeesManagementComponent,
     ProceduresManagmentComponent,
     CreateEmployeeModalComponent,
+    ProductsManagementComponent,
+    ProductsComponent,
+    CreateProductModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,7 @@ import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee
   entryComponents: [
     CreateProcedureModalComponent,
     CreateEmployeeModalComponent,
+    CreateProductModalComponent,
   ],
 
   providers: [],

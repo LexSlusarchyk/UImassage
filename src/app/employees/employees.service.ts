@@ -8,32 +8,31 @@ import {Procedure} from '../procedures/procedure';
 })
 export class EmployeesService {
 
-  private proceduresUrl = '/api/employees';
-  private procedureUrl = '/api/employees';
+  private apiUrl = '/api/employees';
 
   constructor(private http: HttpClient) { }
 
-  private proceduresUpdated = new Subject<boolean>();
-  proceduresUpdated$ = this.proceduresUpdated.asObservable();
+  private employeesUpdated = new Subject<boolean>();
+  employeesUpdated$ = this.employeesUpdated.asObservable();
 
   getItem(id): any {
-    return this.http.get<Procedure[]>(this.procedureUrl + id).toPromise();
+    return this.http.get<Procedure[]>(this.apiUrl + id).toPromise();
   }
 
   getItems(): any {
-    return this.http.get<Procedure[]>(this.proceduresUrl).toPromise();
+    return this.http.get<Procedure[]>(this.apiUrl).toPromise();
   }
 
   addItem(procedure): any {
     return this.http.post('/api/employees/add', procedure).subscribe((res) => {
-      this.proceduresUpdated.next();
+      this.employeesUpdated.next();
       return res;
     });
   }
 
   updateItem(procedure): any {
     return this.http.put('/api/employees/update/' + procedure.id, procedure).subscribe((res) => {
-      this.proceduresUpdated.next();
+      this.employeesUpdated.next();
       return res;
     });
   }
@@ -41,7 +40,7 @@ export class EmployeesService {
   deleteItem(id) {
     this.http.delete('/api/employees/delete/' + id).subscribe(
       (res) => {
-        this.proceduresUpdated.next();
+        this.employeesUpdated.next();
         return res;
       }
     );

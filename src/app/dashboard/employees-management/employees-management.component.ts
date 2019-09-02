@@ -15,10 +15,10 @@ export class EmployeesManagementComponent implements OnInit {
   }
 
   addEmployee() {
-    this.showCreateProcedureModal();
+    this.showCreateModal();
   }
 
-  showCreateProcedureModal() {
+  showCreateModal() {
     const dialogRef = this.dialog.open(CreateEmployeeModalComponent, {
       width: '900px'
     });

@@ -1,16 +1,16 @@
 import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA,  MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {ProductsService} from '../../../products/products.service';
+import {FileUploadService} from '../../file-uploader/file-upload.service';
+import {NewsService} from '../../../news/news.service';
 
 @Component({
-  selector: 'app-create-product-modal',
-  templateUrl: './create-product-modal.component.html',
-  styleUrls: ['./create-product-modal.component.scss']
+  selector: 'app-create-article-modal',
+  templateUrl: './create-article-modal.component.html',
+  styleUrls: ['./create-article-modal.component.scss']
 })
-export class CreateProductModalComponent implements OnInit {
-
+export class CreateArticleModalComponent implements OnInit {
   itemForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     text: new FormControl('')
@@ -19,10 +19,10 @@ export class CreateProductModalComponent implements OnInit {
   fileUrl: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<CreateProductModalComponent>,
-              private productsService: ProductsService,
+              public dialogRef: MatDialogRef<CreateArticleModalComponent>,
+              private newsService: NewsService,
               private fileUploadService: FileUploadService) {
-    this.productsService.productsUpdated$.subscribe(() => {
+    this.newsService.newsUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
@@ -49,11 +49,11 @@ export class CreateProductModalComponent implements OnInit {
   }
 
   addItem() {
-    this.productsService.addItem(this.getItem());
+    this.newsService.addItem(this.getItem());
   }
 
   editItem() {
-    this.productsService.updateItem(this.getItem());
+    this.newsService.updateItem(this.getItem());
   }
 
   getItem() {
@@ -76,5 +76,4 @@ export class CreateProductModalComponent implements OnInit {
   isEdited(): boolean {
     return this.data && this.data.procedure;
   }
-
 }

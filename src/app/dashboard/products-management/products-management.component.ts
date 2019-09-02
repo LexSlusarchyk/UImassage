@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {CreateProductModalComponent} from '../modals/create-product-modal/create-product-modal.component';
 
 @Component({
-  selector: 'app-products-mnagement',
+  selector: 'app-products-management',
   templateUrl: './products-management.component.html',
   styleUrls: ['./products-management.component.scss']
 })

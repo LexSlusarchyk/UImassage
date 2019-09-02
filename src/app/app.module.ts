@@ -21,11 +21,14 @@ import { FileUploaderComponent } from './dashboard/file-uploader/file-uploader.c
 import { EmployeesComponent } from './employees/employees.component';
 import { SideNavComponent } from './dashboard/side-nav/side-nav.component';
 import { EmployeesManagementComponent } from './dashboard/employees-management/employees-management.component';
-import { ProceduresManagmentComponent } from './dashboard/procedures-managment/procedures-managment.component';
+import { ProceduresManagementComponent } from './dashboard/procedures-management/procedures-management.component';
 import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
 import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
 import { ProductsComponent } from './products/products.component';
 import { CreateProductModalComponent } from './dashboard/modals/create-product-modal/create-product-modal.component';
+import { NewsComponent } from './news/news.component';
+import { CreateArticleModalComponent } from './dashboard/modals/create-article-modal/create-article-modal.component';
+import { NewsManagementComponent } from './dashboard/news-management/news-management.component';
 
 
 
@@ -41,11 +44,14 @@ import { CreateProductModalComponent } from './dashboard/modals/create-product-m
     EmployeesComponent,
     SideNavComponent,
     EmployeesManagementComponent,
-    ProceduresManagmentComponent,
+    ProceduresManagementComponent,
     CreateEmployeeModalComponent,
     ProductsManagementComponent,
     ProductsComponent,
     CreateProductModalComponent,
+    NewsComponent,
+    CreateArticleModalComponent,
+    NewsManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,7 @@ import { CreateProductModalComponent } from './dashboard/modals/create-product-m
     CreateProcedureModalComponent,
     CreateEmployeeModalComponent,
     CreateProductModalComponent,
+    CreateArticleModalComponent,
   ],
 
   providers: [],

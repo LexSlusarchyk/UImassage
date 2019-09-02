@@ -29,6 +29,9 @@ import { CreateProductModalComponent } from './dashboard/modals/create-product-m
 import { NewsComponent } from './news/news.component';
 import { CreateArticleModalComponent } from './dashboard/modals/create-article-modal/create-article-modal.component';
 import { NewsManagementComponent } from './dashboard/news-management/news-management.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { GalleryManagmentComponent } from './dashboard/gallery-managment/gallery-managment.component';
+import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
 
 
 
@@ -52,6 +55,9 @@ import { NewsManagementComponent } from './dashboard/news-management/news-manage
     NewsComponent,
     CreateArticleModalComponent,
     NewsManagementComponent,
+    GalleryComponent,
+    GalleryManagmentComponent,
+    CreateAlbumModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +76,7 @@ import { NewsManagementComponent } from './dashboard/news-management/news-manage
     CreateEmployeeModalComponent,
     CreateProductModalComponent,
     CreateArticleModalComponent,
+    CreateAlbumModalComponent,
   ],
 
   providers: [],

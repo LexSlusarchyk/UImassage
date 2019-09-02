@@ -1,15 +1,16 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA,  MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
-import {NewsService} from '../../../news/news.service';
+import {GalleryService} from '../../../gallery/gallery.service';
 
 @Component({
-  selector: 'app-create-article-modal',
-  templateUrl: './create-article-modal.component.html',
-  styleUrls: ['./create-article-modal.component.scss']
+  selector: 'app-album-modal',
+  templateUrl: './create-album-modal.component.html',
+  styleUrls: ['./create-album-modal.component.scss']
 })
-export class CreateArticleModalComponent implements OnInit {
+export class CreateAlbumModalComponent implements OnInit {
+
   itemForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     text: new FormControl('')
@@ -18,10 +19,10 @@ export class CreateArticleModalComponent implements OnInit {
   fileUrl: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<CreateArticleModalComponent>,
-              private newsService: NewsService,
+              public dialogRef: MatDialogRef<CreateAlbumModalComponent>,
+              private galleryService: GalleryService,
               private fileUploadService: FileUploadService) {
-    this.newsService.newsUpdated$.subscribe(() => {
+    this.galleryService.galleryUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
@@ -48,11 +49,11 @@ export class CreateArticleModalComponent implements OnInit {
   }
 
   addItem() {
-    this.newsService.addItem(this.getItem());
+    this.galleryService.addItem(this.getItem());
   }
 
   editItem() {
-    this.newsService.updateItem(this.getItem());
+    this.galleryService.updateItem(this.getItem());
   }
 
   getItem() {

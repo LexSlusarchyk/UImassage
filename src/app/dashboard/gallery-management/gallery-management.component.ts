@@ -3,11 +3,11 @@ import {MatDialog} from '@angular/material/dialog';
 import {CreateAlbumModalComponent} from '../modals/create-album-modal/create-album-modal.component';
 
 @Component({
-  selector: 'app-gallery-managment',
-  templateUrl: './gallery-managment.component.html',
-  styleUrls: ['./gallery-managment.component.scss']
+  selector: 'app-gallery-management',
+  templateUrl: './gallery-management.component.html',
+  styleUrls: ['./gallery-management.component.scss']
 })
-export class GalleryManagmentComponent implements OnInit {
+export class GalleryManagementComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {

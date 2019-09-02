@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateProductModalComponent} from '../dashboard/modals/create-product-modal/create-product-modal.component';
 import {GalleryService} from './gallery.service';
+import {CreateAlbumModalComponent} from '../dashboard/modals/create-album-modal/create-album-modal.component';
 
 @Component({
   selector: 'app-gallery',
@@ -53,7 +53,7 @@ export class GalleryComponent implements OnInit {
   }
 
   showEditModal(procedure) {
-    const dialogRef = this.dialog.open(CreateProductModalComponent, {
+    const dialogRef = this.dialog.open(CreateAlbumModalComponent, {
       width: '900px',
       data: { procedure: procedure },
     });

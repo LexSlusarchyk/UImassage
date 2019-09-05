@@ -32,6 +32,10 @@ import { NewsManagementComponent } from './dashboard/news-management/news-manage
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
 import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
+import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
+import { CategoriesTreeComponent } from './categories/categories-tree/categories-tree.component';
 
 
 
@@ -58,6 +62,10 @@ import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
+    CategoriesComponent,
+    CategoriesManagementComponent,
+    CreateCategoryModalComponent,
+    CategoriesTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +85,7 @@ import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal
     CreateProductModalComponent,
     CreateArticleModalComponent,
     CreateAlbumModalComponent,
+    CreateCategoryModalComponent,
   ],
 
   providers: [],

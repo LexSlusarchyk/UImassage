@@ -1,6 +1,12 @@
-<h1>
-  Home works!
-</h1>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened class="example-sidenav"
+               [fixedInViewport]="true" [fixedTopGap]="100"
+               [fixedBottomGap]="100">Sidenav
+    <app-categories-tree></app-categories-tree>
+  </mat-sidenav>
 
-<app-procedures></app-procedures>
+  <mat-sidenav-content>
+    <app-procedures></app-procedures>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Додати нову категорію</h1>
+<div mat-dialog-content>
+  <form [formGroup]="itemForm" class="category-form">
+    <mat-form-field class="field">
+      <input matInput placeholder="Назва категорії" formControlName="title">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="cancel-btn" (click)="onNoClick()">Відмінити</button>
+  <button mat-raised-button color="primary" (click)="confirm()">Продовжити</button>
+</div>
+

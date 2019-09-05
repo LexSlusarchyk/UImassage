@@ -7,6 +7,7 @@ import {ProceduresManagementComponent} from './dashboard/procedures-management/p
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 import {NewsManagementComponent} from './dashboard/news-management/news-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
+import {CategoriesManagementComponent} from './dashboard/categories-management/categories-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'procedures', component: ProceduresManagementComponent },
   { path: 'products', component: ProductsManagementComponent },
   { path: 'news', component: NewsManagementComponent },
-  { path: 'gallery', component: GalleryManagementComponent }
+  { path: 'gallery', component: GalleryManagementComponent },
+  { path: 'categories', component: CategoriesManagementComponent },
 ];
 
 @NgModule({

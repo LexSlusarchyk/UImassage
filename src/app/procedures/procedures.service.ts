@@ -23,6 +23,11 @@ export class ProceduresService {
     return this.http.get<Procedure[]>(this.apiUrl).toPromise();
   }
 
+  getProceduresByCategoryId(id): any {
+    console.log('get');
+    return this.http.get<Procedure[]>(this.apiUrl + '/category/' + id).toPromise();
+  }
+
   addProcedure(procedure): any {
     return this.http.post('/api/procedures/add', procedure).subscribe((res) => {
       this.proceduresUpdated.next();

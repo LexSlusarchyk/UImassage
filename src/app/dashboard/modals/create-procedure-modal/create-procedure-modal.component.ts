@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ProceduresService} from '../../../procedures/procedures.service';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
+import {CategoriesService} from '../../../categories/categories.service';
 
 @Component({
   selector: 'app-create-procedure-modal',
@@ -10,23 +11,30 @@ import {FileUploadService} from '../../file-uploader/file-upload.service';
   styleUrls: ['./create-procedure-modal.component.scss']
 })
 export class CreateProcedureModalComponent implements OnInit {
-
+  xpandStatus = false;
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     text: new FormControl('')
   });
 
   fileUrl: string;
+  selectedCategory: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialogRef: MatDialogRef<CreateProcedureModalComponent>,
               private proceduresService: ProceduresService,
-              private fileUploadService: FileUploadService) {
+              private fileUploadService: FileUploadService,
+              private categoriesService: CategoriesService, ) {
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
+    });
+
+    this.categoriesService.selectedCategory$.subscribe((category) => {
+      this.selectedCategory = category;
+      this.xpandStatus = false;
     });
   }
 
@@ -41,7 +49,18 @@ export class CreateProcedureModalComponent implements OnInit {
         title: this.data.procedure.title,
         text: this.data.procedure.text
       });
+      this.setCategory();
     }
+  }
+
+  getCategoryTitle() {
+    return this.selectedCategory && this.selectedCategory.title;
+  }
+
+  setCategory() {
+    this.categoriesService.getItem(this.data.procedure.category_id).then(category => {
+      this.selectedCategory = category[0];
+    });
   }
 
   confirm() {
@@ -61,8 +80,13 @@ export class CreateProcedureModalComponent implements OnInit {
       id: this.isEdited() ? this.data.procedure.id : null,
       title: this.procedureForm.get('title').value,
       text: this.procedureForm.get('text').value,
-      image: this.fileUrl ? this.fileUrl.split('uploads/')[1] : null
+      image: this.fileUrl ? this.fileUrl.split('uploads/')[1] : null,
+      category_id: this.getCategoryId()
     };
+  }
+
+  getCategoryId() {
+    return this.selectedCategory && this.selectedCategory.id || this.data && this.data.procedure.category_id || 1;
   }
 
   onNoClick(): void {

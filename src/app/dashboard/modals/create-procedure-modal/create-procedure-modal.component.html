@@ -1,6 +1,18 @@
 <h1 mat-dialog-title>Створити Процедуру</h1>
 <div mat-dialog-content>
   <app-file-uploader></app-file-uploader>
+
+  <p *ngIf="getCategoryTitle()"><span><strong>Категорія</strong></span> - {{getCategoryTitle()}}</p>
+    <mat-expansion-panel [(expanded)]="xpandStatus">
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+        <mat-panel-description>
+          Змінити категорію
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-categories-tree [options]="{isEditable: false, collapseAll: true}"></app-categories-tree>
+    </mat-expansion-panel>
+
   <form [formGroup]="procedureForm" class="procedure-form">
     <mat-form-field class="field">
       <input matInput placeholder="Заголовок" formControlName="title">

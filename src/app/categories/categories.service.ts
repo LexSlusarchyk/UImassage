@@ -6,7 +6,6 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class CategoriesService {
-
   private apiUrl = '/api/categories';
 
   constructor(private http: HttpClient) { }
@@ -17,8 +16,15 @@ export class CategoriesService {
   private categoriesTreeReady = new Subject<[]>();
   categoriesTreeReady$ = this.categoriesTreeReady.asObservable();
 
+  private selectedCategory = new Subject<[]>();
+  selectedCategory$ = this.selectedCategory.asObservable();
+
+  selectCategory(category) {
+    this.selectedCategory.next(category);
+  }
+
   getItem(id): any {
-    return this.http.get(this.apiUrl + id).toPromise();
+    return this.http.get(this.apiUrl + '/' + id).toPromise();
   }
 
   getItems(): any {
@@ -32,18 +38,7 @@ export class CategoriesService {
   }
 
   createTree(categories) {
-    var arr = [
-      {'id':1 ,'parent_id' : 0},
-      {'id':2 ,'parent_id' : 1},
-      {'id':3 ,'parent_id' : 1},
-      {'id':4 ,'parent_id' : 2},
-      {'id':5 ,'parent_id' : 0},
-      {'id':6 ,'parent_id' : 0},
-      {'id':7 ,'parent_id' : 4}
-    ];
-    let tree = this.unflatten(categories);
-    console.log(tree);
-    return tree;
+    return this.unflatten(categories);
   }
 
   unflatten( array, parent?, tree? ) {

@@ -2,7 +2,7 @@
   <mat-sidenav mode="side" opened class="example-sidenav"
                [fixedInViewport]="true" [fixedTopGap]="100"
                [fixedBottomGap]="100">Sidenav
-    <app-categories-tree></app-categories-tree>
+    <app-categories-tree [options]="{isEditable: false, collapseAll: true}"></app-categories-tree>
   </mat-sidenav>
 
   <mat-sidenav-content>

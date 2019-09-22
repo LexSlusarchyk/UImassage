@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProceduresService} from './procedures.service';
 import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
 import {CreateProcedureModalComponent} from '../dashboard/modals/create-procedure-modal/create-procedure-modal.component';

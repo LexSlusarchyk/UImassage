@@ -29,7 +29,7 @@ interface CategoryFlatNode {
   styleUrls: ['./categories-tree.component.scss']
 })
 export class CategoriesTreeComponent implements OnInit {
-  @Input() options: any;
+  @Input() options?: any;
 
   private _transformer = (node: CategoryNode, level: number) => {
     return {

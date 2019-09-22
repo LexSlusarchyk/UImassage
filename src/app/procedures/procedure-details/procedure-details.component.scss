@@ -1,0 +1,9 @@
+.image-container {
+  display: flex;
+  justify-content: flex-start;
+
+  img {
+    display: inline-block;
+    max-width: 25%;
+  }
+}

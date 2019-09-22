@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="site-logo">
+        <img src="assets/img/dt-logo.svg" alt="">
+      </div>
+      <div class="site-name">
+        <a routerLink="/">Delight body</a>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="default-nav">
+        <a mat-raised-button routerLink="/" ><span>Головна</span></a>
+        <a mat-raised-button routerLink="/procedures" ><span>Послуги</span></a>
+        <a mat-raised-button routerLink="/dashboard"><span>Dashboard</span></a>
+      </div>
+      <div class="collapsed-nav">
+        <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item routerLink="/" ><span>Головна</span></a>
+          <a mat-menu-item routerLink="/procedures" ><span>Послуги</span></a>
+          <a mat-menu-item routerLink="/dashboard" ><span>Dashboard</span></a>
+          <a mat-menu-item routerLink="/contacts" ><span>Contacts</span></a>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</header>
+

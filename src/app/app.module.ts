@@ -8,8 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { ProceduresComponent } from './procedures/procedures.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
@@ -35,7 +33,7 @@ import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
 import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
-import { CategoriesTreeComponent } from './categories/categories-tree/categories-tree.component';
+import {HeaderComponent} from './header/header.component';
 
 
 
@@ -43,9 +41,8 @@ import { CategoriesTreeComponent } from './categories/categories-tree/categories
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     DashboardComponent,
-    HomeComponent,
-    ProceduresComponent,
     CreateProcedureModalComponent,
     FileUploaderComponent,
     EmployeesComponent,
@@ -65,7 +62,6 @@ import { CategoriesTreeComponent } from './categories/categories-tree/categories
     CategoriesComponent,
     CategoriesManagementComponent,
     CreateCategoryModalComponent,
-    CategoriesTreeComponent,
   ],
   imports: [
     BrowserModule,

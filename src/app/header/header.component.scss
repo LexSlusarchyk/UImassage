@@ -1,0 +1,82 @@
+$break-small: 670px;
+$logo-height: 45px;
+$logo-width: 63px;
+$logo-color: #656565;
+$max-width: 1200px;
+$default-offset: 15px;
+$button-height: 38px;
+$header-height: $button-height + $default-offset * 2;
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  height: $header-height;
+  padding: $default-offset;
+  border-bottom: 2px solid $logo-color;
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+    .header-left {
+      float: left;
+      padding-left: $logo-width + $default-offset;
+      position: relative;
+
+      .site-logo {
+        position: absolute;
+        display: inline-block;
+        top: -4px;
+        left: 0;
+
+        img {
+          height: $logo-height;
+        }
+      }
+
+      .site-name {
+        display: inline-block;
+        line-height: 33px;
+        font-family: "Poppins", sans-serif;
+        font-size: 21px;
+
+        a {
+          text-decoration: none;
+          color: $logo-color;
+        }
+      }
+
+      @media screen and (max-width: $break-small) {
+        padding-left: $logo-width + $default-offset / 2;
+      }
+    }
+
+    .header-right {
+      float: right;
+
+      a, button {
+        margin-right: 15px;
+        color: $logo-color;
+      }
+
+      .collapsed-nav {
+        display: none;
+      }
+
+      @media screen and (max-width: $break-small) {
+        .default-nav {
+          display: none;
+        }
+
+        .collapsed-nav {
+          display: block;
+        }
+
+      }
+    }
+  }
+}
+

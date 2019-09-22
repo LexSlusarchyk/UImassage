@@ -1,18 +1,29 @@
-<div class="procedures-container">
-  <mat-card class="procedure-card" *ngFor="let procedure of procedures">
-    <mat-card-header>
-      <mat-card-title>{{procedure.title}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
-    <img [src]="procedure.image" alt="item image" *ngIf="procedure.image">
-    <mat-card-content>
-      <p class="text">{{procedure.text}}</p>
-    </mat-card-content>
-    <mat-card-actions class="action-btns-container">
-      <button mat-raised-button (click)="editProcedure(procedure)" class="edit-btn">Змінити</button>
-      <button mat-raised-button (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
-    </mat-card-actions>
-  </mat-card>
 
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened class="example-sidenav"
+               [fixedInViewport]="true" [fixedTopGap]="100"
+               [fixedBottomGap]="100">Sidenav
+    <app-categories-tree [options]="{isEditable: false, collapseAll: false}"></app-categories-tree>
+  </mat-sidenav>
 
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <div class="procedures-container">
+      <mat-card class="procedure-card" *ngFor="let procedure of procedures" routerLink="procedure/{{procedure.id}}">
+        <mat-card-header>
+          <mat-card-title>{{procedure.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
+        <img [src]="procedure.image" alt="item image" *ngIf="procedure.image">
+        <mat-card-content>
+          <p class="text">{{procedure.text}}</p>
+        </mat-card-content>
+        <!--    <mat-card-actions class="action-btns-container" *ngIf="editable">-->
+        <!--      <button mat-raised-button (click)="editProcedure(procedure)" class="edit-btn">Змінити</button>-->
+        <!--      <button mat-raised-button (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>-->
+        <!--    </mat-card-actions>-->
+      </mat-card>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -30,12 +30,9 @@ import { NewsManagementComponent } from './dashboard/news-management/news-manage
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
 import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
-import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
 import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
 import {HeaderComponent} from './header/header.component';
-
-
 
 
 @NgModule({
@@ -59,7 +56,6 @@ import {HeaderComponent} from './header/header.component';
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
-    CategoriesComponent,
     CategoriesManagementComponent,
     CreateCategoryModalComponent,
   ],

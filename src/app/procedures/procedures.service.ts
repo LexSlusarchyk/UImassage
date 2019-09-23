@@ -16,7 +16,6 @@ export class ProceduresService {
   proceduresUpdated$ = this.proceduresUpdated.asObservable();
 
   getProcedure(id): any {
-    debugger
     return this.http.get<Procedure[]>(this.apiUrl + '/' + id).toPromise();
   }
 

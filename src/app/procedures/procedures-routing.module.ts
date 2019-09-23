@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProceduresComponent} from './procedures.component';
 import {ProcedureDetailsComponent} from './procedure-details/procedure-details.component';
 import {ProcedureDetailsResolverService} from './procedure-details-resolver.service';
+import {ProceduresCategoryComponent} from './procedures-category/procedures-category.component';
+import {ProceduresCategoryResolverService} from './procedures-category/procedures-category-resolver.service';
 
 
 
@@ -16,7 +18,13 @@ const proceduresRoutes: Routes = [
         path: '',
         // canActivateChild: [AuthGuard],
         children: [
-          { path: ':id',
+          { path: 'category/:id',
+            component:  ProceduresCategoryComponent,
+            resolve: {
+              category: ProceduresCategoryResolverService
+            }
+          },
+          { path: 'procedure/:id',
             component:  ProcedureDetailsComponent,
             resolve: {
               procedure: ProcedureDetailsResolverService

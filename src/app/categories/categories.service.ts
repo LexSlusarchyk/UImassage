@@ -19,6 +19,9 @@ export class CategoriesService {
   private selectedCategory = new Subject<[]>();
   selectedCategory$ = this.selectedCategory.asObservable();
 
+  private categoryChildren = new Subject<[]>();
+  categoryChildren$ = this.categoryChildren.asObservable();
+
   selectCategory(category) {
     this.selectedCategory.next(category);
   }
@@ -35,6 +38,10 @@ export class CategoriesService {
     this.http.get(this.apiUrl).subscribe((res) => {
       this.categoriesTreeReady.next(this.createTree(res));
     });
+  }
+
+  getCategoryChildren(id) {
+    return this.http.get(this.apiUrl + '/children/' + id).toPromise();
   }
 
   createTree(categories) {

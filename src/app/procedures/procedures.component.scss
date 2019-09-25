@@ -1,52 +1,5 @@
 
 .procedures-container {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.procedure-card {
-  max-width: 400px;
-  margin: 10px;
-
-  .title {
-    text-align: center;
-  }
-
-  img {
-    max-width: 400px;
-    width: 100%;
-  }
-
-  .text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.action-btns-container {
-  display: flex;
-  justify-content: center;
-
-  .edit-btn, .delete-btn {
-    margin: 0 10px;
-    color: white;
-  }
-
-  .edit-btn {
-    background-color: orange;
-  }
-
-  .delete-btn {
-    background-color: red;
-  }
-}
-
-.example-container {
   position: absolute;
   top: 60px;
   bottom: 60px;
@@ -54,23 +7,20 @@
   right: 0;
 }
 
-.example-sidenav {
+.procedures-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 400px;
 }
 
-.example-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
+.sidenav-toggle-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  height: 80px;
 
-.example-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }

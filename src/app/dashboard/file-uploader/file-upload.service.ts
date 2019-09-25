@@ -21,7 +21,7 @@ export class FileUploadService {
 
     formData.append('image', file );
     this.http.post('/api/uploads', formData).subscribe((res) => {
-      this.fileUploaded.next(this.uploadsUrl + res.toString());
+      this.fileUploaded.next(res.toString());
     });
   }
 

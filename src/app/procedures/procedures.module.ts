@@ -6,7 +6,6 @@ import {MaterialModule} from '../material.module';
 import {ProcedureDetailsComponent} from './procedure-details/procedure-details.component';
 import {ProceduresRoutingModule} from './procedures-routing.module';
 import {ProceduresComponent} from './procedures.component';
-import {CategoriesTreeComponent} from '../categories/categories-tree/categories-tree.component';
 import {ProceduresCategoryComponent} from './procedures-category/procedures-category.component';
 import { ProceduresCategoryListComponent } from './procedures-category/procedures-category-list/procedures-category-list.component';
 import {CategoriesModule} from '../categories/categories.module';

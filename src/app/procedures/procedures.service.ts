@@ -24,7 +24,6 @@ export class ProceduresService {
   }
 
   getProceduresByCategoryId(id): any {
-    console.log('get');
     return this.http.get<Procedure[]>(this.apiUrl + '/category/' + id).toPromise();
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploadService} from './file-upload.service';
+import {UrlHelperService} from '../../helpers/url-helper.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -12,6 +13,7 @@ export class FileUploaderComponent implements OnInit {
 
   constructor(
     private fileUploadService: FileUploadService,
+    private urlHelperService: UrlHelperService
   ) {
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;

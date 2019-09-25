@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
@@ -17,9 +16,7 @@ import { MatInputModule } from '@angular/material';
 import { CreateProcedureModalComponent } from './dashboard/modals/create-procedure-modal/create-procedure-modal.component';
 import { FileUploaderComponent } from './dashboard/file-uploader/file-uploader.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { SideNavComponent } from './dashboard/side-nav/side-nav.component';
 import { EmployeesManagementComponent } from './dashboard/employees-management/employees-management.component';
-import { ProceduresManagementComponent } from './dashboard/procedures-management/procedures-management.component';
 import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
 import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
 import { ProductsComponent } from './products/products.component';
@@ -30,22 +27,19 @@ import { NewsManagementComponent } from './dashboard/news-management/news-manage
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
 import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
-import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
 import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
 import {HeaderComponent} from './header/header.component';
+import {CategoriesModule} from './categories/categories.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent,
     CreateProcedureModalComponent,
     FileUploaderComponent,
     EmployeesComponent,
-    SideNavComponent,
     EmployeesManagementComponent,
-    ProceduresManagementComponent,
     CreateEmployeeModalComponent,
     ProductsManagementComponent,
     ProductsComponent,
@@ -56,7 +50,6 @@ import {HeaderComponent} from './header/header.component';
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
-    CategoriesManagementComponent,
     CreateCategoryModalComponent,
   ],
   imports: [
@@ -67,6 +60,7 @@ import {HeaderComponent} from './header/header.component';
     MaterialModule,
     MatFormFieldModule,
     MatInputModule,
+    CategoriesModule,
 
     ReactiveFormsModule,
   ],

@@ -14,6 +14,7 @@ interface CategoryNode {
   title: string;
   children?: CategoryNode[];
   parent_id?: number;
+  image?: string;
 }
 
 /** Flat node with expandable and level information */
@@ -37,7 +38,8 @@ export class CategoriesTreeComponent implements OnInit {
       title: node.title,
       level: level,
       id: node.id,
-      parentId: node.parent_id
+      parentId: node.parent_id,
+      image: node.image
     };
   }
   treeControl = new FlatTreeControl<CategoryFlatNode>(

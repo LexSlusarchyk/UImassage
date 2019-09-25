@@ -8,18 +8,22 @@ import {GalleryManagementComponent} from './dashboard/gallery-management/gallery
 import {CategoriesManagementComponent} from './dashboard/categories-management/categories-management.component';
 
 const routes: Routes = [
-
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', component: EmployeesManagementComponent },
   { path: 'products', component: ProductsManagementComponent },
   { path: 'news', component: NewsManagementComponent },
   { path: 'gallery', component: GalleryManagementComponent },
-  { path: 'categories', component: CategoriesManagementComponent },
+  // { path: 'categories', component: CategoriesManagementComponent },
 
   {
     path: 'procedures',
     loadChildren: () => import('./procedures/procedures.module').then(mod => mod.ProceduresModule),
   },
+
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
+  },
+
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),

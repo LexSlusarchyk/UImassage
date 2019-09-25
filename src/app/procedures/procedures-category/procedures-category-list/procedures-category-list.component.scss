@@ -1,0 +1,28 @@
+.procedures-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.procedure-card {
+  max-width: 400px;
+  margin: 10px;
+
+  .title {
+    text-align: center;
+  }
+
+  img {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,12 +1,10 @@
 <mat-sidenav-container class="dashboard-container">
   <mat-sidenav mode="side" opened>
-    <app-side-nav></app-side-nav>
   </mat-sidenav>
   <mat-sidenav-content>
     <button mat-button (click)="addProcedure()">Додати процедуру</button>
-<!--    <app-procedures [editable]= "true"></app-procedures>-->
     <div class="procedures-container">
-      <mat-card class="procedure-card" *ngFor="let procedure of procedures" routerLink="/procedure/{{procedure.id}}">
+      <mat-card class="procedure-card" *ngFor="let procedure of procedures">
         <mat-card-header>
           <mat-card-title>{{procedure.title}}</mat-card-title>
         </mat-card-header>
@@ -20,7 +18,6 @@
           <button mat-raised-button (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
         </mat-card-actions>
       </mat-card>
-
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

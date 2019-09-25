@@ -1,5 +1,6 @@
 <h1 mat-dialog-title>Додати нову категорію</h1>
 <div mat-dialog-content>
+  <app-file-uploader></app-file-uploader>
   <form [formGroup]="itemForm" class="category-form">
     <mat-form-field class="field">
       <input matInput placeholder="Назва категорії" formControlName="title">

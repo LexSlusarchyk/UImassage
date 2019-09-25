@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Category} from '../../categories/category';
 import {ProceduresService} from '../procedures.service';
 import {UrlHelperService} from '../../helpers/url-helper.service';
+import {CategoriesService} from '../../categories/categories.service';
 
 @Component({
   selector: 'app-procedures-category',
@@ -13,17 +14,26 @@ import {UrlHelperService} from '../../helpers/url-helper.service';
 export class ProceduresCategoryComponent implements OnInit {
   category;
   proceduresList;
+  categoryList;
+
   constructor(private route: ActivatedRoute,
               private proceduresService: ProceduresService,
+              private categoriesService: CategoriesService,
               private urlHelperService: UrlHelperService) { }
 
   ngOnInit() {
     this.route.data
       .subscribe((data: { category: Category }) => {
-        console.log(data);
         this.category = data.category[0];
         this.getProceduresListByCategory(data.category[0].id);
+        this.getCategoryChildren(data.category[0].id);
       });
+  }
+
+  getCategoryChildren(id) {
+    this.categoriesService.getCategoryChildren(id).then((res) => {
+      this.categoryList = res;
+    });
   }
 
   getProceduresListByCategory(id) {

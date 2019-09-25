@@ -61,7 +61,7 @@ export class CreateAlbumModalComponent implements OnInit {
       id: this.isEdited() ? this.data.procedure.id : null,
       title: this.itemForm.get('title').value,
       text: this.itemForm.get('text').value,
-      image: this.fileUrl ? this.fileUrl.split('uploads/')[1] : null
+      image: this.fileUrl ? this.fileUrl : null
     };
   }
 

@@ -1,13 +1,1 @@
-<div class="procedures-container">
-  <mat-card class="procedure-card" *ngFor="let item of items" routerLink="/procedures/category/{{item.id}}">
-    <mat-card-header>
-      <mat-card-title>{{item.title}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!item.image">
-    <img [src]="item.image" alt="item image" *ngIf="item.image">
-    <mat-card-content>
-      <p class="text">{{item.text}}</p>
-    </mat-card-content>
-  </mat-card>
-
-</div>
+<app-category-list [categoryList]="items"></app-category-list>

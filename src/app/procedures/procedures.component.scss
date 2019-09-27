@@ -5,13 +5,17 @@
   bottom: 60px;
   left: 0;
   right: 0;
+
+  .content-container {
+    padding: 20px;
+  }
 }
 
 .procedures-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
+  width: 300px;
 }
 
 .sidenav-toggle-btn {
@@ -19,6 +23,7 @@
   top: 50%;
   z-index: 1;
   height: 80px;
+  opacity: 0.5;
 
   &:hover {
     cursor: pointer;

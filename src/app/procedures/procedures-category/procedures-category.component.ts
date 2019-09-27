@@ -5,6 +5,7 @@ import {Category} from '../../categories/category';
 import {ProceduresService} from '../procedures.service';
 import {UrlHelperService} from '../../helpers/url-helper.service';
 import {CategoriesService} from '../../categories/categories.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-procedures-category',
@@ -19,7 +20,8 @@ export class ProceduresCategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private proceduresService: ProceduresService,
               private categoriesService: CategoriesService,
-              private urlHelperService: UrlHelperService) { }
+              private urlHelperService: UrlHelperService,
+              private _location: Location) { }
 
   ngOnInit() {
     this.route.data
@@ -40,6 +42,10 @@ export class ProceduresCategoryComponent implements OnInit {
     this.proceduresService.getProceduresByCategoryId(id).then( (res) => {
       this.proceduresList = res;
     });
+  }
+
+  goBack() {
+    this._location.back();
   }
 
 }

@@ -5,6 +5,8 @@ import {CategoriesTreeComponent} from './categories-tree/categories-tree.compone
 import {CategoriesComponent} from './categories.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {RouterModule} from '@angular/router';
+import { CategoryItemComponent } from './category-item/category-item.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 
 
@@ -17,11 +19,15 @@ import {RouterModule} from '@angular/router';
   ],
   declarations: [
     CategoriesComponent,
-    CategoriesTreeComponent
+    CategoriesTreeComponent,
+    CategoryItemComponent,
+    CategoryListComponent
   ],
   exports: [
     CategoriesComponent,
-    CategoriesTreeComponent
+    CategoriesTreeComponent,
+    CategoryItemComponent,
+    CategoryListComponent
   ]
 })
 export class CategoriesModule {}

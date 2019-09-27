@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoriesService} from '../categories/categories.service';
+import {UrlHelperService} from '../helpers/url-helper.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  categoryList: [];
+  constructor(private categoriesService: CategoriesService,
+              private urlHelperService: UrlHelperService) {}
 
   ngOnInit() {
+    this.loadItemsList();
   }
 
+  loadItemsList() {
+    this.categoriesService.getItems().then((response) => {
+      this.categoryList = response;
+    });
+  }
 }

@@ -12,6 +12,7 @@ import {FileUploadService} from '../../file-uploader/file-upload.service';
 export class CreateCategoryModalComponent implements OnInit {
   itemForm: FormGroup = new FormGroup({
     title: new FormControl(''),
+    text: new FormControl(''),
   });
   fileUrl: string;
 
@@ -34,8 +35,10 @@ export class CreateCategoryModalComponent implements OnInit {
   setItemFields() {
     if (this.isEdited()) {
       this.fileUploadService.setFileUrl(this.data.category.image);
+      debugger
       this.itemForm.patchValue({
         title: this.data.category.title,
+        text: this.data.category.text,
       });
     }
   }
@@ -57,6 +60,7 @@ export class CreateCategoryModalComponent implements OnInit {
       id: this.isEdited() ? this.data.category.id : null,
       title: this.itemForm.get('title').value,
       image: this.fileUrl ? this.fileUrl : null,
+      text: this.itemForm.get('text').value,
       parentId: this.data.parentId ? this.data.parentId : this.data.category.parentId,
     };
   }

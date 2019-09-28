@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import {EmployeesManagementComponent} from './dashboard/employees-management/employees-management.component';
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 import {NewsManagementComponent} from './dashboard/news-management/news-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
-import {CategoriesManagementComponent} from './dashboard/categories-management/categories-management.component';
+import {ContactsComponent} from './home/contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'employees', component: EmployeesManagementComponent },
   { path: 'products', component: ProductsManagementComponent },
   { path: 'news', component: NewsManagementComponent },
   { path: 'gallery', component: GalleryManagementComponent },
-  // { path: 'categories', component: CategoriesManagementComponent },
+  { path: 'contacts', component: ContactsComponent },
 
   {
     path: 'procedures',

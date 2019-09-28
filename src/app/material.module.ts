@@ -18,6 +18,7 @@ import {
     MatSelectModule,
     MatSidenavModule,
     MatTreeModule,
+    MatGridListModule,
 
 } from '@angular/material';
 
@@ -45,7 +46,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatSelectModule,
         MatSidenavModule,
         MatTreeModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatGridListModule
     ]
 })
 export class MaterialModule {

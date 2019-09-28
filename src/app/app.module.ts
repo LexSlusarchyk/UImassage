@@ -30,6 +30,8 @@ import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal
 import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
 import {HeaderComponent} from './header/header.component';
 import {CategoriesModule} from './categories/categories.module';
+import { FooterComponent } from './footer/footer.component';
+import {HomeModule} from './home/home.module';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import {CategoriesModule} from './categories/categories.module';
     GalleryManagementComponent,
     CreateAlbumModalComponent,
     CreateCategoryModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {CategoriesModule} from './categories/categories.module';
     MatFormFieldModule,
     MatInputModule,
     CategoriesModule,
+    HomeModule,
 
     ReactiveFormsModule,
   ],

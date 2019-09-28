@@ -4,6 +4,8 @@ import {MaterialModule} from '../material.module';
 import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
 import {CategoriesModule} from '../categories/categories.module';
+import {ContactsComponent} from './contacts/contacts.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -11,12 +13,17 @@ import {CategoriesModule} from '../categories/categories.module';
     MaterialModule,
     CommonModule,
     CategoriesModule,
+    FontAwesomeModule,
 
     HomeRoutingModule,
 
   ],
   declarations: [
     HomeComponent,
+    ContactsComponent
+  ],
+  exports: [
+    ContactsComponent
   ]
 })
 export class HomeModule {}

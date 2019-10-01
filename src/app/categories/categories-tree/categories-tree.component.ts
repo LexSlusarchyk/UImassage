@@ -32,6 +32,7 @@ interface CategoryFlatNode {
 })
 export class CategoriesTreeComponent implements OnInit {
   @Input() options?: any;
+  @Input() navEnabled?: boolean;
 
   private _transformer = (node: CategoryNode, level: number) => {
     return {

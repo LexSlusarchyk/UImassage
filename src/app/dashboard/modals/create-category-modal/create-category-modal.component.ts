@@ -35,7 +35,6 @@ export class CreateCategoryModalComponent implements OnInit {
   setItemFields() {
     if (this.isEdited()) {
       this.fileUploadService.setFileUrl(this.data.category.image);
-      debugger
       this.itemForm.patchValue({
         title: this.data.category.title,
         text: this.data.category.text,

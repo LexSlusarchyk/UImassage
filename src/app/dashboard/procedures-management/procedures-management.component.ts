@@ -50,26 +50,14 @@ export class ProceduresManagementComponent implements OnInit {
 
   loadProcedures() {
     this.proceduresService.getProcedures().then((response) => {
-      this.procedures = this.mapProcedureList(response);
+      this.procedures = response;
     });
   }
 
   onCategorySelected(category) {
     this.proceduresService.getProceduresByCategoryId(category.id).then((response) => {
-      this.procedures = this.mapProcedureList(response);
+      this.procedures = response;
     });
-  }
-
-  mapProcedureList(list) {
-    const procedureList = [];
-
-    list.map((procedure) => {
-      if (procedure.image) {
-        procedure.image = this.fileUploadService.getFileUrl(procedure.image);
-      }
-      procedureList.push(procedure);
-    });
-    return procedureList;
   }
 
   editProcedure(procedure) {

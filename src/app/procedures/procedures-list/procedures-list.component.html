@@ -1,0 +1,7 @@
+<div class="items-container">
+  <a class="card" routerLink="procedure/{{procedure.id}}" *ngFor="let procedure of proceduresList">
+    <h3 class="title">{{procedure.title}}</h3>
+    <img src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
+    <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="item image" *ngIf="procedure.image">
+  </a>
+</div>

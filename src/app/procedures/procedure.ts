@@ -1,20 +1,17 @@
-import {ActivatedRoute} from '@angular/router';
-import {UrlHelperService} from '../helpers/url-helper.service';
 
 export class Procedure {
   id: number;
   title: string;
   text: string;
   image: string;
-  categoryId: number;
+  category_id: number;
 
-  constructor(procedure,
-              private urlHelperService: UrlHelperService) {
+  constructor(procedure) {
     this.id = procedure.id;
     this.title = procedure.title;
     this.text = procedure.text;
     this.image = procedure.image;
-    this.categoryId = procedure.categoryId;
+    this.category_id = procedure.category_id;
   }
 
 }

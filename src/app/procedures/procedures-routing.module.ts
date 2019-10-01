@@ -31,7 +31,7 @@ const proceduresRoutes: Routes = [
               category: ProceduresCategoryResolverService
             }
           },
-          { path: 'procedure/:id',
+          { path: 'category/:id/procedure/:id',
             component:  ProcedureDetailsComponent,
             resolve: {
               procedure: ProcedureDetailsResolverService

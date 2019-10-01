@@ -1,2 +1,35 @@
+@import "../../variables";
 
+.banner-container {
+  display: flex;
+  justify-content: center;
 
+  .logo-container {
+    position: absolute;
+    .logo {
+      height: 150px;
+      width: auto;
+    }
+  }
+
+  .banner {
+    width: 100%;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+}
+
+.categories-container-wrapper {
+  padding: 20px 30px;
+}
+
+@media screen and (max-width: $break-small) {
+
+  .categories-container-wrapper {
+    padding: 10px 15px;
+  }
+}

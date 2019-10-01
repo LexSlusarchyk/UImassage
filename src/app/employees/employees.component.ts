@@ -10,7 +10,7 @@ import {EmployeesService} from './employees.service';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-
+  showFiller = false;
   items = null;
 
   constructor(private employeesService: EmployeesService,

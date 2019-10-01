@@ -1,82 +1,224 @@
-$break-small: 670px;
+@import "../../variables";
+
+
 $logo-height: 45px;
 $logo-width: 63px;
 $logo-color: #656565;
 $max-width: 1200px;
 $default-offset: 15px;
 $button-height: 38px;
-$header-height: $button-height + $default-offset * 2;
-
-* {
-  box-sizing: border-box;
-}
+$header-height: 95px;
 
 .header {
-  height: $header-height;
-  padding: $default-offset;
   border-bottom: 2px solid $logo-color;
 
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px 0;
 
-
-    .header-left {
-      float: left;
-      padding-left: $logo-width + $default-offset;
-      position: relative;
-
-      .site-logo {
-        position: absolute;
-        display: inline-block;
-        top: -4px;
-        left: 0;
-
-        img {
-          height: $logo-height;
-        }
-      }
-
-      .site-name {
-        display: inline-block;
-        line-height: 33px;
-        font-family: "Poppins", sans-serif;
-        font-size: 21px;
-
-        a {
-          text-decoration: none;
-          color: $logo-color;
-        }
-      }
-
-      @media screen and (max-width: $break-small) {
-        padding-left: $logo-width + $default-offset / 2;
-      }
+    .collapsed-nav {
+      display: none;
     }
 
-    .header-right {
-      float: right;
+    .default-nav {
+      display: flex;
+      justify-content: space-between;
 
-      a, button {
-        margin-right: 15px;
-        color: $logo-color;
-      }
+      .menu-list-container {
+        display: flex;
 
-      .collapsed-nav {
-        display: none;
-      }
+        .list {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          list-style: none;
+          text-transform: uppercase;
 
-      @media screen and (max-width: $break-small) {
-        .default-nav {
-          display: none;
+          a {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #656565;
+            padding: 10px 1vw;
+            position: relative;
+            cursor: pointer;
+
+            &:before {
+              content: '';
+              background-color: #323232;
+              display: block;
+              width: 0;
+              height: 1px;
+              position: absolute;
+              top: 100%;
+              transition: 0.3s;
+            }
+
+            &:hover {
+              color: white;
+              background-color: #00ACAB;            }
+
+            &:hover:before {
+              width: 100%;
+            }
+          }
         }
+      }
 
-        .collapsed-nav {
+      .socials-container {
+        display: flex;
+        align-items: center;
+
+        .social {
           display: block;
+          margin: 0 10px;
+          color: inherit;
+
+          .inst-icon, .fb-icon {
+            transition: 0.3s;
+            display: block;
+            width: 25px;
+            height: auto;
+
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+
+      .enroll-procedure-btn {
+        color: white;
+        background-color: #00ACAB;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border: 1px solid #7D8081;
+        min-width: 205px;
+        padding: 17px 45px;
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+
+        &:hover:before {
+          opacity: 1;
+          transform: translateX(5px);
         }
 
+        &:before {
+          opacity: 0;
+          content: '';
+          background-color: #7D8081;
+          display: block;
+          width: 50px;
+          height: 1px;
+          margin: auto 0;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -17px;
+          transition: 0.3s;
+        }
+
+        &:hover:after {
+          opacity: 1;
+          left: 27px;
+        }
+
+        &:after {
+          content: '';
+          border-top: 1px solid #7D8081;
+          border-right: 1px solid #7D8081;
+          opacity: 0;
+          display: block;
+          width: 8px;
+          height: 8px;
+          margin: auto 0;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 22px;
+          transform-origin: center;
+          transform: rotate(45deg);
+          transition: 0.3s;
+        }
+      }
+
+      .phone-number-container {
+        display: flex;
+
+        .phone-number {
+          align-self: center;
+          color: #656565;
+        }
       }
     }
   }
 }
+
+
+
+@media screen and (max-width: $break-small) {
+  .header {
+    .header-inner {
+      padding: 0;
+
+      .default-nav {
+        display: none;
+      }
+
+      .collapsed-nav {
+        display: flex;
+        justify-content: space-between;
+
+        .logo-container {
+          padding: 0 15px;
+
+          .logo {
+            border-radius: 50%;
+            height: 80px;
+            width: auto;
+          }
+        }
+
+        .phone-number-container {
+          display: flex;
+
+          .phone-number {
+            align-self: center;
+            color: #656565;
+          }
+        }
+
+        .menu-container {
+          align-self: center;
+          color: #00ACAB;
+          padding: 0 15px;
+
+          .icon {
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $break-medium) {
+  .header {
+    .header-inner {
+      .default-nav {
+        .enroll-procedure-btn, .phone-number-container {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
 

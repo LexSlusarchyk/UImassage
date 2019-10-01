@@ -1,30 +1,57 @@
 <header class="header">
   <div class="header-inner">
-    <div class="header-left">
-      <div class="site-logo">
-        <img src="assets/img/dt-logo.svg" alt="">
+    <div class="default-nav">
+      <div class="menu-list-container">
+        <ul class="list">
+          <li><a routerLink="/">Головна</a></li>
+          <li><a routerLink="/procedures/categories">Послуги</a></li>
+          <li><a routerLink="/contacts">Контакти</a></li>
+          <li><a routerLink="/dashboard">Dashboard</a></li>
+        </ul>
       </div>
-      <div class="site-name">
-        <a routerLink="/">Delight body</a>
+
+      <div class="phone-number-container">
+        <a class="phone-number" href="tel:+380964427282"><fa-icon [icon]="faPhone"></fa-icon> +380 96 442 72 82</a>
+      </div>
+
+
+      <div class="socials-container">
+        <a class="social" href="https://www.facebook.com/delight.body.spa/" target="_blank" rel="nofollow">
+          <img src="assets/img/facebook-filled.svg"
+               title="Перейти на сторінку в фейсбук"
+               class="fb-icon" alt="fb icon">
+        </a>
+        <a class="social" href="https://l.facebook.com/l.php?u=https%3A%2F%2Finstagram.com%2Fdelight.body%3Ffbclid%3DIwAR3woDCQcRH9NDNe1tGd5ZeNqPROENWUOzBcILtiRWF4J1SlA5PwD_Z3VLw&h=AT1R4prddZ2FaLQaf0Z_uzUqCZ3UtByMjrQNvP3rmpt3XW2UJWq_1kUOUwjL1q0fKO-EgZS0XkV7abqwDzaheyi6HwOlmOVo4S5QdQ_JWL26B2Gpb-TQPBpMkPlWhEnQ6ITOMECvB3QWDF-qLsgcNse8hcEwpFlvCr0NXjfuxJ6NMv6lrbDZjCBRgp4_xGDt4_aB8o11l1mJ6mO36i7DgTvgvoGpnfBNiwlkicWVU7iuTC8oRj81VN_cPfylKSLFJDf1nP75SbV6PkdPChX7z2BlYOYzrnHk2dirOasqZfvYV3ikrc-4ZEVd90CudefzLEbYRTvNUe_g65xKXGH-sPNN_AZxfFUdVHfiRiPMspb4-UPhLVUeQCoDGBIaYSCrmz9RLdJX7kdO8GjCY1LK9orz5ZSAvkxrWVIoaWs0zLG9eVpVczIjBQistdQF10Kd0941fRfWL416VJCBr6TqMBkvJ_k61es" target="_blank" rel="nofollow">
+          <img src="assets/img/instagram-filled.svg"
+               title="Перейти на сторінку в інстаграм"
+               class="inst-icon" alt="instagram icon">
+        </a>
+      </div>
+
+
+      <div class="flex-item">
+        <a class="enroll-procedure-btn">
+          <span>Записатись онлайн</span>
+        </a>
       </div>
     </div>
-    <div class="header-right">
-      <div class="default-nav">
-        <a mat-raised-button routerLink="/" ><span>Головна</span></a>
-        <a mat-raised-button routerLink="/procedures/categories" ><span>Послуги</span></a>
-        <a mat-raised-button routerLink="/contacts" ><span>Контакти</span></a>
-        <a mat-raised-button routerLink="/dashboard"><span>Dashboard</span></a>
+
+    <div class="collapsed-nav">
+      <div class="logo-container">
+        <img src="assets/img/logo.png" class="logo" alt="Site logo">
       </div>
-      <div class="collapsed-nav">
-        <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
-        <mat-menu #menu="matMenu">
-          <a mat-menu-item routerLink="/" ><span>Головна</span></a>
-          <a mat-menu-item routerLink="/procedures" ><span>Послуги</span></a>
-          <a mat-menu-item routerLink="dashboard" ><span>Dashboard</span></a>
-          <a mat-menu-item routerLink="/contacts" ><span>Contacts</span></a>
-        </mat-menu>
+
+      <div class="phone-number-container">
+        <a class="phone-number" href="tel:+380964427282"><fa-icon [icon]="faPhone"></fa-icon> +380 96 442 72 82</a>
+      </div>
+
+      <div class="menu-container">
+        <button mat-icon-button>
+          <mat-icon class="icon">menu</mat-icon>
+        </button>
       </div>
     </div>
+
   </div>
 </header>
 

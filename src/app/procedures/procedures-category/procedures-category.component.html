@@ -6,16 +6,5 @@
 <app-category-list [categoryList]="categoryList"></app-category-list>
 
 <h2 *ngIf="proceduresList">Послуги:</h2>
-<div class="procedures-container" *ngIf="proceduresList">
-  <mat-card class="procedure-card" *ngFor="let procedure of proceduresList" routerLink="/procedures/procedure/{{procedure.id}}">
-    <mat-card-header>
-      <mat-card-title>{{procedure.title}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
-    <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="item image" *ngIf="procedure.image">
-    <mat-card-content>
-      <p class="text">{{procedure.text}}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
+<app-procedures-list [proceduresList]="proceduresList"></app-procedures-list>
 <button mat-raised-button (click)="goBack()">Повернутися назад</button>

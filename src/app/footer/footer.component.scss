@@ -11,6 +11,13 @@
     justify-content: center;
     margin-top: 10px;
 
+    .logo {
+      margin-top: 20px;
+      border-radius: 50%;
+      height: 100px;
+      width: auto;
+    }
+
     .title, .enroll-procedure-btn {
       color: inherit;
       text-transform: uppercase;
@@ -23,7 +30,6 @@
     }
 
     .phone-number {
-      text-decoration: none;
       font-size: 20px;
       letter-spacing: 1px;
       color: inherit;
@@ -41,7 +47,6 @@
       display: inline-block;
       position: relative;
       cursor: pointer;
-      text-decoration: none;
 
       &:hover:before {
         opacity: 1;
@@ -95,7 +100,6 @@
       .social {
         display: block;
         margin: 0 40px;
-        text-decoration: none;
         color: inherit;
 
         .inst-icon, .fb-icon {

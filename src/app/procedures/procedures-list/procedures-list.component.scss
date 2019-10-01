@@ -1,12 +1,12 @@
 @import "../../../variables";
 
 
-.categories-container {
+.items-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 
-  .category-card {
+  .card {
     width: calc(25% - 10px);
     margin: 0 5px 10px 5px;
     display: flex;
@@ -94,38 +94,14 @@
     }
   }
 
-  .category-card:nth-child(1),
-  .category-card:nth-child(2) {
-    width: calc(50% - 10px);
-  }
-
-  .category-card:nth-child(3),
-  .category-card:nth-child(4),
-  .category-card:nth-child(5) {
-    width: calc(33.3% - 10px);
-  }
-
-  .category-card:nth-child(6),
-  .category-card:nth-child(7),
-  .category-card:nth-child(8),
-  .category-card:nth-child(9) {
-    width: calc(25% - 10px);
-  }
-
-  .category-card:nth-child(10),
-  .category-card:nth-child(11) {
-    width: calc(50% - 10px);
-  }
-
-
   @media screen and (max-width: $break-medium) {
-    .category-card:nth-child(n) {
+    .card:nth-child(n) {
       width: calc(50% - 10px);
     }
   }
 
   @media screen and (max-width: $break-small) {
-    .category-card:nth-child(n) {
+    .card:nth-child(n) {
       width: calc(100% - 10px);
     }
   }

@@ -5,5 +5,4 @@
     <img src="assets/img/default-img.png"  alt="default image" *ngIf="!category.image">
     <img [src]="this.urlHelperService.getImageUrl(category.image)" alt="item image" *ngIf="category.image">
   </a>
-<!--  <app-category-item id="category-card" [category]="category" *ngFor="let category of categoryList"></app-category-item>-->
 </div>

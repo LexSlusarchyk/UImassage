@@ -2,22 +2,8 @@
   <mat-sidenav mode="side" opened>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-button (click)="addProcedure()">Додати процедуру</button>
-    <div class="procedures-container">
-      <mat-card class="procedure-card" *ngFor="let procedure of procedures">
-        <mat-card-header>
-          <mat-card-title>{{procedure.title}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
-        <img [src]="procedure.image" alt="item image" *ngIf="procedure.image">
-        <mat-card-content>
-          <p class="text">{{procedure.text}}</p>
-        </mat-card-content>
-        <mat-card-actions class="action-btns-container">
-          <button mat-raised-button (click)="editProcedure(procedure)" class="edit-btn">Змінити</button>
-          <button mat-raised-button (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+    <button mat-button routerLink="procedure/new">Додати процедуру</button>
+    <app-categories-tree [options]="{isEditable: false, collapseAll: true}" [navEnabled]="false"></app-categories-tree>
+    <app-procedures-list [proceduresList]="procedures"></app-procedures-list>
   </mat-sidenav-content>
 </mat-sidenav-container>

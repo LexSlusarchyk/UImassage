@@ -14,7 +14,6 @@ import { MaterialModule } from './material.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { CreateProcedureModalComponent } from './dashboard/modals/create-procedure-modal/create-procedure-modal.component';
-import { FileUploaderComponent } from './dashboard/file-uploader/file-uploader.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeesManagementComponent } from './dashboard/employees-management/employees-management.component';
 import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
@@ -32,6 +31,8 @@ import {HeaderComponent} from './header/header.component';
 import {CategoriesModule} from './categories/categories.module';
 import { FooterComponent } from './footer/footer.component';
 import {HomeModule} from './home/home.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {FileUploaderModule} from './dashboard/file-uploader/file-uploader.module';
 
 
 @NgModule({
@@ -39,7 +40,6 @@ import {HomeModule} from './home/home.module';
     AppComponent,
     HeaderComponent,
     CreateProcedureModalComponent,
-    FileUploaderComponent,
     EmployeesComponent,
     EmployeesManagementComponent,
     CreateEmployeeModalComponent,
@@ -65,6 +65,8 @@ import {HomeModule} from './home/home.module';
     MatInputModule,
     CategoriesModule,
     HomeModule,
+    FontAwesomeModule,
+    FileUploaderModule,
 
     ReactiveFormsModule,
   ],

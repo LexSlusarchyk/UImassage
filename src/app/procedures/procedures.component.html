@@ -1,15 +1,14 @@
 
-<mat-sidenav-container class="procedures-container">
-  <mat-sidenav mode="side" [(opened)]="sideNavOpened" class="procedures-sidenav"
-               [fixedInViewport]="true" [fixedTopGap]="100"
-               [fixedBottomGap]="100">
-    <app-categories-tree [options]="{isEditable: false, collapseAll: false}"></app-categories-tree>
-  </mat-sidenav>
-  <mat-sidenav-content class="content-container">
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer class="procedures-sidenav" mode="side" [(opened)]="sideNavOpened">
+    <app-categories-tree [options]="{isEditable: false, collapseAll: false}" [navEnabled]="true"></app-categories-tree>
+  </mat-drawer>
 
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>
 
 <img src="assets/img/left-angle.svg" *ngIf="sideNavOpened"
      (click)="toggleSideNav()" title="Сховати навігацію" class="sidenav-toggle-btn">

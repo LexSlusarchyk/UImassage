@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProceduresService} from './procedures.service';
-import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
-import {CreateProcedureModalComponent} from '../dashboard/modals/create-procedure-modal/create-procedure-modal.component';
 import {MatDialog} from '@angular/material';
-import {CategoriesService} from '../categories/categories.service';
 
 @Component({
   selector: 'app-procedures',

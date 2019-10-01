@@ -8,7 +8,7 @@ import {UrlHelperService} from '../helpers/url-helper.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  showFiller = false;
   categoryList: [];
   constructor(private categoriesService: CategoriesService,
               private urlHelperService: UrlHelperService) {}

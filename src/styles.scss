@@ -10,6 +10,10 @@ body { margin: 0; font-family: EB Garamond, serif; }
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .dashboard-container {
   min-height: 100%;
 }

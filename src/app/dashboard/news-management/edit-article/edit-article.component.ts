@@ -3,49 +3,38 @@ import {Procedure} from '../../../procedures/procedure';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UrlHelperService} from '../../../helpers/url-helper.service';
 import {Location} from '@angular/common';
-import {ProceduresService} from '../../../procedures/procedures.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
-import {CategoriesService} from '../../../categories/categories.service';
+import {NewsService} from '../../../news/news.service';
 
 @Component({
-  selector: 'app-edit-procedure',
-  templateUrl: './edit-procedure.component.html',
-  styleUrls: ['./edit-procedure.component.scss']
+  selector: 'app-edit-article',
+  templateUrl: './edit-article.component.html',
+  styleUrls: ['./edit-article.component.scss']
 })
-export class EditProcedureComponent implements OnInit {
+export class EditArticleComponent implements OnInit {
   isNew = false;
   id: string;
   procedure: Procedure;
-  xpandStatus = false;
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
-    duration: new FormControl(''),
-    price: new FormControl(''),
     text: new FormControl('')
   });
 
   fileUrl: string;
-  selectedCategory: any;
 
-  constructor(private proceduresService: ProceduresService,
+  constructor(private newsService: NewsService,
               private route: ActivatedRoute,
               private router: Router,
               private urlHelperService: UrlHelperService,
               private _location: Location,
-              private fileUploadService: FileUploadService,
-              private categoriesService: CategoriesService, ) {
+              private fileUploadService: FileUploadService) {
 
-    this.proceduresService.proceduresUpdated$.subscribe(() => {
+    this.newsService.newsUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/procedures-management']).then();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
-    });
-
-    this.categoriesService.selectedCategory$.subscribe((category) => {
-      this.selectedCategory = category;
-      this.xpandStatus = false;
     });
   }
 
@@ -54,21 +43,11 @@ export class EditProcedureComponent implements OnInit {
     if (this.id === 'new') {
       this.isNew = true;
     } else {
-      this.proceduresService.getProcedure(this.id).then(procedure => {
+      this.newsService.getItem(this.id).then(procedure => {
         this.procedure = new Procedure(procedure[0]);
         this.setProcedureFields();
       });
     }
-  }
-
-  getCategoryTitle() {
-    return this.selectedCategory && this.selectedCategory.title;
-  }
-
-  setCategory() {
-    this.categoriesService.getItem(this.procedure.category_id).then(category => {
-      this.selectedCategory = category[0];
-    });
   }
 
   confirm() {
@@ -76,41 +55,31 @@ export class EditProcedureComponent implements OnInit {
   }
 
   addProcedure() {
-    this.proceduresService.addProcedure(this.getProcedure());
+    this.newsService.addItem(this.getProcedure());
   }
 
   editProcedure() {
-    this.proceduresService.updateProcedure(this.getProcedure());
+    this.newsService.updateItem(this.getProcedure());
   }
 
   setProcedureFields() {
     this.fileUploadService.setFileUrl(this.procedure.image);
     this.procedureForm.patchValue({
       title: this.procedure.title,
-      duration: this.procedure.duration,
-      price: this.procedure.price,
       text: this.procedure.text
     });
-    this.setCategory();
   }
 
   getProcedure() {
     return {
       id: this.isNew ? null : this.procedure.id,
       title: this.procedureForm.get('title').value,
-      duration: this.procedureForm.get('duration').value,
-      price: this.procedureForm.get('price').value,
       text: this.procedureForm.get('text').value,
       image: this.fileUrl ? this.fileUrl : null,
-      category_id: this.getCategoryId()
     };
   }
 
-  getCategoryId() {
-    return this.selectedCategory && this.selectedCategory.id || this.procedure.category_id || 1;
-  }
-
   deleteProcedure(id) {
-    this.proceduresService.deleteProcedure(id);
+    this.newsService.deleteItem(id);
   }
 }

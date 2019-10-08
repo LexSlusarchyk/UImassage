@@ -1,6 +1,9 @@
 <h1>{{category.title}}</h1>
-<img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!category.image">
-<img [src]="this.urlHelperService.getImageUrl(category.image)" alt="item image" *ngIf="category.image">
+<div class="image-container">
+  <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!category.image">
+  <img [src]="this.urlHelperService.getImageUrl(category.image)" alt="item image" *ngIf="category.image">
+</div>
+
 <p class="text">{{category.text}}</p>
 
 <app-category-list [categoryList]="categoryList"></app-category-list>

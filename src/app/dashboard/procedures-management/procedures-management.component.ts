@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateProcedureModalComponent } from '../modals/create-procedure-modal/create-procedure-modal.component';
-import { MatDialog } from '@angular/material/dialog';
 import {ProceduresService} from '../../procedures/procedures.service';
 import {FileUploadService} from '../file-uploader/file-upload.service';
 import {CategoriesService} from '../../categories/categories.service';
@@ -12,14 +10,11 @@ import {CategoriesService} from '../../categories/categories.service';
 })
 export class ProceduresManagementComponent implements OnInit {
   procedures = null;
-  selectedCategory: {
-    id: number
-  };
 
   constructor(private proceduresService: ProceduresService,
               private fileUploadService: FileUploadService,
               private categoriesService: CategoriesService,
-              public dialog: MatDialog) {
+             ) {
 
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.loadProcedures();
@@ -34,20 +29,6 @@ export class ProceduresManagementComponent implements OnInit {
     this.loadProcedures();
   }
 
-  addProcedure() {
-    this.showCreateProcedureModal();
-  }
-
-  showCreateProcedureModal() {
-    const dialogRef = this.dialog.open(CreateProcedureModalComponent, {
-      width: '900px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
   loadProcedures() {
     this.proceduresService.getProcedures().then((response) => {
       this.procedures = response;
@@ -59,24 +40,4 @@ export class ProceduresManagementComponent implements OnInit {
       this.procedures = response;
     });
   }
-
-  editProcedure(procedure) {
-    this.showEditProcedureModal(procedure);
-  }
-
-  deleteProcedure(id) {
-    this.proceduresService.deleteProcedure(id);
-  }
-
-  showEditProcedureModal(procedure) {
-    const dialogRef = this.dialog.open(CreateProcedureModalComponent, {
-      width: '900px',
-      data: { procedure: procedure },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
 }

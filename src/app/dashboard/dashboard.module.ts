@@ -12,6 +12,9 @@ import { EditProcedureComponent } from './procedures-management/edit-procedure/e
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FileUploaderModule} from './file-uploader/file-uploader.module';
+import {NewsModule} from '../news/news.module';
+import {NewsManagementComponent} from './news-management/news-management.component';
+import {EditArticleComponent} from './news-management/edit-article/edit-article.component';
 
 @NgModule({
   imports: [
@@ -24,14 +27,17 @@ import {FileUploaderModule} from './file-uploader/file-uploader.module';
     DashboardRoutingModule,
     CategoriesModule,
     ProceduresModule,
+    NewsModule,
     FileUploaderModule,
   ],
   declarations: [
     DashboardComponent,
     CategoriesManagementComponent,
     ProceduresManagementComponent,
+    NewsManagementComponent,
     SideNavComponent,
-    EditProcedureComponent
+    EditProcedureComponent,
+    EditArticleComponent
   ]
 })
 export class DashboardModule {}

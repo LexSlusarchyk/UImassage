@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateArticleModalComponent} from '../modals/create-article-modal/create-article-modal.component';
+import {NewsService} from '../../news/news.service';
 
 @Component({
   selector: 'app-news-management',
@@ -8,22 +8,17 @@ import {CreateArticleModalComponent} from '../modals/create-article-modal/create
   styleUrls: ['./news-management.component.scss']
 })
 export class NewsManagementComponent implements OnInit {
-  constructor(public dialog: MatDialog) { }
+  itemsList = null;
+
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+    this.loadItemsList();
   }
 
-  addArticle() {
-    this.showCreateModal();
-  }
-
-  showCreateModal() {
-    const dialogRef = this.dialog.open(CreateArticleModalComponent, {
-      width: '900px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  loadItemsList() {
+    this.newsService.getItems().then((response) => {
+      this.itemsList = response;
     });
   }
 }

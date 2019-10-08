@@ -16,7 +16,7 @@ export class NewsService {
   newsUpdated$ = this.newsUpdated.asObservable();
 
   getItem(id): any {
-    return this.http.get<Procedure[]>(this.apiUrl + id).toPromise();
+    return this.http.get<Procedure[]>(this.apiUrl + '/' + id).toPromise();
   }
 
   getItems(): any {

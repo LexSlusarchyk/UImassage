@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <h2>{{isNew ? 'Створити' : 'Змінити'}} Новину</h2>
+  <div>
+    <app-file-uploader></app-file-uploader>
+
+    <form [formGroup]="procedureForm" class="procedure-form">
+      <mat-form-field class="field">
+        <input matInput placeholder="Заголовок" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <textarea rows="14" matInput placeholder="Текст" formControlName="text"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+  <button mat-raised-button color="primary" (click)="confirm()">Зберегти</button>
+  <button mat-raised-button *ngIf="procedure" (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
+</div>
+
+

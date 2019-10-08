@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 0 15px;
+  .procedure-form {
+    margin: 10px 0;
+    .field {
+      display: block;
+    }
+  }
+
+  .delete-btn {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+  }
+}
+

@@ -4,6 +4,8 @@ import { DashboardComponent } from './dashboard.component';
 import {CategoriesManagementComponent} from './categories-management/categories-management.component';
 import {ProceduresManagementComponent} from './procedures-management/procedures-management.component';
 import {EditProcedureComponent} from './procedures-management/edit-procedure/edit-procedure.component';
+import {NewsManagementComponent} from './news-management/news-management.component';
+import {EditArticleComponent} from './news-management/edit-article/edit-article.component';
 
 
 
@@ -39,7 +41,25 @@ const dashboardRoutes: Routes = [
             component: EditProcedureComponent
           }
         ]
-      }
+      },
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'news-management',
+            component:  NewsManagementComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'news-management/article/:id',
+            component: EditArticleComponent
+          }
+        ]
+      },
     ]
   }
 ];

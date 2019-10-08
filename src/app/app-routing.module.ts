@@ -2,20 +2,23 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {EmployeesManagementComponent} from './dashboard/employees-management/employees-management.component';
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
-import {NewsManagementComponent} from './dashboard/news-management/news-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
 import {ContactsComponent} from './home/contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'employees', component: EmployeesManagementComponent },
   { path: 'products', component: ProductsManagementComponent },
-  { path: 'news', component: NewsManagementComponent },
   { path: 'gallery', component: GalleryManagementComponent },
   { path: 'contacts', component: ContactsComponent },
 
   {
     path: 'procedures',
     loadChildren: () => import('./procedures/procedures.module').then(mod => mod.ProceduresModule),
+  },
+
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then(mod => mod.NewsModule),
   },
 
   {

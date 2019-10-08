@@ -10,7 +10,6 @@ import {EmployeesService} from './employees.service';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  showFiller = false;
   items = null;
 
   constructor(private employeesService: EmployeesService,
@@ -28,20 +27,8 @@ export class EmployeesComponent implements OnInit {
 
   loadItemsList() {
     this.employeesService.getItems().then((response) => {
-      this.items = this.mapItemsList(response);
+      this.items = response;
     });
-  }
-
-  mapItemsList(list) {
-    const procedureList = [];
-
-    list.map((procedure) => {
-      if (procedure.image) {
-        procedure.image = this.fileUploadService.getFileUrl(procedure.image);
-      }
-      procedureList.push(procedure);
-    });
-    return procedureList;
   }
 
   editItem(procedure) {

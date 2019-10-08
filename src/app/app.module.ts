@@ -13,8 +13,6 @@ import { MaterialModule } from './material.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeesManagementComponent } from './dashboard/employees-management/employees-management.component';
 import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
 import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
 import { ProductsComponent } from './products/products.component';
@@ -36,8 +34,6 @@ import {NewsModule} from './news/news.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    EmployeesComponent,
-    EmployeesManagementComponent,
     CreateEmployeeModalComponent,
     ProductsManagementComponent,
     ProductsComponent,

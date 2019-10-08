@@ -1,0 +1,11 @@
+
+<div class="item-container">
+  <div class="image-container">
+    <img src="assets/img/default-img.png"  alt="default image" *ngIf="!employee.image">
+    <img [src]="this.urlHelperService.getImageUrl(employee.image)" alt="item image" *ngIf="employee.image">
+  </div>
+  <div class="content-container">
+    <h2 class="title">{{employee.title}}</h2>
+    <p>{{employee.text}}</p>
+  </div>
+</div>

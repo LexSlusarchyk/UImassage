@@ -1,9 +1,5 @@
-<mat-sidenav-container class="dashboard-container">
-  <mat-sidenav mode="side" opened>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <button mat-button routerLink="procedure/new">Додати процедуру</button>
-    <app-categories-tree [options]="{isEditable: false, collapseAll: true}" [navEnabled]="false"></app-categories-tree>
-    <app-procedures-list [proceduresList]="procedures"></app-procedures-list>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+<button mat-button routerLink="procedure/new">Додати процедуру</button>
+<app-categories-tree [options]="{isEditable: false, collapseAll: true}" [navEnabled]="false"></app-categories-tree>
+<app-procedures-list [proceduresList]="procedures"></app-procedures-list>
+

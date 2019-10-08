@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateEmployeeModalComponent} from '../modals/create-employee-modal/create-employee-modal.component';
+import {EmployeesService} from '../../employees/employees.service';
 
 @Component({
   selector: 'app-employees-management',
@@ -8,24 +8,23 @@ import {CreateEmployeeModalComponent} from '../modals/create-employee-modal/crea
   styleUrls: ['./employees-management.component.scss']
 })
 export class EmployeesManagementComponent implements OnInit {
+  items = null;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private employeesService: EmployeesService,
+              public dialog: MatDialog) {
+
+    this.employeesService.employeesUpdated$.subscribe(() => {
+      this.loadItemsList();
+    });
+  }
 
   ngOnInit() {
+    this.loadItemsList();
   }
 
-  addEmployee() {
-    this.showCreateModal();
-  }
-
-  showCreateModal() {
-    const dialogRef = this.dialog.open(CreateEmployeeModalComponent, {
-      width: '900px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  loadItemsList() {
+    this.employeesService.getItems().then((response) => {
+      this.items = response;
     });
   }
-
 }

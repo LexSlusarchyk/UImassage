@@ -15,6 +15,9 @@ import {FileUploaderModule} from './file-uploader/file-uploader.module';
 import {NewsModule} from '../news/news.module';
 import {NewsManagementComponent} from './news-management/news-management.component';
 import {EditArticleComponent} from './news-management/edit-article/edit-article.component';
+import {EmployeesModule} from '../employees/employees.module';
+import {EmployeesManagementComponent} from './employees-management/employees-management.component';
+import {EditEmployeeComponent} from './employees-management/edit-employee/edit-employee.component';
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import {EditArticleComponent} from './news-management/edit-article/edit-article.
     CategoriesModule,
     ProceduresModule,
     NewsModule,
+    EmployeesModule,
     FileUploaderModule,
   ],
   declarations: [
@@ -35,9 +39,11 @@ import {EditArticleComponent} from './news-management/edit-article/edit-article.
     CategoriesManagementComponent,
     ProceduresManagementComponent,
     NewsManagementComponent,
+    EmployeesManagementComponent,
     SideNavComponent,
     EditProcedureComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    EditEmployeeComponent,
   ]
 })
 export class DashboardModule {}

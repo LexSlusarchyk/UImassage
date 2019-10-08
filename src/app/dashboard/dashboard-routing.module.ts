@@ -6,6 +6,8 @@ import {ProceduresManagementComponent} from './procedures-management/procedures-
 import {EditProcedureComponent} from './procedures-management/edit-procedure/edit-procedure.component';
 import {NewsManagementComponent} from './news-management/news-management.component';
 import {EditArticleComponent} from './news-management/edit-article/edit-article.component';
+import {EmployeesManagementComponent} from './employees-management/employees-management.component';
+import {EditEmployeeComponent} from './employees-management/edit-employee/edit-employee.component';
 
 
 
@@ -57,6 +59,24 @@ const dashboardRoutes: Routes = [
         children: [
           { path: 'news-management/article/:id',
             component: EditArticleComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'employees-management',
+            component:  EmployeesManagementComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'employees-management/employee/:id',
+            component: EditEmployeeComponent
           }
         ]
       },

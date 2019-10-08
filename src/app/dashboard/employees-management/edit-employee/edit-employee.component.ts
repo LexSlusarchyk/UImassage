@@ -5,14 +5,14 @@ import {UrlHelperService} from '../../../helpers/url-helper.service';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
-import {NewsService} from '../../../news/news.service';
+import {EmployeesService} from '../../../employees/employees.service';
 
 @Component({
-  selector: 'app-edit-article',
-  templateUrl: './edit-article.component.html',
-  styleUrls: ['./edit-article.component.scss']
+  selector: 'app-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.scss']
 })
-export class EditArticleComponent implements OnInit {
+export class EditEmployeeComponent implements OnInit {
   isNew = false;
   id: string;
   procedure: Procedure;
@@ -23,15 +23,15 @@ export class EditArticleComponent implements OnInit {
 
   fileUrl: string;
 
-  constructor(private newsService: NewsService,
+  constructor(private employeesService: EmployeesService,
               private route: ActivatedRoute,
               private router: Router,
               private urlHelperService: UrlHelperService,
               private _location: Location,
               private fileUploadService: FileUploadService) {
 
-    this.newsService.newsUpdated$.subscribe(() => {
-      this.router.navigate(['/dashboard/news-management']).then();
+    this.employeesService.employeesUpdated$.subscribe(() => {
+      this.router.navigate(['/dashboard/employees-management']).then();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
@@ -43,7 +43,7 @@ export class EditArticleComponent implements OnInit {
     if (this.id === 'new') {
       this.isNew = true;
     } else {
-      this.newsService.getItem(this.id).then(procedure => {
+      this.employeesService.getItem(this.id).then(procedure => {
         this.procedure = new Procedure(procedure[0]);
         this.setProcedureFields();
       });
@@ -55,11 +55,11 @@ export class EditArticleComponent implements OnInit {
   }
 
   addProcedure() {
-    this.newsService.addItem(this.getProcedure());
+    this.employeesService.addItem(this.getProcedure());
   }
 
   editProcedure() {
-    this.newsService.updateItem(this.getProcedure());
+    this.employeesService.updateItem(this.getProcedure());
   }
 
   setProcedureFields() {
@@ -80,6 +80,6 @@ export class EditArticleComponent implements OnInit {
   }
 
   deleteProcedure(id) {
-    this.newsService.deleteItem(id);
+    this.employeesService.deleteItem(id);
   }
 }

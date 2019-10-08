@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EmployeesManagementComponent} from './dashboard/employees-management/employees-management.component';
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
 import {ContactsComponent} from './home/contacts/contacts.component';
 
 const routes: Routes = [
-  { path: 'employees', component: EmployeesManagementComponent },
   { path: 'products', component: ProductsManagementComponent },
   { path: 'gallery', component: GalleryManagementComponent },
   { path: 'contacts', component: ContactsComponent },
@@ -19,6 +17,11 @@ const routes: Routes = [
   {
     path: 'news',
     loadChildren: () => import('./news/news.module').then(mod => mod.NewsModule),
+  },
+
+  {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.module').then(mod => mod.EmployeesModule),
   },
 
   {

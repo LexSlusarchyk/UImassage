@@ -1,9 +1,4 @@
-<mat-sidenav-container class="dashboard-container">
-  <mat-sidenav mode="side" opened>
-<!--    <app-side-nav></app-side-nav>-->
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <button mat-button (click)="addEmployee()">Додати працівника</button>
-    <app-employees></app-employees>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+<button mat-button routerLink="employee/new">Додати працівника</button>
+<app-employees-list [editable]="true" [itemsList]="items"></app-employees-list>
+

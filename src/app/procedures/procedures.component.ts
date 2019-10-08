@@ -10,6 +10,7 @@ import {MatDialog} from '@angular/material';
 export class ProceduresComponent implements OnInit {
   procedures = null;
   sideNavOpened = true;
+  public innerWidth: any;
 
   constructor(private proceduresService: ProceduresService,
               public dialog: MatDialog) {
@@ -21,6 +22,15 @@ export class ProceduresComponent implements OnInit {
 
   ngOnInit() {
     this.loadProcedures();
+    this.defineSideNavState();
+  }
+
+  defineSideNavState() {
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth < 769) {
+      this.sideNavOpened = false;
+    }
   }
 
   loadProcedures() {

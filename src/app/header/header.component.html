@@ -48,8 +48,9 @@
       </div>
 
       <div class="menu-container">
-        <button mat-icon-button>
-          <mat-icon class="icon">menu</mat-icon>
+        <button mat-icon-button (click)="toggleMenuNav()">
+          <mat-icon class="icon" *ngIf="!sideNavOpened">menu</mat-icon>
+          <mat-icon class="icon" *ngIf="sideNavOpened">close</mat-icon>
         </button>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProceduresService} from './procedures.service';
-import {MatDialog} from '@angular/material';
+import {CategoriesService} from '../categories/categories.service';
 
 @Component({
   selector: 'app-procedures',
@@ -13,16 +13,26 @@ export class ProceduresComponent implements OnInit {
   public innerWidth: any;
 
   constructor(private proceduresService: ProceduresService,
-              public dialog: MatDialog) {
+              private categoriesService: CategoriesService,) {
 
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.loadProcedures();
+    });
+
+    this.categoriesService.selectedCategory$.subscribe(() => {
+      this.onCategorySelected();
     });
   }
 
   ngOnInit() {
     this.loadProcedures();
     this.defineSideNavState();
+  }
+
+  onCategorySelected() {
+    if (this.innerWidth < 769) {
+      this.sideNavOpened = false;
+    }
   }
 
   defineSideNavState() {

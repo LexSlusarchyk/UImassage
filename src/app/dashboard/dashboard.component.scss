@@ -1,6 +1,7 @@
-.wrapper {
+.dashboard-container {
   display: flex;
-  flex-flow: row;
+
+  .content-container {
+    width: 100%;
+  }
 }
-
-

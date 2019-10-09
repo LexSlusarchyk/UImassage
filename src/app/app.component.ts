@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  sideNavOpened = true;
+  sideNavOpened = false;
 
   constructor() {
   }
@@ -14,5 +14,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
+  closeSideNav(): void {
+    this.sideNavOpened = false;
+  }
+
+  onSideNavOpenedChange(value: boolean) {
+    this.sideNavOpened = value;
+  }
 }
 

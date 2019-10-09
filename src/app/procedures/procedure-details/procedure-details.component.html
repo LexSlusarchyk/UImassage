@@ -1,7 +1,11 @@
-<h1>{{procedure.title}}</h1>
+<h2 class="title">{{procedure.title}}</h2>
 
 <div class="image-container">
   <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="uploaded image">
 </div>
-<p>{{procedure.text}}</p>
+<p class="text">{{procedure.text}}</p>
+
+<h3>Тривалість: {{procedure.duration}}</h3>
+
+<h3>Ціна: {{procedure.price}}</h3>
 <button mat-raised-button (click)="goBack()">Повернутися назад</button>

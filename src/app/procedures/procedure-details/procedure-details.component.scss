@@ -1,3 +1,6 @@
+@import "../../../variables";
+
+
 .image-container {
   display: flex;
   justify-content: flex-start;
@@ -5,5 +8,14 @@
   img {
     display: inline-block;
     max-width: 100%;
+  }
+}
+.text {
+  text-align: justify;
+}
+
+@media screen and (max-width: $break-medium) {
+  .title {
+    font-size: 16px;
   }
 }

@@ -11,6 +11,12 @@ $header-height: 95px;
 
 .header {
   border-bottom: 2px solid $logo-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: white;
 
   .header-inner {
     max-width: $max-width;
@@ -211,9 +217,45 @@ $header-height: 95px;
 @media screen and (max-width: $break-medium) {
   .header {
     .header-inner {
+      padding: 0;
+
       .default-nav {
-        .enroll-procedure-btn, .phone-number-container {
-          display: none;
+        display: none;
+      }
+
+      .collapsed-nav {
+        display: flex;
+        justify-content: space-between;
+
+        .logo-container {
+          padding: 0 15px;
+
+          .logo {
+            border-radius: 50%;
+            height: 80px;
+            width: auto;
+          }
+        }
+
+        .phone-number-container {
+          display: flex;
+
+          .phone-number {
+            align-self: center;
+            color: #656565;
+          }
+        }
+
+        .menu-container {
+          align-self: center;
+          color: #00ACAB;
+          padding: 0 15px;
+
+          .icon {
+            font-size: 40px;
+            height: 40px;
+            width: 40px;
+          }
         }
       }
     }

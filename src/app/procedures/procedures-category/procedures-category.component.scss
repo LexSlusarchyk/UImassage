@@ -1,56 +1,24 @@
-.procedures-container {
-  display: flex;
-  flex-flow: row wrap;
-}
+@import "../../../variables";
 
-.procedure-card {
-  max-width: 400px;
-  margin: 10px;
+.category-details-container {
+  .image-container {
+    display: flex;
+    justify-content: flex-start;
 
-  .title {
-    text-align: center;
-  }
-
-  img {
-    max-width: 400px;
-    width: 100%;
+    img {
+      display: inline-block;
+      max-width: 100%;
+    }
   }
 
   .text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &:hover {
-    cursor: pointer;
+    text-align: justify;
   }
 }
 
-.action-btns-container {
-  display: flex;
-  justify-content: center;
 
-  .edit-btn, .delete-btn {
-    margin: 0 10px;
-    color: white;
-  }
-
-  .edit-btn {
-    background-color: orange;
-  }
-
-  .delete-btn {
-    background-color: red;
-  }
-}
-
-.image-container {
-  display: flex;
-  justify-content: flex-start;
-
-  img {
-    display: inline-block;
-    max-width: 100%;
+@media screen and (max-width: $break-medium) {
+  .title {
+    font-size: 16px;
   }
 }

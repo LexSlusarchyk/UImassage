@@ -1,12 +1,19 @@
 
 .left-bar {
+  color: #00ACAB;
+
   .nav-link-container {
     width: 200px;
     padding: 20px;
-    background-color: lightgrey;
+    background-color: #f5f5f5;
 
     &:hover {
       cursor: pointer;
+      opacity: 0.5;
     }
+  }
+
+  a {
+    color: #00ACAB;
   }
 }

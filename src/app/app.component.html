@@ -1,14 +1,15 @@
 <app-header [sideNavOpened] = sideNavOpened (sideNavOpenedChange)="onSideNavOpenedChange($event)"></app-header>
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer class="drawer" mode="side" [(opened)]="sideNavOpened">
+  <mat-drawer [ngClass]="{drawer: true, mobile: isMobile}" mode="side" [(opened)]="sideNavOpened">
     <div class="menu-list-container">
       <ul class="list">
-        <li><a routerLink="/">Головна</a></li>
-        <li><a routerLink="/procedures/categories">Послуги</a></li>
-        <li><a routerLink="/news">Акції</a></li>
-        <li><a routerLink="/employees">Працівники</a></li>
-        <li><a routerLink="/contacts">Контакти</a></li>
-        <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/">Головна</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/procedures/categories">Послуги</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/news">Акції</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/employees">Працівники</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/price">Прайс</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/contacts">Контакти</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/dashboard">Dashboard</a></li>
       </ul>
     </div>
     <div class="socials-container">

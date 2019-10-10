@@ -4,10 +4,13 @@
   margin-top: $header-height;
   .drawer {
     position: fixed;
+    margin-top: inherit;
     margin-bottom: $footer-height;
     height: 100%;
   }
-
+  .drawer.mobile {
+    width: 100%;
+  }
   .content-container {
   }
 }
@@ -16,6 +19,7 @@
 
 .menu-list-container {
   display: flex;
+  justify-content: center;
   padding: 20px;
 
   .list {

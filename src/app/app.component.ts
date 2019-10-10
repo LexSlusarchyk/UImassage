@@ -7,11 +7,23 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   sideNavOpened = false;
+  isMobile = false;
+  public innerWidth: any;
+
 
   constructor() {
   }
 
   ngOnInit() {
+    this.defineSideNavLayout();
+  }
+
+  defineSideNavLayout() {
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth < 769) {
+      this.isMobile = true;
+    }
   }
 
   closeSideNav(): void {

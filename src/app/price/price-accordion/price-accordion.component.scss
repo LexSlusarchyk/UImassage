@@ -1,0 +1,32 @@
+@import "../../../variables";
+
+
+.expansion-panel {
+  color: #656565;
+
+  .title {
+    color: #00ACAB;
+  }
+
+  .procedures-table {
+    .procedure-title {
+
+    }
+  }
+}
+
+@media screen and (max-width: $break-medium) {
+  .procedures-table {
+    .procedure-title {
+
+    }
+  }
+}
+
+@media screen and (max-width: $break-small) {
+  .procedures-table {
+    .procedure-title {
+      font-size: 10px;
+    }
+  }
+}

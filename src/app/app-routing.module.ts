@@ -25,6 +25,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'price',
+    loadChildren: () => import('./price/price.module').then(mod => mod.PriceModule),
+  },
+
+  {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
   },

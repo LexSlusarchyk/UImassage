@@ -1,0 +1,19 @@
+@import "../../variables";
+
+
+.content-container {
+  padding: 40px 20%;
+  min-height: 500px;
+}
+
+@media screen and (max-width: $break-medium) {
+  .content-container {
+    padding: 40px 10%;
+  }
+}
+
+@media screen and (max-width: $break-small) {
+  .content-container {
+    padding: 20px 0;
+  }
+}

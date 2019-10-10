@@ -4,9 +4,11 @@
   margin-top: $header-height;
   .drawer {
     position: fixed;
-    margin-top: $header-height;
     margin-bottom: $footer-height;
     height: 100%;
+  }
+
+  .content-container {
   }
 }
 

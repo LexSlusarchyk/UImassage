@@ -13,7 +13,7 @@ export class ProceduresComponent implements OnInit {
   public innerWidth: any;
 
   constructor(private proceduresService: ProceduresService,
-              private categoriesService: CategoriesService,) {
+              private categoriesService: CategoriesService, ) {
 
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.loadProcedures();

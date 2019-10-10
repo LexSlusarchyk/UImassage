@@ -29,7 +29,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FileUploaderModule} from './dashboard/file-uploader/file-uploader.module';
 import {NewsModule} from './news/news.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,

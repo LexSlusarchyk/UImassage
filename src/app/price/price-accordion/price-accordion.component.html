@@ -1,0 +1,25 @@
+<mat-expansion-panel class="expansion-panel">
+  <mat-expansion-panel-header (click)="openExpansionPanel(category.id)">
+    <mat-panel-title class="title">{{category.title}}</mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <app-price-accordion [category]="category" *ngFor="let category of category.children"></app-price-accordion>
+
+  <mat-table [dataSource]="proceduresList" class="mat-elevation-z8 procedures-table" *ngIf="!category.children">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Назва Процедури </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="procedure-title"> {{element.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef> Тривалість (хв.) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.duration ? element.duration : '-'}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Вартість </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price ? element.price : '-'}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-expansion-panel>

@@ -2,6 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {EditorService} from './editor.service';
 import {FileUploadService} from '../file-uploader/file-upload.service';
 import {UrlHelperService} from '../../helpers/url-helper.service';
+import * as QuillNamespace from 'quill';
+const Quill: any = QuillNamespace;
+import ImageResize from 'quill-image-resize-module';
+Quill.register('modules/imageResize', ImageResize);
 
 @Component({
   selector: 'app-editor',
@@ -31,7 +35,8 @@ export class EditorComponent implements OnInit {
         ['clean'],                                         // remove formatting button
         ['link', 'image', 'video']
       ]
-    }
+    },
+    imageResize: true
   };
   constructor(private editorService: EditorService,
               private fileUploadService: FileUploadService,

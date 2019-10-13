@@ -6,7 +6,6 @@
       </div>
       <div class="content-container">
         <h2 class="title">{{item.title}}</h2>
-<!--        <p>{{item.text}}</p>-->
         <app-markup-container [htmlText]="item.text"></app-markup-container>
       </div>
     <div class="action-container" *ngIf="editable">

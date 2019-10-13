@@ -10,7 +10,7 @@ import {ProceduresModule} from '../procedures/procedures.module';
 import {ProceduresManagementComponent} from './procedures-management/procedures-management.component';
 import { EditProcedureComponent } from './procedures-management/edit-procedure/edit-procedure.component';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileUploaderModule} from './file-uploader/file-uploader.module';
 import {NewsModule} from '../news/news.module';
 import {NewsManagementComponent} from './news-management/news-management.component';
@@ -18,6 +18,9 @@ import {EditArticleComponent} from './news-management/edit-article/edit-article.
 import {EmployeesModule} from '../employees/employees.module';
 import {EmployeesManagementComponent} from './employees-management/employees-management.component';
 import {EditEmployeeComponent} from './employees-management/edit-employee/edit-employee.component';
+
+import { QuillModule } from 'ngx-quill';
+import {EditorComponent} from './editor/editor.component';
 
 @NgModule({
   imports: [
@@ -33,6 +36,9 @@ import {EditEmployeeComponent} from './employees-management/edit-employee/edit-e
     NewsModule,
     EmployeesModule,
     FileUploaderModule,
+
+    QuillModule,
+    FormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -44,6 +50,7 @@ import {EditEmployeeComponent} from './employees-management/edit-employee/edit-e
     EditProcedureComponent,
     EditArticleComponent,
     EditEmployeeComponent,
+    EditorComponent
   ]
 })
 export class DashboardModule {}

@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {NewsService} from '../../../news/news.service';
+import {EditorService} from '../../editor/editor.service';
 
 @Component({
   selector: 'app-edit-article',
@@ -17,8 +18,7 @@ export class EditArticleComponent implements OnInit {
   id: string;
   procedure: Procedure;
   procedureForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    text: new FormControl('')
+    title: new FormControl('')
   });
 
   fileUrl: string;
@@ -28,7 +28,8 @@ export class EditArticleComponent implements OnInit {
               private router: Router,
               private urlHelperService: UrlHelperService,
               private _location: Location,
-              private fileUploadService: FileUploadService) {
+              private fileUploadService: FileUploadService,
+              private editorService: EditorService) {
 
     this.newsService.newsUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/news-management']).then();
@@ -46,6 +47,7 @@ export class EditArticleComponent implements OnInit {
       this.newsService.getItem(this.id).then(procedure => {
         this.procedure = new Procedure(procedure[0]);
         this.setProcedureFields();
+        this.editorService.setInitialHtmlText(this.procedure.text);
       });
     }
   }
@@ -65,8 +67,7 @@ export class EditArticleComponent implements OnInit {
   setProcedureFields() {
     this.fileUploadService.setFileUrl(this.procedure.image);
     this.procedureForm.patchValue({
-      title: this.procedure.title,
-      text: this.procedure.text
+      title: this.procedure.title
     });
   }
 
@@ -74,7 +75,7 @@ export class EditArticleComponent implements OnInit {
     return {
       id: this.isNew ? null : this.procedure.id,
       title: this.procedureForm.get('title').value,
-      text: this.procedureForm.get('text').value,
+      text: this.editorService.getHtmlText(),
       image: this.fileUrl ? this.fileUrl : null,
     };
   }

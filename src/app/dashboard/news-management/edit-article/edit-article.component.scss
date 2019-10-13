@@ -7,10 +7,15 @@
     }
   }
 
-  .delete-btn {
-    margin-left: 10px;
-    background-color: red;
-    color: white;
+  .btn-container {
+    padding-bottom: 20px;
+    .delete-btn {
+      margin-left: 10px;
+      background-color: red;
+      color: white;
+    }
   }
+
+
 }
 

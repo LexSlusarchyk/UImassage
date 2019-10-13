@@ -1,0 +1,8 @@
+<div class="editor-container">
+  <quill-editor [(ngModel)]="initialHtmlText"
+                [modules]="config"
+                (onContentChanged)="onContentChanged($event)"
+                (onEditorCreated)="getEditorInstance($event)"
+  ></quill-editor>
+  <input type="file" style="display: none" id="fileInputField"/>
+</div>

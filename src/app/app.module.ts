@@ -28,6 +28,7 @@ import {HomeModule} from './home/home.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FileUploaderModule} from './dashboard/file-uploader/file-uploader.module';
 import {NewsModule} from './news/news.module';
+import {LayoutModule} from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {NewsModule} from './news/news.module';
     NewsModule,
     FontAwesomeModule,
     FileUploaderModule,
+    LayoutModule,
 
     ReactiveFormsModule,
   ],

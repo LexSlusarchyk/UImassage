@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -7,9 +7,7 @@ import {Subject} from 'rxjs';
 })
 export class FileUploadService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   uploadsUrl = 'http://localhost/api/public/uploads/';
 
@@ -23,6 +21,13 @@ export class FileUploadService {
     this.http.post('/api/uploads', formData).subscribe((res) => {
       this.fileUploaded.next(res.toString());
     });
+  }
+
+  uploadImage(file) {
+    const formData = new FormData();
+
+    formData.append('image', file );
+    return this.http.post('/api/uploads', formData).toPromise();
   }
 
   getFileUrl(fileName) {

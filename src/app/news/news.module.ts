@@ -6,6 +6,7 @@ import {NewsRoutingModule} from './news-routing.module';
 import {CategoriesModule} from '../categories/categories.module';
 import { NewsListComponent } from './news-list/news-list.component';
 import {NewsComponent} from './news.component';
+import {LayoutModule} from '../layout/layout.module';
 
 
 
@@ -15,6 +16,7 @@ import {NewsComponent} from './news.component';
     CommonModule,
     NewsRoutingModule,
     CategoriesModule,
+    LayoutModule
   ],
   declarations: [
     NewsComponent,

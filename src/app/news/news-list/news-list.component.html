@@ -6,10 +6,11 @@
       </div>
       <div class="content-container">
         <h2 class="title">{{item.title}}</h2>
-        <p>{{item.text}}</p>
-        <div class="action-container" *ngIf="editable">
-          <button mat-raised-button routerLink="/dashboard/news-management/article/{{item.id}}" color="primary">Змінити</button>
-        </div>
+<!--        <p>{{item.text}}</p>-->
+        <app-markup-container [htmlText]="item.text"></app-markup-container>
       </div>
+    <div class="action-container" *ngIf="editable">
+      <button mat-raised-button routerLink="/dashboard/news-management/article/{{item.id}}" color="primary">Змінити</button>
+    </div>
   </div>
 </div>

@@ -29,7 +29,7 @@ export class EditArticleComponent implements OnInit {
               private urlHelperService: UrlHelperService,
               private _location: Location,
               private fileUploadService: FileUploadService,
-              private editorService: EditorService) {
+                        private editorService: EditorService) {
 
     this.newsService.newsUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/news-management']).then();

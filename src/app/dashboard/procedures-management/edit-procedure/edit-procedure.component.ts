@@ -7,6 +7,7 @@ import {ProceduresService} from '../../../procedures/procedures.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {CategoriesService} from '../../../categories/categories.service';
+import {EditorService} from '../../editor/editor.service';
 
 @Component({
   selector: 'app-edit-procedure',
@@ -21,8 +22,7 @@ export class EditProcedureComponent implements OnInit {
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     duration: new FormControl(''),
-    price: new FormControl(''),
-    text: new FormControl('')
+    price: new FormControl('')
   });
 
   fileUrl: string;
@@ -34,7 +34,8 @@ export class EditProcedureComponent implements OnInit {
               private urlHelperService: UrlHelperService,
               private _location: Location,
               private fileUploadService: FileUploadService,
-              private categoriesService: CategoriesService, ) {
+              private categoriesService: CategoriesService,
+              private editorService: EditorService) {
 
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/procedures-management']).then();
@@ -57,6 +58,7 @@ export class EditProcedureComponent implements OnInit {
       this.proceduresService.getProcedure(this.id).then(procedure => {
         this.procedure = new Procedure(procedure[0]);
         this.setProcedureFields();
+        this.editorService.setInitialHtmlText(this.procedure.text);
       });
     }
   }
@@ -88,8 +90,7 @@ export class EditProcedureComponent implements OnInit {
     this.procedureForm.patchValue({
       title: this.procedure.title,
       duration: this.procedure.duration,
-      price: this.procedure.price,
-      text: this.procedure.text
+      price: this.procedure.price
     });
     this.setCategory();
   }
@@ -100,14 +101,14 @@ export class EditProcedureComponent implements OnInit {
       title: this.procedureForm.get('title').value,
       duration: this.procedureForm.get('duration').value,
       price: this.procedureForm.get('price').value,
-      text: this.procedureForm.get('text').value,
+      text: this.editorService.getHtmlText(),
       image: this.fileUrl ? this.fileUrl : null,
       category_id: this.getCategoryId()
     };
   }
 
   getCategoryId() {
-    return this.selectedCategory && this.selectedCategory.id || this.procedure.category_id || 1;
+    return this.selectedCategory && this.selectedCategory.id || this.procedure && this.procedure.category_id || 1;
   }
 
   deleteProcedure(id) {

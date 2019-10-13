@@ -3,7 +3,8 @@
 <div class="image-container">
   <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="uploaded image">
 </div>
-<p class="text">{{procedure.text}}</p>
+
+<app-markup-container [htmlText]="procedure.text"></app-markup-container>
 
 <h3>Тривалість: {{procedure.duration}}</h3>
 

@@ -10,6 +10,7 @@ import {ProceduresCategoryComponent} from './procedures-category/procedures-cate
 import { ProceduresCategoryListComponent } from './procedures-category/procedures-category-list/procedures-category-list.component';
 import {CategoriesModule} from '../categories/categories.module';
 import { ProceduresListComponent } from './procedures-list/procedures-list.component';
+import {LayoutModule} from '../layout/layout.module';
 
 
 
@@ -19,6 +20,7 @@ import { ProceduresListComponent } from './procedures-list/procedures-list.compo
     CommonModule,
     ProceduresRoutingModule,
     CategoriesModule,
+    LayoutModule
   ],
   declarations: [
     ProceduresComponent,

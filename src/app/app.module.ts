@@ -13,10 +13,8 @@ import { MaterialModule } from './material.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { CreateEmployeeModalComponent } from './dashboard/modals/create-employee-modal/create-employee-modal.component';
 import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
 import { ProductsComponent } from './products/products.component';
-import { CreateProductModalComponent } from './dashboard/modals/create-product-modal/create-product-modal.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
 import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
@@ -34,10 +32,8 @@ import {LayoutModule} from './layout/layout.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    CreateEmployeeModalComponent,
     ProductsManagementComponent,
     ProductsComponent,
-    CreateProductModalComponent,
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
@@ -63,8 +59,6 @@ import {LayoutModule} from './layout/layout.module';
   ],
 
   entryComponents: [
-    CreateEmployeeModalComponent,
-    CreateProductModalComponent,
     CreateAlbumModalComponent,
     CreateCategoryModalComponent,
   ],

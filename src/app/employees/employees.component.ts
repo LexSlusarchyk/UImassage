@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateEmployeeModalComponent} from '../dashboard/modals/create-employee-modal/create-employee-modal.component';
 import {EmployeesService} from './employees.service';
 
 @Component({
@@ -32,21 +31,10 @@ export class EmployeesComponent implements OnInit {
   }
 
   editItem(procedure) {
-    this.showEditModal(procedure);
+
   }
 
   deleteItem(id) {
     this.employeesService.deleteItem(id);
-  }
-
-  showEditModal(procedure) {
-    const dialogRef = this.dialog.open(CreateEmployeeModalComponent, {
-      width: '900px',
-      data: { procedure: procedure },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
 import {MatDialog} from '@angular/material/dialog';
-import {CreateProductModalComponent} from '../dashboard/modals/create-product-modal/create-product-modal.component';
 import {ProductsService} from './products.service';
 
 @Component({
@@ -45,22 +44,10 @@ export class ProductsComponent implements OnInit {
   }
 
   editItem(procedure) {
-    this.showEditModal(procedure);
   }
 
   deleteItem(id) {
     this.productsService.deleteItem(id);
-  }
-
-  showEditModal(procedure) {
-    const dialogRef = this.dialog.open(CreateProductModalComponent, {
-      width: '900px',
-      data: { procedure: procedure },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
 }

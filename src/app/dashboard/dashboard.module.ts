@@ -20,7 +20,9 @@ import {EmployeesManagementComponent} from './employees-management/employees-man
 import {EditEmployeeComponent} from './employees-management/edit-employee/edit-employee.component';
 
 import { QuillModule } from 'ngx-quill';
+import { ImageCropperModule } from 'ngx-image-cropper';
 import {EditorComponent} from './editor/editor.component';
+import {ImgCropperComponent} from './img-cropper/img-cropper.component';
 
 @NgModule({
   imports: [
@@ -38,6 +40,7 @@ import {EditorComponent} from './editor/editor.component';
     FileUploaderModule,
 
     QuillModule,
+    ImageCropperModule,
     FormsModule
   ],
   declarations: [
@@ -50,7 +53,8 @@ import {EditorComponent} from './editor/editor.component';
     EditProcedureComponent,
     EditArticleComponent,
     EditEmployeeComponent,
-    EditorComponent
+    EditorComponent,
+    ImgCropperComponent
   ]
 })
 export class DashboardModule {}

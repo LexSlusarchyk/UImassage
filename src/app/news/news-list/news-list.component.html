@@ -9,6 +9,7 @@
         <app-markup-container [htmlText]="item.text"></app-markup-container>
       </div>
     <div class="action-container" *ngIf="editable">
+      <br/>
       <button mat-raised-button routerLink="/dashboard/news-management/article/{{item.id}}" color="primary">Змінити</button>
     </div>
   </div>

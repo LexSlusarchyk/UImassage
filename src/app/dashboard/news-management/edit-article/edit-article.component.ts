@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Procedure} from '../../../procedures/procedure';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UrlHelperService} from '../../../helpers/url-helper.service';
@@ -7,6 +7,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {NewsService} from '../../../news/news.service';
 import {EditorService} from '../../editor/editor.service';
+import {ImgCropperComponent} from '../../img-cropper/img-cropper.component';
+
 
 @Component({
   selector: 'app-edit-article',
@@ -17,11 +19,15 @@ export class EditArticleComponent implements OnInit {
   isNew = false;
   id: string;
   procedure: Procedure;
+  fileUrl: string;
+  cropperHidden = true;
+
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl('')
   });
 
-  fileUrl: string;
+
+  @ViewChild(ImgCropperComponent, {static: false}) imageCropper: ImgCropperComponent;
 
   constructor(private newsService: NewsService,
               private route: ActivatedRoute,
@@ -36,6 +42,7 @@ export class EditArticleComponent implements OnInit {
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
+      this.cropperHidden = true;
     });
   }
 
@@ -50,6 +57,10 @@ export class EditArticleComponent implements OnInit {
         this.editorService.setInitialHtmlText(this.procedure.text);
       });
     }
+  }
+
+  toggleCropper(): void {
+    this.cropperHidden = !this.cropperHidden;
   }
 
   confirm() {

@@ -2,6 +2,8 @@
 
 .drawer-container {
   margin-top: $header-height;
+  min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+
   .drawer {
     position: fixed;
     margin-top: inherit;

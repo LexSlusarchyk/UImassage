@@ -27,6 +27,7 @@ export class EditProcedureComponent implements OnInit {
 
   fileUrl: string;
   selectedCategory: any;
+  cropperHidden = true;
 
   constructor(private proceduresService: ProceduresService,
               private route: ActivatedRoute,
@@ -42,6 +43,7 @@ export class EditProcedureComponent implements OnInit {
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
+      this.cropperHidden = true;
     });
 
     this.categoriesService.selectedCategory$.subscribe((category) => {
@@ -61,6 +63,10 @@ export class EditProcedureComponent implements OnInit {
         this.editorService.setInitialHtmlText(this.procedure.text);
       });
     }
+  }
+
+  toggleCropper(): void {
+    this.cropperHidden = !this.cropperHidden;
   }
 
   getCategoryTitle() {

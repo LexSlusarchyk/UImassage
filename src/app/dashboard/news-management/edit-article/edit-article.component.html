@@ -3,6 +3,11 @@
   <div>
     <app-file-uploader></app-file-uploader>
 
+    <br>
+    <button mat-raised-button color="primary" class="browse-btn" (click)="toggleCropper()">Обрізати зображення</button>
+    <br>
+    <app-img-cropper *ngIf="!cropperHidden"></app-img-cropper>
+
     <form [formGroup]="procedureForm" class="procedure-form">
       <mat-form-field class="field">
         <input matInput placeholder="Заголовок" formControlName="title">

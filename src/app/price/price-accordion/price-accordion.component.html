@@ -7,7 +7,7 @@
 
   <mat-table [dataSource]="proceduresList" class="mat-elevation-z8 procedures-table" *ngIf="!category.children">
     <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef> Назва Процедури </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="procedure-header-title"> Назва Процедури </mat-header-cell>
       <mat-cell *matCellDef="let element" class="procedure-title"> {{element.title}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="duration">
@@ -15,8 +15,8 @@
       <mat-cell *matCellDef="let element"> {{element.duration ? element.duration : '-'}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef> Вартість </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.price ? element.price : '-'}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="procedure-price"> Вартість </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="procedure-price"> {{element.price ? element.price : '-'}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

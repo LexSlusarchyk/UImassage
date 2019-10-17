@@ -4,10 +4,9 @@
 $logo-height: 45px;
 $logo-width: 63px;
 $logo-color: #656565;
-$max-width: 1400px;
+$max-width: 1600px;
 $default-offset: 15px;
 $button-height: 38px;
-$header-height: 95px;
 
 .header {
   border-bottom: 2px solid $logo-color;
@@ -19,9 +18,9 @@ $header-height: 95px;
   background-color: white;
 
   .header-inner {
-    max-width: $max-width;
+    //max-width: $max-width;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 0;
 
     .collapsed-nav {
       display: none;
@@ -30,9 +29,18 @@ $header-height: 95px;
     .default-nav {
       display: flex;
       justify-content: space-between;
+      font-size: 20px;
 
+      .logo-container {
+        padding: 0 20px;
+
+        img {
+          max-height: $header-height;
+        }
+      }
       .menu-list-container {
         display: flex;
+        font-size: 18px;
 
         .list {
           margin: 0;
@@ -42,12 +50,11 @@ $header-height: 95px;
           text-transform: uppercase;
 
           a {
-            font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #656565;
-            padding: 10px 1vw;
+            padding: 20px 1vw;
             position: relative;
             cursor: pointer;
 
@@ -85,7 +92,7 @@ $header-height: 95px;
           .inst-icon, .fb-icon {
             transition: 0.3s;
             display: block;
-            width: 25px;
+            width: 40px;
             height: auto;
 
             &:hover {
@@ -95,62 +102,70 @@ $header-height: 95px;
         }
       }
 
-      .enroll-procedure-btn {
-        color: white;
-        background-color: #00ACAB;
-        font-weight: 700;
-        letter-spacing: 1px;
-        border: 1px solid #7D8081;
-        min-width: 205px;
-        padding: 17px 45px;
-        text-align: center;
-        display: inline-block;
-        position: relative;
-        cursor: pointer;
+      .enroll-btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 2vw;
 
-        &:hover:before {
-          opacity: 1;
-          transform: translateX(5px);
-        }
+        .enroll-procedure-btn {
+          color: white;
+          background-color: #00ACAB;
+          font-weight: 700;
+          letter-spacing: 1px;
+          border: 1px solid #7D8081;
+          min-width: 205px;
+          padding: 18px 45px;
+          text-align: center;
+          display: inline-block;
+          position: relative;
+          cursor: pointer;
 
-        &:before {
-          opacity: 0;
-          content: '';
-          background-color: #7D8081;
-          display: block;
-          width: 50px;
-          height: 1px;
-          margin: auto 0;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: -17px;
-          transition: 0.3s;
-        }
+          &:hover:before {
+            opacity: 1;
+            transform: translateX(5px);
+          }
 
-        &:hover:after {
-          opacity: 1;
-          left: 27px;
-        }
+          &:before {
+            opacity: 0;
+            content: '';
+            background-color: #7D8081;
+            display: block;
+            width: 50px;
+            height: 1px;
+            margin: auto 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -17px;
+            transition: 0.3s;
+          }
 
-        &:after {
-          content: '';
-          border-top: 1px solid #7D8081;
-          border-right: 1px solid #7D8081;
-          opacity: 0;
-          display: block;
-          width: 8px;
-          height: 8px;
-          margin: auto 0;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 22px;
-          transform-origin: center;
-          transform: rotate(45deg);
-          transition: 0.3s;
+          &:hover:after {
+            opacity: 1;
+            left: 27px;
+          }
+
+          &:after {
+            content: '';
+            border-top: 1px solid #7D8081;
+            border-right: 1px solid #7D8081;
+            opacity: 0;
+            display: block;
+            width: 8px;
+            height: 8px;
+            margin: auto 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 22px;
+            transform-origin: center;
+            transform: rotate(45deg);
+            transition: 0.3s;
+          }
         }
       }
+
 
       .phone-number-container {
         display: flex;

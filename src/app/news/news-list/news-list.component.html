@@ -1,13 +1,13 @@
 <div class="items-container">
   <div class="item-container" *ngFor="let item of itemsList">
-      <div class="image-container">
-        <img src="assets/img/default-img.png"  alt="default image" *ngIf="!item.image">
-        <img [src]="this.urlHelperService.getImageUrl(item.image)" alt="item image" *ngIf="item.image">
-      </div>
-      <div class="content-container">
-        <h2 class="title">{{item.title}}</h2>
-        <app-markup-container [htmlText]="item.text"></app-markup-container>
-      </div>
+    <div class="image-container">
+      <img src="assets/img/default-img.png"  alt="default image" *ngIf="!item.image">
+      <img [src]="this.urlHelperService.getImageUrl(item.image)" alt="item image" *ngIf="item.image">
+    </div>
+    <div class="content-container">
+      <h2 class="title">{{item.title}}</h2>
+      <app-markup-container [htmlText]="item.text"></app-markup-container>
+    </div>
     <div class="action-container" *ngIf="editable">
       <br/>
       <button mat-raised-button routerLink="/dashboard/news-management/article/{{item.id}}" color="primary">Змінити</button>

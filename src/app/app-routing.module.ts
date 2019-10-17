@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
-import {ContactsComponent} from './home/contacts/contacts.component';
+import {ContactsComponent} from './contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsManagementComponent },
   { path: 'gallery', component: GalleryManagementComponent },
-  { path: 'contacts', component: ContactsComponent },
 
   {
     path: 'procedures',
@@ -27,6 +26,11 @@ const routes: Routes = [
   {
     path: 'price',
     loadChildren: () => import('./price/price.module').then(mod => mod.PriceModule),
+  },
+
+  {
+    path: 'contacts',
+    loadChildren: () => import('./contacts/contacts.module').then(mod => mod.ContactsModule),
   },
 
   {

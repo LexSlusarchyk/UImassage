@@ -10,14 +10,23 @@
   align-items: center;
   justify-content: center;
   width: 300px;
+  padding: 20px 5px;
 }
 
 .sidenav-toggle-btn {
-  position: fixed;
+  position: absolute;
   top: 45%;
   z-index: 1;
   height: 80px;
   opacity: 0.5;
+
+  &.left-angle {
+    right: 0;
+  }
+
+  &.right-angle {
+    left: -18px;
+  }
 
   &:hover {
     cursor: pointer;

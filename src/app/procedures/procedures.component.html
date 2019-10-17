@@ -1,16 +1,24 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer class="procedures-sidenav" mode="side" [(opened)]="sideNavOpened">
-    <app-categories-tree [options]="{isEditable: false, collapseAll: false}" [navEnabled]="true"></app-categories-tree>
+    <app-categories-tree [options]="{isEditable: false, collapseAll: false}"
+                         [navEnabled]="true"
+                         [withoutRoot]="true"
+    ></app-categories-tree>
+    <img src="assets/img/left-angle.svg" *ngIf="sideNavOpened"
+         (click)="toggleSideNav()"
+         title="Сховати навігацію"
+         class="sidenav-toggle-btn left-angle">
   </mat-drawer>
 
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>
 
+  <img src="assets/img/right-angle.svg" *ngIf="!sideNavOpened"
+       (click)="toggleSideNav()"
+       title="Показати навігацію"
+       class="sidenav-toggle-btn right-angle">
 </mat-drawer-container>
 
-<img src="assets/img/left-angle.svg" *ngIf="sideNavOpened"
-     (click)="toggleSideNav()" title="Сховати навігацію" class="sidenav-toggle-btn">
-<img src="assets/img/right-angle.svg" *ngIf="!sideNavOpened"
-     (click)="toggleSideNav()" title="Показати навігацію" class="sidenav-toggle-btn">
+

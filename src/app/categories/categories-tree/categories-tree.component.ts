@@ -33,6 +33,7 @@ interface CategoryFlatNode {
 export class CategoriesTreeComponent implements OnInit {
   @Input() options?: any;
   @Input() navEnabled?: boolean;
+  @Input() withoutRoot?: boolean;
 
   private _transformer = (node: CategoryNode, level: number) => {
     return {
@@ -56,8 +57,8 @@ export class CategoriesTreeComponent implements OnInit {
   constructor(private categoriesService: CategoriesService,
               public dialog: MatDialog) {
 
-    this.categoriesService.categoriesTreeReady$.subscribe((categoriesTree) => {
-      this.dataSource.data = categoriesTree;
+    this.categoriesService.categoriesTreeReady$.subscribe((categoriesTree: any) => {
+      this.dataSource.data = this.withoutRoot ? categoriesTree[0].children : categoriesTree;
 
       if (this.options && this.options.collapseAll) {
         this.treeControl.collapseAll();

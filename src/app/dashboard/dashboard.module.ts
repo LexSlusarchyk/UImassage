@@ -23,6 +23,7 @@ import { QuillModule } from 'ngx-quill';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import {EditorComponent} from './editor/editor.component';
 import {ImgCropperComponent} from './img-cropper/img-cropper.component';
+import {CreateCategoryModalComponent} from './modals/create-category-modal/create-category-modal.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import {ImgCropperComponent} from './img-cropper/img-cropper.component';
   declarations: [
     DashboardComponent,
     CategoriesManagementComponent,
+    CreateCategoryModalComponent,
     ProceduresManagementComponent,
     NewsManagementComponent,
     EmployeesManagementComponent,
@@ -55,6 +57,9 @@ import {ImgCropperComponent} from './img-cropper/img-cropper.component';
     EditEmployeeComponent,
     EditorComponent,
     ImgCropperComponent
-  ]
+  ],
+  entryComponents: [
+    CreateCategoryModalComponent,
+  ],
 })
 export class DashboardModule {}

@@ -53,7 +53,6 @@ export class CategoriesComponent implements OnInit {
 
   showEditModal(procedure) {
     const dialogRef = this.dialog.open(CreateCategoryModalComponent, {
-      width: '900px',
       data: { procedure: procedure },
     });
 

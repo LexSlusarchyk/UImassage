@@ -3,25 +3,26 @@
 
 .content-container {
   padding: 20px;
+  min-height: 800px;
 }
 
 .procedures-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  padding: 20px 5px;
+  width: 350px;
+  padding: 20px 10px;
 }
 
 .sidenav-toggle-btn {
-  position: absolute;
+  position: fixed;
   top: 45%;
   z-index: 1;
   height: 80px;
   opacity: 0.5;
 
   &.left-angle {
-    right: 0;
+    left: 230px;
   }
 
   &.right-angle {
@@ -35,5 +36,11 @@
 @media screen and (max-width: $break-small) {
   .procedures-sidenav {
     width: 100%;
+
+    .sidenav-toggle-btn {
+      &.left-angle {
+        left: 80%;
+      }
+    }
   }
 }

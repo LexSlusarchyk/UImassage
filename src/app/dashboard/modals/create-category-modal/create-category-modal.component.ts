@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CategoriesService} from '../../../categories/categories.service';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
+import {EditorService} from '../../editor/editor.service';
 
 @Component({
   selector: 'app-create-category-modal',
@@ -11,20 +12,23 @@ import {FileUploadService} from '../../file-uploader/file-upload.service';
 })
 export class CreateCategoryModalComponent implements OnInit {
   itemForm: FormGroup = new FormGroup({
-    title: new FormControl(''),
-    text: new FormControl(''),
+    title: new FormControl('')
   });
   fileUrl: string;
+  cropperHidden = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialogRef: MatDialogRef<CreateCategoryModalComponent>,
               private categoriesService: CategoriesService,
-              private fileUploadService: FileUploadService) {
+              private fileUploadService: FileUploadService,
+              private editorService: EditorService) {
+
     this.categoriesService.categoriesUpdated$.subscribe(() => {
       this.closeModal();
     });
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;
+      this.cropperHidden = true;
     });
   }
 
@@ -36,9 +40,9 @@ export class CreateCategoryModalComponent implements OnInit {
     if (this.isEdited()) {
       this.fileUploadService.setFileUrl(this.data.category.image);
       this.itemForm.patchValue({
-        title: this.data.category.title,
-        text: this.data.category.text,
+        title: this.data.category.title
       });
+      this.editorService.setInitialHtmlText(this.data.category.text);
     }
   }
 
@@ -59,7 +63,7 @@ export class CreateCategoryModalComponent implements OnInit {
       id: this.isEdited() ? this.data.category.id : null,
       title: this.itemForm.get('title').value,
       image: this.fileUrl ? this.fileUrl : null,
-      text: this.itemForm.get('text').value,
+      text: this.editorService.getHtmlText(),
       parentId: this.data.parentId ? this.data.parentId : this.data.category.parentId,
     };
   }
@@ -76,4 +80,7 @@ export class CreateCategoryModalComponent implements OnInit {
     return this.data && this.data.category;
   }
 
+  toggleCropper(): void {
+    this.cropperHidden = !this.cropperHidden;
+  }
 }

@@ -18,7 +18,6 @@ import { ProductsComponent } from './products/products.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
 import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
-import { CreateCategoryModalComponent } from './dashboard/modals/create-category-modal/create-category-modal.component';
 import {HeaderComponent} from './header/header.component';
 import {CategoriesModule} from './categories/categories.module';
 import { FooterComponent } from './footer/footer.component';
@@ -37,7 +36,6 @@ import {LayoutModule} from './layout/layout.module';
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
-    CreateCategoryModalComponent,
     FooterComponent
   ],
   imports: [
@@ -59,8 +57,7 @@ import {LayoutModule} from './layout/layout.module';
   ],
 
   entryComponents: [
-    CreateAlbumModalComponent,
-    CreateCategoryModalComponent,
+    CreateAlbumModalComponent
   ],
 
   providers: [],

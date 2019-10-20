@@ -1,13 +1,17 @@
 <h1 mat-dialog-title>Додати нову категорію</h1>
 <div mat-dialog-content>
   <app-file-uploader></app-file-uploader>
+  <br>
+  <button mat-raised-button color="primary" class="browse-btn" (click)="toggleCropper()">Обрізати зображення</button>
+  <br>
+  <app-img-cropper *ngIf="!cropperHidden"></app-img-cropper>
+  <br/>
   <form [formGroup]="itemForm" class="category-form">
     <mat-form-field class="field">
       <input matInput placeholder="Назва категорії" formControlName="title">
     </mat-form-field>
-    <mat-form-field class="field">
-      <textarea matInput placeholder="Текст" formControlName="text"></textarea>
-    </mat-form-field>
+
+    <app-editor></app-editor>
   </form>
 </div>
 <div mat-dialog-actions>

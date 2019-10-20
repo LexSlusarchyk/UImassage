@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
@@ -6,13 +6,13 @@ import {DomSanitizer} from '@angular/platform-browser';
   templateUrl: './markup-container.component.html',
   styleUrls: ['./markup-container.component.scss']
 })
-export class MarkupContainerComponent implements OnInit {
+export class MarkupContainerComponent implements OnChanges {
   @Input() htmlText?: string;
   trustedHtmlText;
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.trustedHtmlText = this.sanitizer.bypassSecurityTrustHtml(this.htmlText);
   }
 

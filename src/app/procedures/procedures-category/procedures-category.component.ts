@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Procedure} from '../procedure';
 import {ActivatedRoute} from '@angular/router';
 import {Category} from '../../categories/category';
@@ -12,7 +12,7 @@ import {Location} from '@angular/common';
   templateUrl: './procedures-category.component.html',
   styleUrls: ['./procedures-category.component.scss']
 })
-export class ProceduresCategoryComponent implements OnInit {
+export class ProceduresCategoryComponent implements OnInit, AfterViewInit {
   category;
   proceduresList;
   categoryList;
@@ -24,6 +24,15 @@ export class ProceduresCategoryComponent implements OnInit {
               private _location: Location) { }
 
   ngOnInit() {
+    this.route.data
+      .subscribe((data: { category: Category }) => {
+        this.category = data.category[0];
+        this.getProceduresListByCategory(data.category[0].id);
+        this.getCategoryChildren(data.category[0].id);
+      });
+  }
+
+  ngAfterViewInit() {
     this.route.data
       .subscribe((data: { category: Category }) => {
         this.category = data.category[0];

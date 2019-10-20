@@ -1,19 +1,43 @@
 @import "../../../variables";
 
 .category-details-container {
-  .image-container {
+  .title {
+    color: #00ACAB;
+  }
+  .flex-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 
-    img {
-      display: inline-block;
-      max-width: 100%;
+    .image-container {
+      max-width: 40%;
+      img {
+        display: inline-block;
+        max-width: 100%;
+      }
+    }
+
+    .text-container {
+      max-width: 60%;
+      padding: 0 15px;
     }
   }
 
-  .text {
-    text-align: justify;
+
+  @media screen and (max-width: $break-small) {
+
+    .flex-container {
+      flex-direction: column;
+
+      .image-container {
+        max-width: 100%;
+      }
+
+      .text-container {
+        max-width: 100%;
+      }
+    }
   }
+
 }
 
 
@@ -22,3 +46,4 @@
     font-size: 16px;
   }
 }
+

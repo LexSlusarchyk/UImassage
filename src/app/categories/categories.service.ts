@@ -34,6 +34,10 @@ export class CategoriesService {
     return this.http.get(this.apiUrl).toPromise();
   }
 
+  getFavoriteCategories(): any {
+    return this.http.get(this.apiUrl + '/favorite').toPromise();
+  }
+
   getCategoriesTree(): any {
     this.http.get(this.apiUrl).subscribe((res) => {
       this.categoriesTreeReady.next(this.createTree(res));

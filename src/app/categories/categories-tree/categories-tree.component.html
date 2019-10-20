@@ -11,6 +11,11 @@
     >{{node.title}}</span>
     <div *ngIf="options && options.isEditable">
       <button mat-icon-button (click)="addCategory(node)" title="Додати нову категорію"><mat-icon>add</mat-icon></button>
+      <button mat-icon-button
+              (click)="toggleFavoriteCategory(node)"
+              title="Вибрати улюблену категорію">
+        <mat-icon>{{node.favorite ? 'star' : 'star_border'}}</mat-icon>
+      </button>
       <button mat-icon-button (click)="editCategory(node)" title="Змінити категорію"><mat-icon>edit</mat-icon></button>
       <button mat-icon-button (click)="deleteCategory(node.id)" title="Видалити категорію"><mat-icon>delete</mat-icon></button>
     </div>
@@ -31,6 +36,11 @@
     >{{node.title}}</span>
     <div *ngIf="options.isEditable">
       <button mat-icon-button (click)="addCategory(node)" title="Додати нову категорію"><mat-icon>add</mat-icon></button>
+      <button mat-icon-button
+              (click)="toggleFavoriteCategory(node)"
+              title="Вибрати улюблену категорію">
+        <mat-icon>{{node.favorite ? 'star' : 'star_border'}}</mat-icon>
+      </button>
       <button mat-icon-button (click)="editCategory(node)" title="Змінити категорію"><mat-icon>edit</mat-icon></button>
       <button mat-icon-button (click)="deleteCategory(node.id)" title="Видалити категорію"><mat-icon>delete</mat-icon></button>
     </div>

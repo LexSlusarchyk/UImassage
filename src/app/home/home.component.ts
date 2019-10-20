@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.categoriesService.getItems().then((response) => {
+    this.categoriesService.getFavoriteCategories().then((response) => {
       this.categoryList = response;
     });
   }

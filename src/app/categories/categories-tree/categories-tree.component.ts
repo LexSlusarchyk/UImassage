@@ -16,6 +16,7 @@ interface CategoryNode {
   parent_id?: number;
   image?: string;
   text?: string;
+  favorite?: string;
 }
 
 /** Flat node with expandable and level information */
@@ -43,7 +44,8 @@ export class CategoriesTreeComponent implements OnInit {
       id: node.id,
       parentId: node.parent_id,
       image: node.image,
-      text: node.text
+      text: node.text,
+      favorite: node.favorite === '1'
     };
   }
   treeControl = new FlatTreeControl<CategoryFlatNode>(
@@ -91,6 +93,12 @@ export class CategoriesTreeComponent implements OnInit {
       width: '900px',
       data: { parentId: parent.id },
     });
+  }
+
+  toggleFavoriteCategory(category) {
+    debugger
+    category.favorite = !category.favorite;
+    this.categoriesService.updateItem(category);
   }
 
   editCategory(category) {

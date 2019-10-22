@@ -22,7 +22,8 @@ export class EditProcedureComponent implements OnInit {
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     duration: new FormControl(''),
-    price: new FormControl('')
+    price: new FormControl(''),
+    videoUrl: new FormControl(''),
   });
 
   fileUrl: string;
@@ -96,7 +97,8 @@ export class EditProcedureComponent implements OnInit {
     this.procedureForm.patchValue({
       title: this.procedure.title,
       duration: this.procedure.duration,
-      price: this.procedure.price
+      price: this.procedure.price,
+      videoUrl: this.procedure.videoUrl,
     });
     this.setCategory();
   }
@@ -107,6 +109,7 @@ export class EditProcedureComponent implements OnInit {
       title: this.procedureForm.get('title').value,
       duration: this.procedureForm.get('duration').value,
       price: this.procedureForm.get('price').value,
+      videoUrl: this.procedureForm.get('videoUrl').value,
       text: this.editorService.getHtmlText(),
       image: this.fileUrl ? this.fileUrl : null,
       category_id: this.getCategoryId()

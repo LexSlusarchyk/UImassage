@@ -7,6 +7,7 @@ export class Procedure {
   text: string;
   image: string;
   category_id: number;
+  videoUrl: string;
 
   constructor(procedure) {
     this.id = procedure.id;
@@ -16,6 +17,7 @@ export class Procedure {
     this.text = procedure.text;
     this.image = procedure.image;
     this.category_id = procedure.category_id;
+    this.videoUrl = procedure.videoUrl;
   }
 
 }

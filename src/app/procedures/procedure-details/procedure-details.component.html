@@ -1,9 +1,16 @@
 <h2 class="title">{{procedure.title}}</h2>
 
-<div class="image-container">
-  <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="uploaded image">
-</div>
+<div class="flex-container">
+  <div class="image-container" *ngIf="!procedure.videoUrl">
+    <img [src]="this.urlHelperService.getImageUrl(procedure.image)" alt="uploaded image">
+  </div>
+  <div class="video-container" *ngIf="procedure.videoUrl">
+    <div class="videoWrapper">
+      <iframe [src]="safeSrc" allow='autoplay' width="560" height="349"></iframe>
+    </div>
+  </div>
 
+</div>
 <app-markup-container [htmlText]="procedure.text"></app-markup-container>
 
 <h3>Тривалість: {{procedure.duration}}</h3>

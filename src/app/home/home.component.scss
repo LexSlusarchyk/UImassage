@@ -1,26 +1,32 @@
 @import "../../variables";
 
-.banner-container {
-  display: flex;
-  justify-content: center;
+.swiper-container {
 
   .logo-container {
+    display: flex;
     position: absolute;
+    justify-content: center;
+    width: 100%;
+
     .logo {
+      z-index: 10;
       height: 150px;
       width: auto;
     }
   }
 
-  .banner {
-    width: 100%;
-
-    img {
+  .swiper-slide {
+    .carousel-img {
       width: 100%;
       max-width: 100%;
+      object-fit: cover;
+      height: 450px;
     }
   }
+}
 
+.swiper-pagination-bullet-active {
+  background-color: red!important;
 }
 
 .categories-container-wrapper {
@@ -28,6 +34,17 @@
 }
 
 @media screen and (max-width: $break-small) {
+  .swiper-container {
+    .logo-container {
+      display: none;
+    }
+
+    .swiper-slide {
+      .carousel-img {
+        height: 250px;
+      }
+    }
+  }
 
   .categories-container-wrapper {
     padding: 10px 15px;

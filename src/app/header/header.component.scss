@@ -33,6 +33,7 @@ $button-height: 38px;
 
       .logo-container {
         padding: 0 20px;
+        max-height: $header-height;
 
         img {
           max-height: $header-height;
@@ -83,6 +84,10 @@ $button-height: 38px;
       .socials-container {
         display: flex;
         align-items: center;
+
+        @media screen and (max-width: 1280px) {
+          display: none;
+        }
 
         .social {
           display: block;
@@ -174,6 +179,10 @@ $button-height: 38px;
       .phone-number-container {
         display: flex;
 
+        @media screen and (max-width: 1280px) {
+          display: none;
+        }
+
         .phone-number {
           align-self: center;
           color: #656565;
@@ -248,10 +257,11 @@ $button-height: 38px;
 
         .logo-container {
           padding: 0 15px;
+          max-height: $header-height;
 
           .logo {
             border-radius: 50%;
-            height: 80px;
+            height: $header-height;
             width: auto;
           }
         }

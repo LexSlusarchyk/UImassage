@@ -9,7 +9,7 @@ import {UrlHelperService} from '../../helpers/url-helper.service';
 export class EmployeeDetailsComponent implements OnInit {
   @Input() employee: any;
 
-  constructor(private urlHelperService: UrlHelperService) { }
+  constructor(public urlHelperService: UrlHelperService) { }
 
   ngOnInit() {}
 }

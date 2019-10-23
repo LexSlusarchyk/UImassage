@@ -16,7 +16,7 @@ export class ProcedureDetailsComponent implements OnInit {
   safeSrc: SafeResourceUrl;
 
   constructor(private route: ActivatedRoute,
-              private urlHelperService: UrlHelperService,
+              public urlHelperService: UrlHelperService,
               private _location: Location,
               private sanitizer: DomSanitizer) { }
 

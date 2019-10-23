@@ -13,7 +13,7 @@ export class FileUploaderComponent implements OnInit {
 
   constructor(
     private fileUploadService: FileUploadService,
-    private urlHelperService: UrlHelperService
+    public urlHelperService: UrlHelperService
   ) {
     this.fileUploadService.fileUploaded$.subscribe((res) => {
       this.fileUrl = res;

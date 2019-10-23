@@ -20,7 +20,7 @@ export class ProceduresCategoryComponent implements OnInit, AfterViewInit {
   constructor(private route: ActivatedRoute,
               private proceduresService: ProceduresService,
               private categoriesService: CategoriesService,
-              private urlHelperService: UrlHelperService,
+              public urlHelperService: UrlHelperService,
               private _location: Location) { }
 
   ngOnInit() {

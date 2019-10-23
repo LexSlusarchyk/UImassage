@@ -10,7 +10,7 @@ export class NewsListComponent implements OnInit {
   @Input() editable?: boolean;
   @Input() itemsList: any;
 
-  constructor(private urlHelperService: UrlHelperService) { }
+  constructor(public urlHelperService: UrlHelperService) { }
 
   ngOnInit() {
   }

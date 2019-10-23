@@ -11,7 +11,7 @@ export class EmployeesListComponent implements OnInit {
   @Input() itemsList: any;
   selectedEmployee;
 
-  constructor(private urlHelperService: UrlHelperService) { }
+  constructor(public urlHelperService: UrlHelperService) { }
 
   ngOnInit() {
   }

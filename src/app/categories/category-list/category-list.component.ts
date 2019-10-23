@@ -9,7 +9,7 @@ import {UrlHelperService} from '../../helpers/url-helper.service';
 export class CategoryListComponent implements OnInit {
   @Input() categoryList: any;
 
-  constructor(private urlHelperService: UrlHelperService) {}
+  constructor(public urlHelperService: UrlHelperService) {}
 
   ngOnInit() {
   }

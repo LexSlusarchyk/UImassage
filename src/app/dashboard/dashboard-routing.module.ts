@@ -8,6 +8,7 @@ import {NewsManagementComponent} from './news-management/news-management.compone
 import {EditArticleComponent} from './news-management/edit-article/edit-article.component';
 import {EmployeesManagementComponent} from './employees-management/employees-management.component';
 import {EditEmployeeComponent} from './employees-management/edit-employee/edit-employee.component';
+import {EnrollmentManagementComponent} from './enrollment-management/enrollment-management.component';
 
 
 
@@ -77,6 +78,15 @@ const dashboardRoutes: Routes = [
         children: [
           { path: 'employees-management/employee/:id',
             component: EditEmployeeComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          { path: 'enrollment-management',
+            component:  EnrollmentManagementComponent
           }
         ]
       },

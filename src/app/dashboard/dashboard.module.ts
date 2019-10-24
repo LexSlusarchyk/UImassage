@@ -24,6 +24,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import {EditorComponent} from './editor/editor.component';
 import {ImgCropperComponent} from './img-cropper/img-cropper.component';
 import {CreateCategoryModalComponent} from './modals/create-category-modal/create-category-modal.component';
+import { EnrollmentManagementComponent } from './enrollment-management/enrollment-management.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import {CreateCategoryModalComponent} from './modals/create-category-modal/creat
     EditArticleComponent,
     EditEmployeeComponent,
     EditorComponent,
-    ImgCropperComponent
+    ImgCropperComponent,
+    EnrollmentManagementComponent
   ],
   entryComponents: [
     CreateCategoryModalComponent,

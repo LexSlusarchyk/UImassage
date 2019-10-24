@@ -26,6 +26,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FileUploaderModule} from './dashboard/file-uploader/file-uploader.module';
 import {NewsModule} from './news/news.module';
 import {LayoutModule} from './layout/layout.module';
+import { EnrollModalComponent } from './enrollment/enroll-modal/enroll-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {LayoutModule} from './layout/layout.module';
     GalleryComponent,
     GalleryManagementComponent,
     CreateAlbumModalComponent,
-    FooterComponent
+    FooterComponent,
+    EnrollModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import {LayoutModule} from './layout/layout.module';
   ],
 
   entryComponents: [
-    CreateAlbumModalComponent
+    CreateAlbumModalComponent,
+    EnrollModalComponent
   ],
 
   providers: [],

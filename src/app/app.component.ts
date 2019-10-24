@@ -11,8 +11,7 @@ export class AppComponent implements OnInit {
   public innerWidth: any;
 
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.defineSideNavLayout();

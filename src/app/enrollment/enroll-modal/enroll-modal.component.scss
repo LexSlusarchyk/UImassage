@@ -1,0 +1,23 @@
+.confirm-btn {
+  background-color: #00ACAB;
+  color: white;
+}
+
+.cancel-btn {
+  color: #00ACAB;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.enroll-form {
+  .field {
+    display: block;
+  }
+}
+
+.success-message-container {
+  text-align: center;
+  color: #00ACAB;
+}

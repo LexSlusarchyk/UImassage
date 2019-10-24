@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollModalService } from '../enrollment/enroll-modal/enroll-modal.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private enrollModalService: EnrollModalService) { }
 
   ngOnInit() {
   }
 
+  showEnrollModal(): void {
+    this.enrollModalService.showEnrollModal();
+  }
 }

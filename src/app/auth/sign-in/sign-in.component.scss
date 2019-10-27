@@ -1,0 +1,47 @@
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 200px;
+  margin: 50px auto;
+}
+
+.sign-in-container form > * {
+  width: 100%;
+}
+
+.sign-in-container {
+  h1 {
+    text-align: center;
+  }
+
+  .form-input {
+    margin-top: 10px;
+  }
+
+  .submit {
+    margin-top: 30px;
+  }
+}
+
+.social-sign-in-block {
+  display: flex;
+}
+
+.sign-in-option-btn {
+  width: 180px;
+  margin: 05px;
+
+  mat-icon {
+    margin-right: 15px;
+  }
+}
+
+.facebook-sign-in {
+  background-color: #3C5A99;
+  color: white;
+}
+
+.sign-up-invite {
+  text-align: center;
+}

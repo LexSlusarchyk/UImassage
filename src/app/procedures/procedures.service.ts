@@ -9,6 +9,7 @@ import {Subject} from 'rxjs';
 export class ProceduresService {
 
   private apiUrl = '/api/procedures';
+  private apiAdminUrl = '/api/admin/procedures';
 
   constructor(private http: HttpClient) { }
 
@@ -28,21 +29,21 @@ export class ProceduresService {
   }
 
   addProcedure(procedure): any {
-    return this.http.post('/api/procedures/add', procedure).subscribe((res) => {
+    return this.http.post(this.apiAdminUrl + '/add', procedure).subscribe((res) => {
       this.proceduresUpdated.next();
       return res;
     });
   }
 
   updateProcedure(procedure): any {
-    return this.http.put('/api/procedures/update/' + procedure.id, procedure).subscribe((res) => {
+    return this.http.put(this.apiAdminUrl + '/update/' + procedure.id, procedure).subscribe((res) => {
       this.proceduresUpdated.next();
       return res;
     });
   }
 
   deleteProcedure(id) {
-    this.http.delete('/api/procedures/delete/' + id).subscribe(
+    this.http.delete(this.apiAdminUrl + '/delete/' + id).subscribe(
       (res) => {
         this.proceduresUpdated.next();
         return res;

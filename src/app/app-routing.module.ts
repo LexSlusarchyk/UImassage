@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
 import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
-import {ContactsComponent} from './contacts/contacts.component';
+import {AuthGuard} from './auth/_guards/auth.guard';
 
 const routes: Routes = [
   { path: 'products', component: ProductsManagementComponent },
@@ -35,6 +35,7 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
   },
 
@@ -42,6 +43,12 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),
   },
+
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule),
+  },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

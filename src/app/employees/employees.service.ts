@@ -9,6 +9,7 @@ import {Procedure} from '../procedures/procedure';
 export class EmployeesService {
 
   private apiUrl = '/api/employees';
+  private apiAdminUrl = '/api/admin/employees';
 
   constructor(private http: HttpClient) { }
 
@@ -24,21 +25,21 @@ export class EmployeesService {
   }
 
   addItem(procedure): any {
-    return this.http.post('/api/employees/add', procedure).subscribe((res) => {
+    return this.http.post(this.apiAdminUrl + '/add', procedure).subscribe((res) => {
       this.employeesUpdated.next();
       return res;
     });
   }
 
   updateItem(procedure): any {
-    return this.http.put('/api/employees/update/' + procedure.id, procedure).subscribe((res) => {
+    return this.http.put(this.apiAdminUrl + '/update/' + procedure.id, procedure).subscribe((res) => {
       this.employeesUpdated.next();
       return res;
     });
   }
 
   deleteItem(id) {
-    this.http.delete('/api/employees/delete/' + id).subscribe(
+    this.http.delete(this.apiAdminUrl + '/delete/' + id).subscribe(
       (res) => {
         this.employeesUpdated.next();
         return res;

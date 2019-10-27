@@ -1,0 +1,33 @@
+<form [formGroup]="signInForm" class="sign-in-container">
+  <h1 class="center-align">Sign In</h1>
+  <mat-form-field class="form-input">
+    <input matInput placeholder="Email" type="email" formControlName="email" autocomplete="email" required>
+    <mat-error *ngIf="emailField.errors && emailField.errors.email && !emailField.errors.required">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailField.errors && emailField.errors.required">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-input">
+    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+           formControlName="pass" required>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" type="button"
+            [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="passField.errors && passField.errors.required">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button class="submit" mat-raised-button color="primary" (click)="login()" [disabled]="shouldDisableSubmit()"
+          *ngIf="!inProgress">
+    Login
+  </button>
+  <span *ngIf="inProgress">
+    <mat-spinner color="accent" class="center" [diameter]="40"></mat-spinner>
+  </span>
+  <h3>{{errorMessage}}</h3>
+</form>

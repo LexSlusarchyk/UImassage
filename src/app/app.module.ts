@@ -27,6 +27,7 @@ import {FileUploaderModule} from './dashboard/file-uploader/file-uploader.module
 import {NewsModule} from './news/news.module';
 import {LayoutModule} from './layout/layout.module';
 import { EnrollModalComponent } from './enrollment/enroll-modal/enroll-modal.component';
+import {JwtModule} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,16 @@ import { EnrollModalComponent } from './enrollment/enroll-modal/enroll-modal.com
     FontAwesomeModule,
     FileUploaderModule,
     LayoutModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        },
+        whitelistedDomains: ['localhost'],
+        blacklistedRoutes: ['localhost:4200/login', 'localhost:4200/dashboard']
+      }
+    }),
 
     ReactiveFormsModule,
   ],

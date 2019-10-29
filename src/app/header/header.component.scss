@@ -81,6 +81,18 @@ $button-height: 38px;
         }
       }
 
+      .lang-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #656565;
+
+
+      }
+      .lang-menu {
+        min-width: 30px!important;
+        max-width: 30px!important;
+      }
       .socials-container {
         display: flex;
         align-items: center;

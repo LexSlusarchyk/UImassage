@@ -6,12 +6,12 @@
       </div>
       <div class="menu-list-container">
         <ul class="list">
-          <li><a routerLink="/">Головна</a></li>
-          <li><a routerLink="/procedures/categories">Послуги</a></li>
-          <li><a routerLink="/news">Пропозиції</a></li>
-          <li><a routerLink="/employees">Працівники</a></li>
-          <li><a routerLink="/price">Прайс</a></li>
-          <li><a routerLink="/contacts">Контакти</a></li>
+          <li><a routerLink="/">{{ 'HEADER.main' | translate }}</a></li>
+          <li><a routerLink="/procedures/categories">{{ 'HEADER.procedures' | translate }}</a></li>
+          <li><a routerLink="/news">{{ 'HEADER.offers' | translate }}</a></li>
+          <li><a routerLink="/employees">{{ 'HEADER.employees' | translate }}</a></li>
+          <li><a routerLink="/price">{{ 'HEADER.price' | translate }}</a></li>
+          <li><a routerLink="/contacts">{{ 'HEADER.contacts' | translate }}</a></li>
           <li><a routerLink="/dashboard">Dashboard</a></li>
         </ul>
       </div>
@@ -20,6 +20,18 @@
         <a class="phone-number" href="tel:+380964427282"><fa-icon [icon]="faPhone"></fa-icon> +380 96 442 72 82</a>
       </div>
 
+      <div class="lang-container">
+        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+          <span>{{langService.currentLanguage.title}}</span>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false" class="lang-menu">
+        <span (mouseleave)="menuTrigger.closeMenu()">
+          <button mat-menu-item *ngFor="let item of langService.languages" (click)="selectLanguage(item)">
+            <span>{{item.title}}</span>
+          </button>
+        </span>
+        </mat-menu>
+      </div>
 
       <div class="socials-container">
         <a class="social" href="https://www.facebook.com/delight.body.spa/" target="_blank" rel="nofollow">
@@ -37,7 +49,7 @@
       <div class="enroll-btn-container">
         <div class="flex-item">
           <a class="enroll-procedure-btn" (click)="showEnrollModal()">
-            <span>Записатись онлайн</span>
+            <span>{{ 'FOOTER.enrollBtn' | translate }}</span>
           </a>
         </div>
       </div>

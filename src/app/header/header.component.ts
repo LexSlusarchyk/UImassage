@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faPhone} from '@fortawesome/free-solid-svg-icons';
 import {EnrollModalService} from '../enrollment/enroll-modal/enroll-modal.service';
+import {LanguageService} from '../helpers/language.service';
 
 
 @Component({
@@ -8,14 +9,15 @@ import {EnrollModalService} from '../enrollment/enroll-modal/enroll-modal.servic
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit {
   faPhone = faPhone;
   @Input()  sideNavOpened: boolean;
   @Output() sideNavOpenedChange = new EventEmitter<boolean>();
 
-  constructor(private enrollModalService: EnrollModalService) { }
+  constructor(private enrollModalService: EnrollModalService,
+              public langService: LanguageService) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
   }
 
   toggleMenuNav() {
@@ -25,5 +27,9 @@ export class HeaderComponent implements OnInit {
 
   showEnrollModal(): void {
     this.enrollModalService.showEnrollModal();
+  }
+
+  selectLanguage(language): void {
+    this.langService.selectLanguage(language);
   }
 }

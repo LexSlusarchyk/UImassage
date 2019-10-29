@@ -34,6 +34,11 @@ const routes: Routes = [
   },
 
   {
+    path: ':language/contacts',
+    loadChildren: () => import('./contacts/contacts.module').then(mod => mod.ContactsModule),
+  },
+
+  {
     path: 'dashboard',
     canActivate: [AuthGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
@@ -41,6 +46,11 @@ const routes: Routes = [
 
   {
     path: 'home',
+    loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),
+  },
+
+  {
+    path: ':language/home',
     loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),
   },
 

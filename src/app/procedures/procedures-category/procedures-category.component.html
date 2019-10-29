@@ -13,6 +13,6 @@
 <br/>
 <app-category-list [categoryList]="categoryList"></app-category-list>
 
-<h2 *ngIf="proceduresList">Послуги:</h2>
+<h2 *ngIf="proceduresList" class="procedures-title">{{ 'PROCEDURES.title' | translate }}:</h2>
 <app-procedures-list [proceduresList]="proceduresList"></app-procedures-list>
-<button mat-raised-button (click)="goBack()">Повернутися назад</button>
+<button mat-raised-button (click)="goBack()" class="go-back-btn">{{ 'BUTTONS.goBack' | translate }}</button>

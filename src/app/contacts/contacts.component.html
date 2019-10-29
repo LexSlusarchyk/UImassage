@@ -7,12 +7,13 @@
   </div>
   <div class="contacts-details-container">
     <div class="contacts-details">
-      <h2 class="title">Графік роботи</h2>
-      <p><fa-icon [icon]="faCalendar"></fa-icon>  Понеділок-субота: з 10:00 до 20:00</p>
-      <p><fa-icon [icon]="faCalendar"></fa-icon> Неділя: з 11:00 до 17:00</p>
+      <h2 class="title">{{ 'CONTACTS.schedule' | translate }}</h2>
+      <h3 class="sub-title">{{ 'CONTACTS.contactsSubTitle' | translate }}</h3>
+      <p><fa-icon [icon]="faCalendar"></fa-icon>  {{ 'CONTACTS.monToSat' | translate }}</p>
+      <p><fa-icon [icon]="faCalendar"></fa-icon> {{ 'CONTACTS.sunday' | translate }}</p>
 
-      <h2 class="title">Контакти</h2>
-      <p><fa-icon [icon]="faHome"></fa-icon>  <span> Пасічна, 171 Lviv, Ukraine</span></p>
+      <h2 class="title">{{ 'CONTACTS.contactsTitle' | translate }}</h2>
+      <p><fa-icon [icon]="faHome"></fa-icon>  <span> {{ 'CONTACTS.location' | translate }}</span></p>
       <p><fa-icon [icon]="faPhone"></fa-icon>  <span> +380 96 442 72 82</span></p>
       <p><fa-icon [icon]="faEnvelope"></fa-icon>  <span> delightbodysalon@gmail.com</span></p>
     </div>

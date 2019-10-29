@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
@@ -28,6 +28,8 @@ import {NewsModule} from './news/news.module';
 import {LayoutModule} from './layout/layout.module';
 import { EnrollModalComponent } from './enrollment/enroll-modal/enroll-modal.component';
 import {JwtModule} from '@auth0/angular-jwt';
+import {TranslationSharedModule} from './helpers/Translation/translation-shared.module';
+import {TranslateStore} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import {JwtModule} from '@auth0/angular-jwt';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    TranslationSharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -55,7 +58,6 @@ import {JwtModule} from '@auth0/angular-jwt';
     FontAwesomeModule,
     FileUploaderModule,
     LayoutModule,
-
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
@@ -74,7 +76,7 @@ import {JwtModule} from '@auth0/angular-jwt';
     EnrollModalComponent
   ],
 
-  providers: [],
+  providers: [TranslateStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

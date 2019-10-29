@@ -11,6 +11,7 @@ import { ProceduresCategoryListComponent } from './procedures-category/procedure
 import {CategoriesModule} from '../categories/categories.module';
 import { ProceduresListComponent } from './procedures-list/procedures-list.component';
 import {LayoutModule} from '../layout/layout.module';
+import {TranslationSharedModule} from '../helpers/Translation/translation-shared.module';
 
 
 
@@ -20,7 +21,8 @@ import {LayoutModule} from '../layout/layout.module';
     CommonModule,
     ProceduresRoutingModule,
     CategoriesModule,
-    LayoutModule
+    LayoutModule,
+    TranslationSharedModule
   ],
   declarations: [
     ProceduresComponent,

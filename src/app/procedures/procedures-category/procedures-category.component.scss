@@ -1,9 +1,10 @@
 @import "../../../variables";
 
+.go-back-btn, .title, .procedures-title {
+  color: #00ACAB;
+}
+
 .category-details-container {
-  .title {
-    color: #00ACAB;
-  }
   .flex-container {
     display: flex;
     justify-content: center;

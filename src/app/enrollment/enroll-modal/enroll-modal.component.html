@@ -1,27 +1,27 @@
 <div mat-dialog-content>
   <form [formGroup]="enrollForm" class="enroll-form" *ngIf="!success">
     <mat-form-field class="field">
-      <input matInput placeholder="Ваше Ім'я" formControlName="name" required>
+      <input matInput placeholder="{{ 'ENROLL.name' | translate }}" formControlName="name" required>
     </mat-form-field>
 
     <mat-form-field class="field">
-      <textarea matInput placeholder="Ваш телефон" formControlName="phone" required></textarea>
+      <textarea matInput placeholder="{{ 'ENROLL.phone' | translate }}" formControlName="phone" required></textarea>
     </mat-form-field>
 
     <mat-form-field class="field">
-        <textarea matInput placeholder="Тема" formControlName="subject"></textarea>
+        <textarea matInput placeholder="{{ 'ENROLL.topic' | translate }}" formControlName="subject"></textarea>
     </mat-form-field>
 
     <mat-form-field class="field">
-      <textarea matInput placeholder="Повідомлення" formControlName="message"></textarea>
+      <textarea matInput placeholder="{{ 'ENROLL.message' | translate }}" formControlName="message"></textarea>
     </mat-form-field>
   </form>
   <div class="success-message-container" *ngIf="success">
-    <h2>Ваш запис успішно прийнято. </h2>
-    <h3>Ми невдовзі Вам зателефонуємо, очікуйте на дзвінок!</h3>
+    <h2>{{ 'ENROLL.successMessage' | translate }}</h2>
+    <h3>{{ 'ENROLL.callbackMessage' | translate }}</h3>
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="cancel-btn" (click)="onNoClick()">Закрити</button>
-  <button mat-button class="confirm-btn" (click)="confirm()" *ngIf="!success">Підтвердити</button>
+  <button mat-button class="cancel-btn" (click)="onNoClick()">{{ 'BUTTONS.close' | translate }}</button>
+  <button mat-button class="confirm-btn" (click)="confirm()" *ngIf="!success">{{ 'BUTTONS.confirm' | translate }}</button>
 </div>

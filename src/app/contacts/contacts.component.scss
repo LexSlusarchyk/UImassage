@@ -33,7 +33,11 @@
         letter-spacing: 2px;
       }
 
-      p, .title {
+      .sub-title {
+        margin: 0;
+      }
+
+      p, .title, .sub-title {
         color: #656565;
       }
     }

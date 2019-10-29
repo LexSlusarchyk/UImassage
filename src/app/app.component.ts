@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import {LanguageService} from './helpers/language.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,9 @@ export class AppComponent implements OnInit {
   public innerWidth: any;
 
 
-  constructor() {}
+  constructor(public langService: LanguageService) {
+
+  }
 
   ngOnInit() {
     this.defineSideNavLayout();

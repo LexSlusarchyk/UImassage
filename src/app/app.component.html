@@ -3,15 +3,29 @@
   <mat-drawer [ngClass]="{drawer: true, mobile: isMobile}" mode="side" [(opened)]="sideNavOpened">
     <div class="menu-list-container">
       <ul class="list">
-        <li (click)="closeSideNav()"><a routerLink="/">Головна</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/procedures/categories">Послуги</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/news">Пропозиції</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/employees">Працівники</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/price">Прайс</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/contacts">Контакти</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/">{{ 'HEADER.main' | translate }}</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/procedures/categories">{{ 'HEADER.procedures' | translate }}</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/news">{{ 'HEADER.offers' | translate }}</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/employees">{{ 'HEADER.employees' | translate }}</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/price">{{ 'HEADER.price' | translate }}</a></li>
+        <li (click)="closeSideNav()"><a routerLink="/contacts">{{ 'HEADER.contacts' | translate }}</a></li>
         <li (click)="closeSideNav()"><a routerLink="/dashboard">Dashboard</a></li>
       </ul>
     </div>
+
+    <div class="lang-container">
+      <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" >
+        <span>{{langService.currentLanguage.title}}</span>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false" class="lang-menu">
+        <span>
+          <button mat-menu-item *ngFor="let item of langService.languages" (click)="langService.selectLanguage(item)">
+            <span>{{item.title}}</span>
+          </button>
+        </span>
+      </mat-menu>
+    </div>
+
     <div class="socials-container">
       <a class="social" href="https://www.facebook.com/delight.body.spa/" target="_blank" rel="nofollow">
         <img src="assets/img/facebook-filled.svg"
@@ -27,7 +41,7 @@
 
     <div class="btn-container">
       <button mat-icon-button (click)="closeSideNav()" class="close-btn">
-        <mat-icon class="icon">close</mat-icon><span>закрити</span>
+        <mat-icon class="icon">close</mat-icon><span>{{ 'HEADER.closeBtn' | translate }}</span>
       </button>
     </div>
 

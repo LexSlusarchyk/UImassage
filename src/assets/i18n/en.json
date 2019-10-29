@@ -1,0 +1,45 @@
+{
+  "HEADER": {
+    "main": "Home",
+    "procedures": "Services",
+    "offers": "Offers",
+    "employees": "Employees",
+    "price": "Price",
+    "contacts": "Contacts",
+    "closeBtn": "close"
+  },
+
+  "FOOTER": {
+    "enrollBtn": "Make an appointment online",
+    "details": "details by phone"
+  },
+
+  "CONTACTS": {
+    "schedule": "Work schedule",
+    "contactsTitle": "Contacts",
+    "location": "Pasichna, 171 Lviv, Ukraine",
+    "contactsSubTitle": "By appointment",
+    "monToSat": "Monday-saturday: from 10:00 to 20:00",
+    "sunday": "Sunday: from 11:00 to 17:00"
+  },
+
+  "ENROLL": {
+    "name": "Your Name",
+    "phone": "Your phone",
+    "topic": "Topic",
+    "message": "Message",
+    "successMessage": "Your entry was successfully accepted.",
+    "callbackMessage": "We'll call you back soon, wait for a call!"
+  },
+
+  "BUTTONS": {
+    "close": "Close",
+    "confirm": "Confirm",
+    "goBack": "Go back"
+  },
+
+
+  "PROCEDURES": {
+    "title": "Services"
+  }
+}

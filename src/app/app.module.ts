@@ -30,6 +30,7 @@ import { EnrollModalComponent } from './enrollment/enroll-modal/enroll-modal.com
 import {JwtModule} from '@auth0/angular-jwt';
 import {TranslationSharedModule} from './helpers/Translation/translation-shared.module';
 import {TranslateStore} from '@ngx-translate/core';
+import { HeaderNavListComponent } from './header/header-nav-list/header-nav-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {TranslateStore} from '@ngx-translate/core';
     GalleryManagementComponent,
     CreateAlbumModalComponent,
     FooterComponent,
-    EnrollModalComponent
+    EnrollModalComponent,
+    HeaderNavListComponent
   ],
   imports: [
     BrowserModule,

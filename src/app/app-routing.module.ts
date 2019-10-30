@@ -12,9 +12,17 @@ const routes: Routes = [
     path: 'procedures',
     loadChildren: () => import('./procedures/procedures.module').then(mod => mod.ProceduresModule),
   },
+  {
+    path: ':language/procedures',
+    loadChildren: () => import('./procedures/procedures.module').then(mod => mod.ProceduresModule),
+  },
 
   {
     path: 'news',
+    loadChildren: () => import('./news/news.module').then(mod => mod.NewsModule),
+  },
+  {
+    path: ':language/news',
     loadChildren: () => import('./news/news.module').then(mod => mod.NewsModule),
   },
 
@@ -22,9 +30,17 @@ const routes: Routes = [
     path: 'employees',
     loadChildren: () => import('./employees/employees.module').then(mod => mod.EmployeesModule),
   },
+  {
+    path: ':language/employees',
+    loadChildren: () => import('./employees/employees.module').then(mod => mod.EmployeesModule),
+  },
 
   {
     path: 'price',
+    loadChildren: () => import('./price/price.module').then(mod => mod.PriceModule),
+  },
+  {
+    path: ':language/price',
     loadChildren: () => import('./price/price.module').then(mod => mod.PriceModule),
   },
 
@@ -32,12 +48,16 @@ const routes: Routes = [
     path: 'contacts',
     loadChildren: () => import('./contacts/contacts.module').then(mod => mod.ContactsModule),
   },
-
   {
     path: ':language/contacts',
     loadChildren: () => import('./contacts/contacts.module').then(mod => mod.ContactsModule),
   },
 
+  {
+    path: ':language/dashboard',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
+  },
   {
     path: 'dashboard',
     canActivate: [AuthGuard],

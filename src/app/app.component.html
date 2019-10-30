@@ -2,15 +2,7 @@
 <mat-drawer-container class="drawer-container" autosize>
   <mat-drawer [ngClass]="{drawer: true, mobile: isMobile}" mode="side" [(opened)]="sideNavOpened">
     <div class="menu-list-container">
-      <ul class="list">
-        <li (click)="closeSideNav()"><a routerLink="/">{{ 'HEADER.main' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/procedures/categories">{{ 'HEADER.procedures' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/news">{{ 'HEADER.offers' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/employees">{{ 'HEADER.employees' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/price">{{ 'HEADER.price' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/contacts">{{ 'HEADER.contacts' | translate }}</a></li>
-        <li (click)="closeSideNav()"><a routerLink="/dashboard">Dashboard</a></li>
-      </ul>
+      <app-header-nav-list (sideNavOpenedChange)="onSideNavOpenedChange($event)" [isVertical]="true"></app-header-nav-list>
     </div>
 
     <div class="lang-container">

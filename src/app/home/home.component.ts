@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoriesService} from '../categories/categories.service';
-import {UrlHelperService} from '../helpers/url-helper.service';
 
-import {SWIPER_CONFIG, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
+import {SwiperPaginationInterface} from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
@@ -11,7 +10,6 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showFiller = false;
   categoryList: [];
 
   private pagination: SwiperPaginationInterface = {
@@ -35,8 +33,7 @@ export class HomeComponent implements OnInit {
   };
 
 
-  constructor(private categoriesService: CategoriesService,
-              private urlHelperService: UrlHelperService) {}
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit() {
     this.loadItemsList();

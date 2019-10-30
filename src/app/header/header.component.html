@@ -4,17 +4,7 @@
       <div class="logo-container">
         <img src="assets/img/logo.png" class="logo" alt="Site logo">
       </div>
-      <div class="menu-list-container">
-        <ul class="list">
-          <li><a routerLink="/">{{ 'HEADER.main' | translate }}</a></li>
-          <li><a routerLink="/procedures/categories">{{ 'HEADER.procedures' | translate }}</a></li>
-          <li><a routerLink="/news">{{ 'HEADER.offers' | translate }}</a></li>
-          <li><a routerLink="/employees">{{ 'HEADER.employees' | translate }}</a></li>
-          <li><a routerLink="/price">{{ 'HEADER.price' | translate }}</a></li>
-          <li><a routerLink="/contacts">{{ 'HEADER.contacts' | translate }}</a></li>
-          <li><a routerLink="/dashboard">Dashboard</a></li>
-        </ul>
-      </div>
+      <app-header-nav-list style="display: flex"></app-header-nav-list>
 
       <div class="phone-number-container">
         <a class="phone-number" href="tel:+380964427282"><fa-icon [icon]="faPhone"></fa-icon> +380 96 442 72 82</a>

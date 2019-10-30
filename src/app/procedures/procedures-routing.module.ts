@@ -7,17 +7,13 @@ import {ProceduresCategoryComponent} from './procedures-category/procedures-cate
 import {ProceduresCategoryResolverService} from './procedures-category/procedures-category-resolver.service';
 import {ProceduresCategoryListComponent} from './procedures-category/procedures-category-list/procedures-category-list.component';
 
-
-
 const proceduresRoutes: Routes = [
   {
     path: '',
     component: ProceduresComponent,
-    // canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
         children: [
           { path: 'categories',
             component:  ProceduresCategoryListComponent,

@@ -6,7 +6,6 @@ const contactsRoutes: Routes = [
   {
     path: '',
     component: ContactsComponent,
-    // canActivate: [AuthGuard],
   }
 ];
 

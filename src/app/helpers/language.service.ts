@@ -17,29 +17,34 @@ export class LanguageService {
     }
   ];
 
-  currentLanguage = this.setCurrentLanguage();
+  currentLanguage;
 
   constructor(private router: Router,
               private translateService: TranslateService) {
-    translateService.setDefaultLang('en');
+
+    this.setCurrentLanguage();
   }
 
 
-  setCurrentLanguage() {
-    return this.getLanguageById(this.getUserLanguageFromLocalStorage()) || this.languages[0];
+  setCurrentLanguage(language?) {
+    if (language) {
+      this.currentLanguage = this.getLanguageById(language);
+    } else {
+      this.currentLanguage = this.getLanguageById(this.getUserLanguageFromLocalStorage()) || this.languages[0];
+    }
   }
 
   selectLanguage(language) {
     this.currentLanguage = language;
-    this.setLanguageToLocalStorage(language);
     this.translateService.use(this.currentLanguage.id);
+    this.setLanguageToLocalStorage(language);
 
-
-    if (this.currentLanguage.id !== 'uk') {
-      // console.log('en' + this.router.routerState.snapshot.url);
-      // this.router.navigate(['en/home']).then();
+    if (this.currentLanguage.id === 'en') {
+      if (this.router.routerState.snapshot.url.includes('/en/')) { return; }
+      this.router.navigate(['en' + this.router.routerState.snapshot.url]).then();
     } else {
-      // this.router.navigate(['home']).then();
+      const defaultLangUrl = this.router.routerState.snapshot.url.replace('/en/', '/');
+      this.router.navigate([defaultLangUrl]).then();
     }
   }
 

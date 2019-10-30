@@ -8,15 +8,12 @@ import {faHome} from '@fortawesome/free-solid-svg-icons/faHome';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent {
   faPhone = faPhone;
   faEnvelope = faEnvelope;
   faHome = faHome;
   faCalendar = faCalendar;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
-
 }

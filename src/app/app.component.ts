@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from './helpers/language.service';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +14,32 @@ export class AppComponent implements OnInit {
   public innerWidth: any;
 
 
-  constructor(public langService: LanguageService) {
+  constructor(public langService: LanguageService,
+              private translateService: TranslateService,
+              private router: Router) {
 
+    translateService.setDefaultLang('uk');
+    router.events.subscribe(
+      (event: any) => {
+        if (event instanceof NavigationEnd) {
+          this.defineLanguage();
+        }
+      }
+    );
   }
 
   ngOnInit() {
     this.defineSideNavLayout();
+  }
+
+  defineLanguage() {
+    if (this.router.url.includes('/en/')) {
+      this.translateService.use('en');
+      this.langService.setCurrentLanguage('en');
+    } else {
+      this.translateService.use('uk');
+      this.langService.setCurrentLanguage('uk');
+    }
   }
 
   defineSideNavLayout() {

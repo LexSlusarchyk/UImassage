@@ -1,0 +1,25 @@
+<div [ngClass]="{'menu-list-container': true, vertical: isVertical}">
+  <ul class="list">
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/home">{{ 'HEADER.main' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/procedures/categories">{{ 'HEADER.procedures' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/news">{{ 'HEADER.offers' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/employees">{{ 'HEADER.employees' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/price">{{ 'HEADER.price' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/contacts">{{ 'HEADER.contacts' | translate }}</a>
+    </li>
+    <li (click)="closeSideNav()">
+      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/dashboard">Dashboard</a>
+    </li>
+  </ul>
+</div>

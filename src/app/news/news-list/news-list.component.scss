@@ -44,6 +44,12 @@
 
 }
 
+@media screen and (max-width: $break-medium) {
+  .items-container {
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: $break-small) {
   .items-container {
     padding: 0;

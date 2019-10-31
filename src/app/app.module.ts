@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
@@ -15,9 +15,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
 import { ProductsComponent } from './products/products.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { GalleryManagementComponent } from './dashboard/gallery-management/gallery-management.component';
-import { CreateAlbumModalComponent } from './dashboard/modals/create-album-modal/create-album-modal.component';
 import {HeaderComponent} from './header/header.component';
 import {CategoriesModule} from './categories/categories.module';
 import { FooterComponent } from './footer/footer.component';
@@ -36,11 +33,6 @@ import { HeaderNavListComponent } from './header/header-nav-list/header-nav-list
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductsManagementComponent,
-    ProductsComponent,
-    GalleryComponent,
-    GalleryManagementComponent,
-    CreateAlbumModalComponent,
     FooterComponent,
     EnrollModalComponent,
     HeaderNavListComponent
@@ -74,7 +66,6 @@ import { HeaderNavListComponent } from './header/header-nav-list/header-nav-list
   ],
 
   entryComponents: [
-    CreateAlbumModalComponent,
     EnrollModalComponent
   ],
 

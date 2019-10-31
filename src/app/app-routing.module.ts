@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ProductsManagementComponent} from './dashboard/products-management/products-management.component';
-import {GalleryManagementComponent} from './dashboard/gallery-management/gallery-management.component';
 import {AuthGuard} from './auth/_guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsManagementComponent },
-  { path: 'gallery', component: GalleryManagementComponent },
-
   {
     path: 'procedures',
     loadChildren: () => import('./procedures/procedures.module').then(mod => mod.ProceduresModule),

@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CategoriesService} from '../../../categories/categories.service';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
-import {EditorService} from '../../editor/editor.service';
+import {Category} from '../../../categories/category';
 
 @Component({
   selector: 'app-create-category-modal',
@@ -11,8 +11,10 @@ import {EditorService} from '../../editor/editor.service';
   styleUrls: ['./create-category-modal.component.scss']
 })
 export class CreateCategoryModalComponent implements OnInit {
+  category: Category;
   itemForm: FormGroup = new FormGroup({
-    title: new FormControl('')
+    title: new FormControl(''),
+    titleEn: new FormControl(''),
   });
   fileUrl: string;
   cropperHidden = true;
@@ -20,8 +22,9 @@ export class CreateCategoryModalComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public dialogRef: MatDialogRef<CreateCategoryModalComponent>,
               private categoriesService: CategoriesService,
-              private fileUploadService: FileUploadService,
-              private editorService: EditorService) {
+              private fileUploadService: FileUploadService) {
+
+    this.category = new Category();
 
     this.categoriesService.categoriesUpdated$.subscribe(() => {
       this.closeModal();
@@ -40,9 +43,11 @@ export class CreateCategoryModalComponent implements OnInit {
     if (this.isEdited()) {
       this.fileUploadService.setFileUrl(this.data.category.image);
       this.itemForm.patchValue({
-        title: this.data.category.title
+        title: this.data.category.title,
+        titleEn: this.data.category.titleEn
       });
-      this.editorService.setInitialHtmlText(this.data.category.text);
+      this.category.text = this.data.category.text;
+      this.category.textEn = this.data.category.textEn;
     }
   }
 
@@ -62,8 +67,10 @@ export class CreateCategoryModalComponent implements OnInit {
     return {
       id: this.isEdited() ? this.data.category.id : null,
       title: this.itemForm.get('title').value,
+      titleEn: this.itemForm.get('titleEn').value,
       image: this.fileUrl ? this.fileUrl : null,
-      text: this.editorService.getHtmlText(),
+      text: this.category.text,
+      textEn: this.category.textEn,
       parentId: this.data.parentId ? this.data.parentId : this.data.category.parentId,
     };
   }

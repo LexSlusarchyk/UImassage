@@ -20,9 +20,20 @@
     </mat-expansion-panel>
 
     <form [formGroup]="procedureForm" class="procedure-form">
-      <mat-form-field class="field">
-        <input matInput placeholder="Заголовок" formControlName="title">
-      </mat-form-field>
+
+      <mat-tab-group>
+        <mat-tab label="UA Заголовок">
+          <mat-form-field class="field">
+            <input matInput placeholder="Заголовок" formControlName="title">
+          </mat-form-field>
+        </mat-tab>
+
+        <mat-tab label="EN Заголовок">
+          <mat-form-field class="field">
+            <input matInput placeholder="Заголовок" formControlName="titleEn">
+          </mat-form-field>
+        </mat-tab>
+      </mat-tab-group>
 
       <mat-form-field class="field">
         <input matInput placeholder="Тривалість" formControlName="duration">
@@ -36,7 +47,16 @@
         <input matInput placeholder="Коротке відео процедури (посилання на відео*)" formControlName="videoUrl">
       </mat-form-field>
     </form>
-    <app-editor></app-editor>
+
+    <mat-tab-group>
+      <mat-tab label="UA Текст">
+        <app-editor [initialHtmlText]="this.procedure.text" [item]="this.procedure" [editedProperty]="'text'"></app-editor>
+      </mat-tab>
+
+      <mat-tab label="EN Текст">
+        <app-editor [initialHtmlText]="this.procedure.textEn" [item]="this.procedure" [editedProperty]="'textEn'"></app-editor>
+      </mat-tab>
+    </mat-tab-group>
   </div>
   <button mat-raised-button color="primary" (click)="confirm()">Зберегти</button>
   <button mat-raised-button *ngIf="procedure" (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>

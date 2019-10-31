@@ -1,13 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Procedure} from '../../../procedures/procedure';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UrlHelperService} from '../../../helpers/url-helper.service';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {NewsService} from '../../../news/news.service';
-import {EditorService} from '../../editor/editor.service';
 import {ImgCropperComponent} from '../../img-cropper/img-cropper.component';
+import {Article} from '../../../news/article';
 
 
 @Component({
@@ -18,12 +17,13 @@ import {ImgCropperComponent} from '../../img-cropper/img-cropper.component';
 export class EditArticleComponent implements OnInit {
   isNew = false;
   id: string;
-  procedure: Procedure;
+  article: Article;
   fileUrl: string;
   cropperHidden = true;
 
-  procedureForm: FormGroup = new FormGroup({
-    title: new FormControl('')
+  articleForm: FormGroup = new FormGroup({
+    title: new FormControl(''),
+    titleEn: new FormControl('')
   });
 
 
@@ -34,9 +34,9 @@ export class EditArticleComponent implements OnInit {
               private router: Router,
               private urlHelperService: UrlHelperService,
               private _location: Location,
-              private fileUploadService: FileUploadService,
-              private editorService: EditorService) {
+              private fileUploadService: FileUploadService) {
 
+    this.article = new Article();
     this.newsService.newsUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/news-management']).then();
     });
@@ -51,10 +51,9 @@ export class EditArticleComponent implements OnInit {
     if (this.id === 'new') {
       this.isNew = true;
     } else {
-      this.newsService.getItem(this.id).then(procedure => {
-        this.procedure = new Procedure(procedure[0]);
-        this.setProcedureFields();
-        this.editorService.setInitialHtmlText(this.procedure.text);
+      this.newsService.getItem(this.id).then(article => {
+        this.article.init(article);
+        this.setArticleFields();
       });
     }
   }
@@ -64,34 +63,37 @@ export class EditArticleComponent implements OnInit {
   }
 
   confirm() {
-    this.isNew ? this.addProcedure() : this.editProcedure();
+    this.isNew ? this.addArticle() : this.editArticle();
   }
 
-  addProcedure() {
-    this.newsService.addItem(this.getProcedure());
+  addArticle() {
+    this.newsService.addItem(this.getArticle());
   }
 
-  editProcedure() {
-    this.newsService.updateItem(this.getProcedure());
+  editArticle() {
+    this.newsService.updateItem(this.getArticle());
   }
 
-  setProcedureFields() {
-    this.fileUploadService.setFileUrl(this.procedure.image);
-    this.procedureForm.patchValue({
-      title: this.procedure.title
+  setArticleFields() {
+    this.fileUploadService.setFileUrl(this.article.image);
+    this.articleForm.patchValue({
+      title: this.article.title,
+      titleEn: this.article.titleEn,
     });
   }
 
-  getProcedure() {
+  getArticle() {
     return {
-      id: this.isNew ? null : this.procedure.id,
-      title: this.procedureForm.get('title').value,
-      text: this.editorService.getHtmlText(),
+      id: this.isNew ? null : this.article.id,
+      title: this.articleForm.get('title').value,
+      titleEn: this.articleForm.get('titleEn').value,
+      text: this.article.text,
+      textEn: this.article.textEn,
       image: this.fileUrl ? this.fileUrl : null,
     };
   }
 
-  deleteProcedure(id) {
+  deleteArticle(id) {
     this.newsService.deleteItem(id);
   }
 }

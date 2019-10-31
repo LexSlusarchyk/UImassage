@@ -12,10 +12,12 @@ import {MatDialog} from '@angular/material/dialog';
 interface CategoryNode {
   id: number;
   title: string;
+  titleEn: string;
   children?: CategoryNode[];
   parent_id?: number;
   image?: string;
   text?: string;
+  textEn?: string;
   favorite?: string;
 }
 
@@ -40,11 +42,13 @@ export class CategoriesTreeComponent implements OnInit {
     return {
       expandable: !!node.children && node.children.length > 0,
       title: node.title,
+      titleEn: node.titleEn,
       level: level,
       id: node.id,
       parentId: node.parent_id,
       image: node.image,
       text: node.text,
+      textEn: node.textEn,
       favorite: node.favorite === '1'
     };
   }

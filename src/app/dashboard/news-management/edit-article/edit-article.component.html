@@ -8,16 +8,35 @@
     <br>
     <app-img-cropper *ngIf="!cropperHidden"></app-img-cropper>
 
-    <form [formGroup]="procedureForm" class="procedure-form">
-      <mat-form-field class="field">
-        <input matInput placeholder="Заголовок" formControlName="title">
-      </mat-form-field>
+    <form [formGroup]="articleForm" class="procedure-form">
+      <mat-tab-group>
+        <mat-tab label="UA Заголовок">
+          <mat-form-field class="field">
+            <input matInput placeholder="Заголовок" formControlName="title">
+          </mat-form-field>
+        </mat-tab>
+
+        <mat-tab label="EN Заголовок">
+          <mat-form-field class="field">
+            <input matInput placeholder="Заголовок" formControlName="titleEn">
+          </mat-form-field>
+        </mat-tab>
+      </mat-tab-group>
+
+      <mat-tab-group>
+        <mat-tab label="UA Текст">
+          <app-editor [initialHtmlText]="this.article.text" [item]="this.article" [editedProperty]="'text'"></app-editor>
+        </mat-tab>
+
+        <mat-tab label="EN Текст">
+          <app-editor [initialHtmlText]="this.article.textEn" [item]="this.article" [editedProperty]="'textEn'"></app-editor>
+        </mat-tab>
+      </mat-tab-group>
     </form>
-    <app-editor></app-editor>
   </div>
   <div class="btn-container">
     <button mat-raised-button color="primary" (click)="confirm()">Зберегти</button>
-    <button mat-raised-button *ngIf="procedure" (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
+    <button mat-raised-button *ngIf="article" (click)="deleteArticle(article.id)" class="delete-btn">Видалити</button>
   </div>
 
 </div>

@@ -7,7 +7,6 @@ import {ProceduresService} from '../../../procedures/procedures.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {CategoriesService} from '../../../categories/categories.service';
-import {EditorService} from '../../editor/editor.service';
 
 @Component({
   selector: 'app-edit-procedure',
@@ -21,6 +20,7 @@ export class EditProcedureComponent implements OnInit {
   xpandStatus = false;
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
+    titleEn: new FormControl(''),
     duration: new FormControl(''),
     price: new FormControl(''),
     videoUrl: new FormControl(''),
@@ -36,8 +36,9 @@ export class EditProcedureComponent implements OnInit {
               private urlHelperService: UrlHelperService,
               private _location: Location,
               private fileUploadService: FileUploadService,
-              private categoriesService: CategoriesService,
-              private editorService: EditorService) {
+              private categoriesService: CategoriesService) {
+
+    this.procedure = new Procedure();
 
     this.proceduresService.proceduresUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/procedures-management']).then();
@@ -59,9 +60,8 @@ export class EditProcedureComponent implements OnInit {
       this.isNew = true;
     } else {
       this.proceduresService.getProcedure(this.id).then(procedure => {
-        this.procedure = new Procedure(procedure[0]);
+        this.procedure.init(procedure);
         this.setProcedureFields();
-        this.editorService.setInitialHtmlText(this.procedure.text);
       });
     }
   }
@@ -96,6 +96,7 @@ export class EditProcedureComponent implements OnInit {
     this.fileUploadService.setFileUrl(this.procedure.image);
     this.procedureForm.patchValue({
       title: this.procedure.title,
+      titleEn: this.procedure.titleEn,
       duration: this.procedure.duration,
       price: this.procedure.price,
       videoUrl: this.procedure.videoUrl,
@@ -107,10 +108,12 @@ export class EditProcedureComponent implements OnInit {
     return {
       id: this.isNew ? null : this.procedure.id,
       title: this.procedureForm.get('title').value,
+      titleEn: this.procedureForm.get('titleEn').value,
       duration: this.procedureForm.get('duration').value,
       price: this.procedureForm.get('price').value,
       videoUrl: this.procedureForm.get('videoUrl').value,
-      text: this.editorService.getHtmlText(),
+      text: this.procedure.text,
+      textEn: this.procedure.textEn,
       image: this.fileUrl ? this.fileUrl : null,
       category_id: this.getCategoryId()
     };

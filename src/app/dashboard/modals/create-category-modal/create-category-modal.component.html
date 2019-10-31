@@ -7,11 +7,29 @@
   <app-img-cropper *ngIf="!cropperHidden"></app-img-cropper>
   <br/>
   <form [formGroup]="itemForm" class="category-form">
-    <mat-form-field class="field">
-      <input matInput placeholder="Назва категорії" formControlName="title">
-    </mat-form-field>
+    <mat-tab-group>
+      <mat-tab label="UA Назва категорії">
+        <mat-form-field class="field">
+          <input matInput placeholder="Назва категорії" formControlName="title">
+        </mat-form-field>
+      </mat-tab>
 
-    <app-editor></app-editor>
+      <mat-tab label="EN Назва категорії">
+        <mat-form-field class="field">
+          <input matInput placeholder="Назва категорії" formControlName="titleEn">
+        </mat-form-field>
+      </mat-tab>
+    </mat-tab-group>
+
+    <mat-tab-group>
+      <mat-tab label="UA Текст">
+        <app-editor [initialHtmlText]="this.category.text" [item]="this.category" [editedProperty]="'text'"></app-editor>
+      </mat-tab>
+
+      <mat-tab label="EN Текст">
+        <app-editor [initialHtmlText]="this.category.textEn" [item]="this.category" [editedProperty]="'textEn'"></app-editor>
+      </mat-tab>
+    </mat-tab-group>
   </form>
 </div>
 <div mat-dialog-actions>

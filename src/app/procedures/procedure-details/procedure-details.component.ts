@@ -23,7 +23,7 @@ export class ProcedureDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe((data: { procedure: Procedure }) => {
-        this.procedure = data.procedure[0];
+        this.procedure = data.procedure;
 
         if (this.procedure.videoUrl) {
           this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.getEmbedYoutubeUrl(this.procedure.videoUrl));

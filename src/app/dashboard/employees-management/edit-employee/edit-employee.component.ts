@@ -18,7 +18,9 @@ export class EditEmployeeComponent implements OnInit {
   procedure: Procedure;
   procedureForm: FormGroup = new FormGroup({
     title: new FormControl(''),
-    text: new FormControl('')
+    titleEn: new FormControl(''),
+    text: new FormControl(''),
+    textEn: new FormControl('')
   });
 
   fileUrl: string;
@@ -66,7 +68,9 @@ export class EditEmployeeComponent implements OnInit {
     this.fileUploadService.setFileUrl(this.procedure.image);
     this.procedureForm.patchValue({
       title: this.procedure.title,
-      text: this.procedure.text
+      titleEn: this.procedure.titleEn,
+      text: this.procedure.text,
+      textEn: this.procedure.textEn
     });
   }
 
@@ -74,7 +78,9 @@ export class EditEmployeeComponent implements OnInit {
     return {
       id: this.isNew ? null : this.procedure.id,
       title: this.procedureForm.get('title').value,
+      titleEn: this.procedureForm.get('titleEn').value,
       text: this.procedureForm.get('text').value,
+      textEn: this.procedureForm.get('textEn').value,
       image: this.fileUrl ? this.fileUrl : null,
     };
   }

@@ -9,7 +9,7 @@ import {CategoriesModule} from '../categories/categories.module';
 import {ProceduresModule} from '../procedures/procedures.module';
 import {ProceduresManagementComponent} from './procedures-management/procedures-management.component';
 import { EditProcedureComponent } from './procedures-management/edit-procedure/edit-procedure.component';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatTabsModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FileUploaderModule} from './file-uploader/file-uploader.module';
 import {NewsModule} from '../news/news.module';
@@ -32,6 +32,7 @@ import { EnrollmentManagementComponent } from './enrollment-management/enrollmen
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatTabsModule,
 
     CommonModule,
     DashboardRoutingModule,

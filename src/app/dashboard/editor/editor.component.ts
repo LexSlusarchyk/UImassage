@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {EditorService} from './editor.service';
+import {Component, Input} from '@angular/core';
 import {FileUploadService} from '../file-uploader/file-upload.service';
 import {UrlHelperService} from '../../helpers/url-helper.service';
 import * as QuillNamespace from 'quill';
@@ -12,8 +11,11 @@ Quill.register('modules/imageResize', ImageResize);
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnInit {
-  initialHtmlText = '';
+export class EditorComponent {
+  @Input()  initialHtmlText?: string;
+  @Input()  item?;
+  @Input()  editedProperty?;
+
   quillEditorRef;
   maxUploadFileSize = 1000000;
 
@@ -38,15 +40,8 @@ export class EditorComponent implements OnInit {
     },
     imageResize: true
   };
-  constructor(private editorService: EditorService,
-              private fileUploadService: FileUploadService,
+  constructor(private fileUploadService: FileUploadService,
               private urlHelper: UrlHelperService) {
-    this.editorService.initialHtmlText$.subscribe((res) => {
-      this.initialHtmlText = res;
-    });
-  }
-
-  ngOnInit() {
   }
 
   getEditorInstance(editorInstance: any) {
@@ -85,7 +80,9 @@ export class EditorComponent implements OnInit {
   }
 
   onContentChanged(event) {
-    this.editorService.setHtmlText(event.html);
+    if (this.item && this.editedProperty) {
+      this.item[this.editedProperty] = event.html;
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Procedure } from './procedure';
 import {Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +17,17 @@ export class ProceduresService {
   proceduresUpdated$ = this.proceduresUpdated.asObservable();
 
   getProcedure(id): any {
-    return this.http.get<Procedure>(this.apiUrl + '/' + id).toPromise();
+    return this.http.get(this.apiUrl + '/' + id).toPromise();
   }
 
   getProcedures(): any {
-    return this.http.get<Procedure[]>(this.apiUrl).toPromise();
+    return this.http.get(this.apiUrl).pipe(
+      map( res => res )
+    );
   }
 
   getProceduresByCategoryId(id): any {
-    return this.http.get<Procedure[]>(this.apiUrl + '/category/' + id).toPromise();
+    return this.http.get(this.apiUrl + '/category/' + id).toPromise();
   }
 
   addProcedure(procedure): any {

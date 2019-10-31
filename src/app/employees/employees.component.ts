@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FileUploadService} from '../dashboard/file-uploader/file-upload.service';
-import {MatDialog} from '@angular/material/dialog';
 import {EmployeesService} from './employees.service';
+import {LanguageService} from '../helpers/language.service';
 
 @Component({
   selector: 'app-employees',
@@ -12,8 +11,7 @@ export class EmployeesComponent implements OnInit {
   items = null;
 
   constructor(private employeesService: EmployeesService,
-              private fileUploadService: FileUploadService,
-              public dialog: MatDialog) {
+              private languageService: LanguageService) {
 
     this.employeesService.employeesUpdated$.subscribe(() => {
       this.loadItemsList();
@@ -25,13 +23,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.employeesService.getItems().then((response) => {
-      this.items = response;
+    this.employeesService.getItems().subscribe((response) => {
+      this.items = this.languageService.translateItems(response);
     });
-  }
-
-  editItem(procedure) {
-
   }
 
   deleteItem(id) {

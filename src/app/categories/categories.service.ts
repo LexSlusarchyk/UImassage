@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,8 @@ export class CategoriesService {
   private categoriesUpdated = new Subject<boolean>();
   categoriesUpdated$ = this.categoriesUpdated.asObservable();
 
-  private categoriesTreeReady = new Subject<[]>();
-  categoriesTreeReady$ = this.categoriesTreeReady.asObservable();
-
   private selectedCategory = new Subject<[]>();
   selectedCategory$ = this.selectedCategory.asObservable();
-
-  private categoryChildren = new Subject<[]>();
-  categoryChildren$ = this.categoryChildren.asObservable();
 
   selectCategory(category) {
     this.selectedCategory.next(category);
@@ -40,9 +35,9 @@ export class CategoriesService {
   }
 
   getCategoriesTree(): any {
-    this.http.get(this.apiUrl).subscribe((res) => {
-      this.categoriesTreeReady.next(this.createTree(res));
-    });
+    return this.http.get(this.apiUrl).pipe(
+      map(res => this.createTree(res) )
+    );
   }
 
   getCategoryChildren(id) {

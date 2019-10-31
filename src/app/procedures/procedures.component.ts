@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProceduresService} from './procedures.service';
 import {CategoriesService} from '../categories/categories.service';
+import {LanguageService} from '../helpers/language.service';
 
 @Component({
   selector: 'app-procedures',
@@ -8,16 +9,14 @@ import {CategoriesService} from '../categories/categories.service';
   styleUrls: ['./procedures.component.scss']
 })
 export class ProceduresComponent implements OnInit {
+  categoryTree;
   procedures = null;
   sideNavOpened = true;
   public innerWidth: any;
 
   constructor(private proceduresService: ProceduresService,
-              private categoriesService: CategoriesService, ) {
-
-    this.proceduresService.proceduresUpdated$.subscribe(() => {
-      this.loadProcedures();
-    });
+              private categoriesService: CategoriesService,
+              private languageService: LanguageService) {
 
     this.categoriesService.selectedCategory$.subscribe(() => {
       this.onCategorySelected();
@@ -26,6 +25,7 @@ export class ProceduresComponent implements OnInit {
 
   ngOnInit() {
     this.loadProcedures();
+    this.loadCategoriesTree();
     this.defineSideNavState();
   }
 
@@ -43,9 +43,15 @@ export class ProceduresComponent implements OnInit {
     }
   }
 
+  loadCategoriesTree(): void {
+    this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
+      this.categoryTree = this.languageService.translateItems(categoriesTree[0].children);
+    });
+  }
+
   loadProcedures() {
-    this.proceduresService.getProcedures().then((response) => {
-      this.procedures = response;
+    this.proceduresService.getProcedures().subscribe((response) => {
+      this.procedures = this.languageService.translateItems(response);
     });
   }
 

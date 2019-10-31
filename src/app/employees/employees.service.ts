@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {Procedure} from '../procedures/procedure';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +17,24 @@ export class EmployeesService {
   employeesUpdated$ = this.employeesUpdated.asObservable();
 
   getItem(id): any {
-    return this.http.get<Procedure[]>(this.apiUrl + '/' + id).toPromise();
+    return this.http.get(this.apiUrl + '/' + id).toPromise();
   }
 
   getItems(): any {
-    return this.http.get<Procedure[]>(this.apiUrl).toPromise();
+    return this.http.get(this.apiUrl).pipe(
+      map( res => res )
+    );
   }
 
-  addItem(procedure): any {
-    return this.http.post(this.apiAdminUrl + '/add', procedure).subscribe((res) => {
+  addItem(item): any {
+    return this.http.post(this.apiAdminUrl + '/add', item).subscribe((res) => {
       this.employeesUpdated.next();
       return res;
     });
   }
 
-  updateItem(procedure): any {
-    return this.http.put(this.apiAdminUrl + '/update/' + procedure.id, procedure).subscribe((res) => {
+  updateItem(item): any {
+    return this.http.put(this.apiAdminUrl + '/update/' + item.id, item).subscribe((res) => {
       this.employeesUpdated.next();
       return res;
     });

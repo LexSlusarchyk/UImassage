@@ -16,7 +16,7 @@
           Змінити категорію
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <app-categories-tree [options]="{isEditable: false, collapseAll: true}"></app-categories-tree>
+      <app-categories-tree [tree]="categoryTree" [options]="{isEditable: false, collapseAll: true}"></app-categories-tree>
     </mat-expansion-panel>
 
     <form [formGroup]="procedureForm" class="procedure-form">

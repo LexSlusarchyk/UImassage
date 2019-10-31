@@ -17,7 +17,7 @@ export class NewsManagementComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.newsService.getItems().then((response) => {
+    this.newsService.getItems().subscribe((response) => {
       this.itemsList = response;
     });
   }

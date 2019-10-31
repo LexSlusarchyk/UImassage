@@ -23,7 +23,7 @@ export class EmployeesManagementComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.employeesService.getItems().then((response) => {
+    this.employeesService.getItems().subscribe((response) => {
       this.items = response;
     });
   }

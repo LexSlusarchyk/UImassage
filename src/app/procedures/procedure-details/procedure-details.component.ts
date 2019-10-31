@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {UrlHelperService} from '../../helpers/url-helper.service';
 import {Location} from '@angular/common';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {LanguageService} from '../../helpers/language.service';
 
 
 @Component({
@@ -18,12 +19,13 @@ export class ProcedureDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               public urlHelperService: UrlHelperService,
               private _location: Location,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              private languageService: LanguageService) { }
 
   ngOnInit() {
     this.route.data
       .subscribe((data: { procedure: Procedure }) => {
-        this.procedure = data.procedure;
+        this.procedure = this.languageService.translateItem(data.procedure);
 
         if (this.procedure.videoUrl) {
           this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.getEmbedYoutubeUrl(this.procedure.videoUrl));

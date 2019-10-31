@@ -1,5 +1,5 @@
 
 <button mat-button routerLink="procedure/new">Додати процедуру</button>
-<app-categories-tree [options]="{isEditable: false, collapseAll: true}" [navEnabled]="false"></app-categories-tree>
+<app-categories-tree [tree]="categoryTree" [options]="{isEditable: false, collapseAll: true}" [navEnabled]="false"></app-categories-tree>
 <app-procedures-list [proceduresList]="procedures"></app-procedures-list>
 

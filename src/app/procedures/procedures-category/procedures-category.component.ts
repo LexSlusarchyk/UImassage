@@ -6,13 +6,14 @@ import {ProceduresService} from '../procedures.service';
 import {UrlHelperService} from '../../helpers/url-helper.service';
 import {CategoriesService} from '../../categories/categories.service';
 import {Location} from '@angular/common';
+import {LanguageService} from '../../helpers/language.service';
 
 @Component({
   selector: 'app-procedures-category',
   templateUrl: './procedures-category.component.html',
   styleUrls: ['./procedures-category.component.scss']
 })
-export class ProceduresCategoryComponent implements OnInit, AfterViewInit {
+export class ProceduresCategoryComponent implements OnInit {
   category;
   proceduresList;
   categoryList;
@@ -20,22 +21,14 @@ export class ProceduresCategoryComponent implements OnInit, AfterViewInit {
   constructor(private route: ActivatedRoute,
               private proceduresService: ProceduresService,
               private categoriesService: CategoriesService,
+              private languageService: LanguageService,
               public urlHelperService: UrlHelperService,
               private _location: Location) { }
 
   ngOnInit() {
     this.route.data
       .subscribe((data: { category: Category }) => {
-        this.category = data.category[0];
-        this.getProceduresListByCategory(data.category[0].id);
-        this.getCategoryChildren(data.category[0].id);
-      });
-  }
-
-  ngAfterViewInit() {
-    this.route.data
-      .subscribe((data: { category: Category }) => {
-        this.category = data.category[0];
+        this.category = this.languageService.translateItem(data.category[0]);
         this.getProceduresListByCategory(data.category[0].id);
         this.getCategoryChildren(data.category[0].id);
       });

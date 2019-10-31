@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {CategoriesService} from '../categories.service';
@@ -33,10 +33,10 @@ interface CategoryFlatNode {
   templateUrl: './categories-tree.component.html',
   styleUrls: ['./categories-tree.component.scss']
 })
-export class CategoriesTreeComponent implements OnInit {
+export class CategoriesTreeComponent implements OnChanges {
+  @Input() tree?: any;
   @Input() options?: any;
   @Input() navEnabled?: boolean;
-  @Input() withoutRoot?: boolean;
 
   private _transformer = (node: CategoryNode, level: number) => {
     return {
@@ -62,24 +62,18 @@ export class CategoriesTreeComponent implements OnInit {
 
   constructor(private categoriesService: CategoriesService,
               public dialog: MatDialog) {
+  }
 
-    this.categoriesService.categoriesTreeReady$.subscribe((categoriesTree: any) => {
-      this.dataSource.data = this.withoutRoot ? categoriesTree[0].children : categoriesTree;
+  ngOnChanges() {
+    if (this.tree) {
+      this.dataSource.data = this.tree;
 
       if (this.options && this.options.collapseAll) {
         this.treeControl.collapseAll();
       } else {
         this.treeControl.expandAll();
       }
-    });
-    this.categoriesService.categoriesUpdated$.subscribe(() => {
-      this.categoriesService.getCategoriesTree();
-    });
-    this.categoriesService.getCategoriesTree();
-  }
-
-  ngOnInit(): void {
-
+    }
   }
 
   hasChild = (_: number, node: CategoryFlatNode) => node.expandable;
@@ -100,7 +94,6 @@ export class CategoriesTreeComponent implements OnInit {
   }
 
   toggleFavoriteCategory(category) {
-    debugger
     category.favorite = !category.favorite;
     this.categoriesService.updateItem(category);
   }

@@ -7,23 +7,19 @@ import {CategoriesService} from '../categories/categories.service';
   templateUrl: './price.component.html',
   styleUrls: ['./price.component.scss']
 })
-export class PriceComponent implements OnInit {
+export class PriceComponent {
   categories;
   children;
   categoriesTree;
 
   constructor(private proceduresService: ProceduresService,
               private categoriesService: CategoriesService) {
+    this.loadCategoriesTree();
+  }
 
-    this.categoriesService.getCategoriesTree();
-    this.categoriesService.categoriesTreeReady$.subscribe((categoriesTree: any) => {
+  loadCategoriesTree(): void {
+    this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
       this.categoriesTree = categoriesTree[0].children;
     });
   }
-
-  ngOnInit() {
-  }
-
-
-
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {Procedure} from '../procedures/procedure';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +17,13 @@ export class NewsService {
   newsUpdated$ = this.newsUpdated.asObservable();
 
   getItem(id): any {
-    return this.http.get<Procedure[]>(this.apiUrl + '/' + id).toPromise();
+    return this.http.get(this.apiUrl + '/' + id).toPromise();
   }
 
   getItems(): any {
-    return this.http.get<Procedure[]>(this.apiUrl).toPromise();
+    return this.http.get(this.apiUrl).pipe(
+      map( res => res )
+    );
   }
 
   addItem(item): any {

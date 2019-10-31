@@ -14,6 +14,8 @@ import {CategoriesService} from '../../../categories/categories.service';
   styleUrls: ['./edit-procedure.component.scss']
 })
 export class EditProcedureComponent implements OnInit {
+  categoryTree;
+
   isNew = false;
   id: string;
   procedure: Procedure;
@@ -55,6 +57,7 @@ export class EditProcedureComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadCategoriesTree();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id === 'new') {
       this.isNew = true;
@@ -64,6 +67,12 @@ export class EditProcedureComponent implements OnInit {
         this.setProcedureFields();
       });
     }
+  }
+
+  loadCategoriesTree(): void {
+    this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
+      this.categoryTree = categoriesTree;
+    });
   }
 
   toggleCropper(): void {

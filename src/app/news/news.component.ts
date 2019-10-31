@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
 import {NewsService} from './news.service';
+import {LanguageService} from '../helpers/language.service';
 
 @Component({
   selector: 'app-news',
@@ -12,7 +12,7 @@ export class NewsComponent implements OnInit {
   itemsList = null;
 
   constructor(private newsService: NewsService,
-              public dialog: MatDialog) {
+              private languageService: LanguageService) {
 
     this.newsService.newsUpdated$.subscribe(() => {
       this.loadItemsList();
@@ -24,8 +24,8 @@ export class NewsComponent implements OnInit {
   }
 
   loadItemsList() {
-    this.newsService.getItems().then((response) => {
-      this.itemsList = response;
+    this.newsService.getItems().subscribe((response) => {
+      this.itemsList = this.languageService.translateItems(response);
     });
   }
 

@@ -59,4 +59,28 @@ export class LanguageService {
   getUserLanguageFromLocalStorage() {
     return localStorage.getItem('language');
   }
+
+  translateItems(items) {
+    const translatedItems = [];
+
+    for (let i = 0; i < items.length; i++) {
+      translatedItems.push(this.translateItem(items[i]));
+    }
+
+    return translatedItems;
+  }
+
+  translateItem(item) {
+    if (this.currentLanguage.id === 'uk') { return item; }
+
+    if (item.textEn && item.titleEn.length > 0) {
+      item.title = item.titleEn;
+    }
+
+    if (item.textEn && item.textEn.length > 0) {
+      item.text = item.textEn;
+    }
+
+    return item;
+  }
 }

@@ -9,6 +9,7 @@ import {CategoriesService} from '../../categories/categories.service';
   styleUrls: ['./procedures-management.component.scss']
 })
 export class ProceduresManagementComponent implements OnInit {
+  categoryTree;
   procedures = null;
 
   constructor(private proceduresService: ProceduresService,
@@ -27,11 +28,18 @@ export class ProceduresManagementComponent implements OnInit {
 
   ngOnInit() {
     this.loadProcedures();
+    this.loadCategoriesTree();
   }
 
   loadProcedures() {
-    this.proceduresService.getProcedures().then((response) => {
+    this.proceduresService.getProcedures().subscribe((response) => {
       this.procedures = response;
+    });
+  }
+
+  loadCategoriesTree(): void {
+    this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
+      this.categoryTree = categoriesTree;
     });
   }
 

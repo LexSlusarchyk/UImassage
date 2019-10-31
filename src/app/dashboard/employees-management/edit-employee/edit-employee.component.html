@@ -3,7 +3,7 @@
   <div>
     <app-file-uploader></app-file-uploader>
 
-    <form [formGroup]="procedureForm" class="procedure-form">
+    <form [formGroup]="employeeForm" class="procedure-form">
       <mat-tab-group>
         <mat-tab label="UA">
           <mat-form-field class="field">
@@ -27,7 +27,7 @@
     </form>
   </div>
   <button mat-raised-button color="primary" (click)="confirm()">Зберегти</button>
-  <button mat-raised-button *ngIf="procedure" (click)="deleteProcedure(procedure.id)" class="delete-btn">Видалити</button>
+  <button mat-raised-button *ngIf="employee" (click)="deleteEmployee(employee.id)" class="delete-btn">Видалити</button>
 </div>
 
 

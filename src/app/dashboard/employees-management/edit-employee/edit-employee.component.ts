@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Procedure} from '../../../procedures/procedure';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UrlHelperService} from '../../../helpers/url-helper.service';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FileUploadService} from '../../file-uploader/file-upload.service';
 import {EmployeesService} from '../../../employees/employees.service';
+import {Employee} from '../../../employees/employee';
+import {Article} from '../../../news/article';
 
 @Component({
   selector: 'app-edit-employee',
@@ -15,8 +16,8 @@ import {EmployeesService} from '../../../employees/employees.service';
 export class EditEmployeeComponent implements OnInit {
   isNew = false;
   id: string;
-  procedure: Procedure;
-  procedureForm: FormGroup = new FormGroup({
+  employee: Employee;
+  employeeForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     titleEn: new FormControl(''),
     text: new FormControl(''),
@@ -31,7 +32,7 @@ export class EditEmployeeComponent implements OnInit {
               private urlHelperService: UrlHelperService,
               private _location: Location,
               private fileUploadService: FileUploadService) {
-
+    this.employee = new Article();
     this.employeesService.employeesUpdated$.subscribe(() => {
       this.router.navigate(['/dashboard/employees-management']).then();
     });
@@ -45,47 +46,47 @@ export class EditEmployeeComponent implements OnInit {
     if (this.id === 'new') {
       this.isNew = true;
     } else {
-      this.employeesService.getItem(this.id).then(procedure => {
-        this.procedure = new Procedure(procedure[0]);
+      this.employeesService.getItem(this.id).then(employee => {
+        this.employee.init(employee);
         this.setProcedureFields();
       });
     }
   }
 
   confirm() {
-    this.isNew ? this.addProcedure() : this.editProcedure();
+    this.isNew ? this.addEmployee() : this.editEmployee();
   }
 
-  addProcedure() {
-    this.employeesService.addItem(this.getProcedure());
+  addEmployee() {
+    this.employeesService.addItem(this.getEmployee());
   }
 
-  editProcedure() {
-    this.employeesService.updateItem(this.getProcedure());
+  editEmployee() {
+    this.employeesService.updateItem(this.getEmployee());
   }
 
   setProcedureFields() {
-    this.fileUploadService.setFileUrl(this.procedure.image);
-    this.procedureForm.patchValue({
-      title: this.procedure.title,
-      titleEn: this.procedure.titleEn,
-      text: this.procedure.text,
-      textEn: this.procedure.textEn
+    this.fileUploadService.setFileUrl(this.employee.image);
+    this.employeeForm.patchValue({
+      title: this.employee.title,
+      titleEn: this.employee.titleEn,
+      text: this.employee.text,
+      textEn: this.employee.textEn
     });
   }
 
-  getProcedure() {
+  getEmployee() {
     return {
-      id: this.isNew ? null : this.procedure.id,
-      title: this.procedureForm.get('title').value,
-      titleEn: this.procedureForm.get('titleEn').value,
-      text: this.procedureForm.get('text').value,
-      textEn: this.procedureForm.get('textEn').value,
+      id: this.isNew ? null : this.employee.id,
+      title: this.employeeForm.get('title').value,
+      titleEn: this.employeeForm.get('titleEn').value,
+      text: this.employeeForm.get('text').value,
+      textEn: this.employeeForm.get('textEn').value,
       image: this.fileUrl ? this.fileUrl : null,
     };
   }
 
-  deleteProcedure(id) {
+  deleteEmployee(id) {
     this.employeesService.deleteItem(id);
   }
 }

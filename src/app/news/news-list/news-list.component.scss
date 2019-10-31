@@ -41,20 +41,18 @@
     }
   }
 
-  @media screen and (max-width: $break-small) {
-    .items-container {
-      padding: 0;
-      .item-container {
-        flex-flow: column;
 
-        .image-container, .content-container {
-          width: 100%;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: $break-small) {
+  .items-container {
+    padding: 0;
+    .item-container {
+      flex-flow: column;
 
+      .image-container, .content-container {
+        width: 100%;
+      }
+    }
+  }
 }

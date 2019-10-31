@@ -5,16 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MaterialModule } from './material.module';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { ProductsManagementComponent } from './dashboard/products-management/products-management.component';
-import { ProductsComponent } from './products/products.component';
+
 import {HeaderComponent} from './header/header.component';
 import {CategoriesModule} from './categories/categories.module';
 import { FooterComponent } from './footer/footer.component';

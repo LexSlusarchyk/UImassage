@@ -1,6 +1,6 @@
 {
    "/api/**": {
-      "target": "http://localhost/api/public/index.php/",
+      "target": "http://localhost:8000/public/index.php",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

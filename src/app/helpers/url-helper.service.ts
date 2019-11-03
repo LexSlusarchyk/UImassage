@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlHelperService {
-  uploadsUrl = 'http://localhost/api/public/uploads/';
+  uploadsUrl = 'http://localhost:8000/public/uploads/';
 
   constructor() { }
 

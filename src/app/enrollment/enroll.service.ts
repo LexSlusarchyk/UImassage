@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class EnrollService {
-  private apiUrl = '/api/enrollment';
+  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/enrollment';
 
   constructor(private http: HttpClient) { }
 

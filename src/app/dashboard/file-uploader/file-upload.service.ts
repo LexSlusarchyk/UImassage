@@ -9,7 +9,7 @@ export class FileUploadService {
 
   constructor(private http: HttpClient) { }
 
-  uploadsUrl = 'http://localhost/api/public/uploads/';
+  uploadsUrl = 'http://www.api.spa-delight.lviv.ua/public/uploads/';
 
   private fileUploaded = new Subject<string>();
   fileUploaded$ = this.fileUploaded.asObservable();
@@ -18,7 +18,7 @@ export class FileUploadService {
     const formData = new FormData();
 
     formData.append('image', file );
-    this.http.post('/api/uploads', formData).subscribe((res) => {
+    this.http.post('http://api.spa-delight.lviv.ua/public/api/uploads', formData).subscribe((res) => {
       this.fileUploaded.next(res.toString());
     });
   }
@@ -27,7 +27,7 @@ export class FileUploadService {
     const formData = new FormData();
 
     formData.append('image', file );
-    return this.http.post('/api/uploads', formData).toPromise();
+    return this.http.post('http://api.spa-delight.lviv.ua/public/api/uploads', formData).toPromise();
   }
 
   getFileUrl(fileName) {

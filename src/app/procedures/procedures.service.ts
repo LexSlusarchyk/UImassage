@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+  import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -8,8 +8,8 @@ import {map} from 'rxjs/operators';
 })
 export class ProceduresService {
 
-  private apiUrl = '/api/procedures';
-  private apiAdminUrl = '/api/admin/procedures';
+  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/procedures';
+  private apiAdminUrl = 'http://api.spa-delight.lviv.ua/public/api/admin/procedures';
 
   constructor(private http: HttpClient) { }
 

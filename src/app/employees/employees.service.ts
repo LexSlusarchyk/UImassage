@@ -8,8 +8,8 @@ import {map} from 'rxjs/operators';
 })
 export class EmployeesService {
 
-  private apiUrl = '/api/employees';
-  private apiAdminUrl = '/api/admin/employees';
+  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/employees';
+  private apiAdminUrl = 'http://api.spa-delight.lviv.ua/public/api/admin/employees';
 
   constructor(private http: HttpClient) { }
 

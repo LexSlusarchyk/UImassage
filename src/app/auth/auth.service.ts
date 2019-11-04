@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = '/api/login';
+  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/login';
 
 
   constructor(private http: HttpClient,

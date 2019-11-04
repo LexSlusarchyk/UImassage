@@ -7,8 +7,8 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CategoriesService {
-  private apiUrl = '/api/categories';
-  private apiAdminUrl = '/api/admin/categories';
+  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/categories';
+  private apiAdminUrl = 'http://api.spa-delight.lviv.ua/public/api/admin/categories';
 
   constructor(private http: HttpClient) { }
 

@@ -25,6 +25,10 @@ import {TranslationSharedModule} from './helpers/Translation/translation-shared.
 import {TranslateStore} from '@ngx-translate/core';
 import { HeaderNavListComponent } from './header/header-nav-list/header-nav-list.component';
 
+export function jwtTokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,11 +54,9 @@ import { HeaderNavListComponent } from './header/header-nav-list/header-nav-list
     LayoutModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('access_token');
-        },
-        whitelistedDomains: ['localhost'],
-        blacklistedRoutes: ['localhost:4200/login', 'localhost:4200/dashboard']
+        tokenGetter: jwtTokenGetter,
+        whitelistedDomains: ['localhost', 'spa-delight.lviv.ua', 'api.spa-delight.lviv.ua'],
+        blacklistedRoutes: []
       }
     }),
 

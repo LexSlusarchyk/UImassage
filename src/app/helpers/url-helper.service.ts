@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UrlHelperService {
-  uploadsUrl = 'http://www.api.spa-delight.lviv.ua/public/uploads/';
+  uploadsUrl = environment.uploadsImgAddress;
 
   constructor() { }
 
   getImageUrl(imageName: string): string {
-    return  this.uploadsUrl + imageName;
+    return  `${this.uploadsUrl}/${imageName}`;
   }
 }

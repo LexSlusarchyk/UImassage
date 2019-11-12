@@ -55,7 +55,7 @@ export function jwtTokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter,
-        whitelistedDomains: ['localhost', 'spa-delight.lviv.ua', 'api.spa-delight.lviv.ua'],
+        whitelistedDomains: ['localhost:8000', 'spa-delight.lviv.ua', 'api.spa-delight.lviv.ua'],
         blacklistedRoutes: []
       }
     }),

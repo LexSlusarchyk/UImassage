@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {environment} from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
 
-  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/employees';
-  private apiAdminUrl = 'http://api.spa-delight.lviv.ua/public/api/admin/employees';
+  private apiUrl = environment.apiAddress + '/employees';
+  private apiAdminUrl = environment.apiAddress + '/admin/employees';
 
   constructor(private http: HttpClient) { }
 

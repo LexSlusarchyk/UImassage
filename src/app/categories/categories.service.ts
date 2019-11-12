@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {environment} from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
-  private apiUrl = 'http://api.spa-delight.lviv.ua/public/api/categories';
-  private apiAdminUrl = 'http://api.spa-delight.lviv.ua/public/api/admin/categories';
+  private apiUrl = environment.apiAddress + '/categories';
+  private apiAdminUrl = environment.apiAddress + '/admin/categories';
 
   constructor(private http: HttpClient) { }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Subject} from 'rxjs';
+import {environment} from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class FileUploadService {
 
   constructor(private http: HttpClient) { }
 
-  uploadsUrl = 'http://www.api.spa-delight.lviv.ua/public/uploads/';
+  uploadsUrl = environment.apiAddress;
 
   private fileUploaded = new Subject<string>();
   fileUploaded$ = this.fileUploaded.asObservable();
@@ -18,7 +19,7 @@ export class FileUploadService {
     const formData = new FormData();
 
     formData.append('image', file );
-    this.http.post('http://api.spa-delight.lviv.ua/public/api/uploads', formData).subscribe((res) => {
+    this.http.post(this.uploadsUrl + '/uploads', formData).subscribe((res) => {
       this.fileUploaded.next(res.toString());
     });
   }
@@ -27,11 +28,7 @@ export class FileUploadService {
     const formData = new FormData();
 
     formData.append('image', file );
-    return this.http.post('http://api.spa-delight.lviv.ua/public/api/uploads', formData).toPromise();
-  }
-
-  getFileUrl(fileName) {
-    return this.uploadsUrl + fileName;
+    return this.http.post(this.uploadsUrl + '/uploads', formData).toPromise();
   }
 
   setFileUrl(fileUrl) {

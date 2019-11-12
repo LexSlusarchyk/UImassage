@@ -56,3 +56,26 @@
     width: 100px;
   }
 }
+
+.drawer-container {
+
+  .drawer.mobile {
+    ::ng-deep {
+      .menu-list-container.vertical {
+        .list {
+          li {
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-container.mobile {
+  ::ng-deep {
+    .video-container:after {
+      display: none;
+    }
+  }
+}

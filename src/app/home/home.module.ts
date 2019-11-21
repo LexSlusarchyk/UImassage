@@ -8,6 +8,7 @@ import {CategoriesModule} from '../categories/categories.module';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { AboutComponent } from './about/about.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -25,6 +26,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   ],
   declarations: [
     HomeComponent,
+    AboutComponent,
   ],
   providers: [
     {

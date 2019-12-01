@@ -3,6 +3,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from './helpers/language.service';
 import {NavigationEnd, Router} from '@angular/router';
 
+declare let gtag: Function;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,6 +25,11 @@ export class AppComponent implements OnInit {
       (event: any) => {
         if (event instanceof NavigationEnd) {
           this.defineLanguage();
+          gtag('config', 'UA-153625555-1',
+            {
+              'page_path': event.urlAfterRedirects
+            }
+          );
         }
       }
     );

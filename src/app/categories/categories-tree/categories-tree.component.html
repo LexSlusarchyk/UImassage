@@ -42,7 +42,12 @@
         <mat-icon>{{node.favorite ? 'star' : 'star_border'}}</mat-icon>
       </button>
       <button mat-icon-button (click)="editCategory(node)" title="Змінити категорію"><mat-icon>edit</mat-icon></button>
-      <button mat-icon-button (click)="deleteCategory(node.id)" title="Видалити категорію"><mat-icon>delete</mat-icon></button>
+      <button mat-icon-button
+              (click)="deleteCategory(node.id)"
+              [disabled]="node.id === '1'"
+              title="Видалити категорію">
+              <mat-icon>delete</mat-icon>
+      </button>
     </div>
   </mat-tree-node>
 </mat-tree>

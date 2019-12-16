@@ -32,11 +32,13 @@ $button-height: 38px;
       font-size: 16px;
 
       .logo-container {
-        padding: 0 20px;
+        position: relative;
+        padding: 10px 20px;
         max-height: $header-height;
 
         img {
           max-height: $header-height;
+          height: 100%;
         }
       }
       .menu-list-container {
@@ -220,12 +222,12 @@ $button-height: 38px;
         justify-content: space-between;
 
         .logo-container {
-          padding: 0 15px;
+          padding: 10px 15px;
 
           .logo {
-            border-radius: 50%;
-            height: 80px;
-            width: auto;
+            max-height: 80px;
+            height: 100%;
+            width: 80px;
           }
         }
 
@@ -268,13 +270,13 @@ $button-height: 38px;
         justify-content: space-between;
 
         .logo-container {
-          padding: 0 15px;
+          padding: 10px 15px;
           max-height: $header-height;
 
           .logo {
-            border-radius: 50%;
-            height: $header-height;
-            width: auto;
+            max-height: $header-height;
+            height: 100%;
+            width: 80px;
           }
         }
 
@@ -282,6 +284,7 @@ $button-height: 38px;
           display: flex;
 
           .phone-number {
+            font-size: 14px;
             align-self: center;
             color: #656565;
           }

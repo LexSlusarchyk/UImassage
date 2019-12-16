@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiAddress: 'api/',
+  uploadsImgAddress: 'http://localhost:8000/public/uploads',
   production: false
 };
 

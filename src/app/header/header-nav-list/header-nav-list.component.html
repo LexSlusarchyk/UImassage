@@ -18,8 +18,5 @@
     <li (click)="closeSideNav()">
       <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/contacts">{{ 'HEADER.contacts' | translate }}</a>
     </li>
-    <li (click)="closeSideNav()">
-      <a routerLink="{{langService.currentLanguage.id === 'en' ? '/en' : ''}}/dashboard">Dashboard</a>
-    </li>
   </ul>
 </div>

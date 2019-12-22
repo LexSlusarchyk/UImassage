@@ -77,5 +77,10 @@
     .video-container:after {
       display: none;
     }
+
+    //hide carousel on mobile devices
+    .swiper-container {
+      display: none;
+    }
   }
 }

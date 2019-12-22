@@ -18,15 +18,16 @@
   position: fixed;
   top: 45%;
   z-index: 1;
-  height: 80px;
+  height: 40px;
   opacity: 0.5;
 
   &.left-angle {
-    left: 286px;
+    left: 316px;
   }
 
   &.right-angle {
-    left: -18px;
+    transform: rotate(180deg);
+    left: -8px;
   }
 
   &:hover {
@@ -39,7 +40,9 @@
 
     .sidenav-toggle-btn {
       &.left-angle {
-        left: 80%;
+        height: 40px;
+        left: unset;
+        right: 0;
       }
     }
   }

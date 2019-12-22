@@ -36,6 +36,16 @@ $button-height: 38px;
         padding: 10px 20px;
         max-height: $header-height;
 
+        .logo {
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
         img {
           max-height: $header-height;
           height: 100%;

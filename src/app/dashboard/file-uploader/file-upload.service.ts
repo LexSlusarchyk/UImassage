@@ -16,6 +16,11 @@ export class FileUploadService {
   fileUploaded$ = this.fileUploaded.asObservable();
 
   uploadFile(file) {
+    console.log(file.size);
+    // max file upload size 1 Mb
+    if (file.size > 1048576) {
+      return alert('Max file upload size 1 Mb');
+    }
     const formData = new FormData();
 
     formData.append('image', file );

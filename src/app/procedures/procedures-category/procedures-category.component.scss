@@ -5,12 +5,11 @@
 }
 
 .category-details-container {
-  .flex-container {
-    display: flex;
-    justify-content: center;
-
+  .container {
     .image-container {
-      max-width: 40%;
+      margin-right: 15px;
+      max-width: 50%;
+      float: left;
       img {
         display: inline-block;
         max-width: 100%;
@@ -18,15 +17,13 @@
     }
 
     .text-container {
-      max-width: 60%;
-      padding: 0 15px;
     }
   }
 
 
   @media screen and (max-width: $break-small) {
 
-    .flex-container {
+    .container {
       flex-direction: column;
 
       .image-container {

@@ -125,6 +125,13 @@
   }
 
   @media screen and (max-width: $break-small) {
+    .category-card {
+      margin-bottom: 2px;
+
+      img {
+        height: 100px;
+      }
+    }
     .category-card:nth-child(n) {
       width: calc(100% - 10px);
     }

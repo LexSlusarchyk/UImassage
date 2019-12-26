@@ -38,6 +38,9 @@
 
 }
 
+.categories-list-container {
+  clear: both;
+}
 
 @media screen and (max-width: $break-medium) {
   .title {

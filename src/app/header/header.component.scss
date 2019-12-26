@@ -238,6 +238,10 @@ $button-height: 38px;
             max-height: 80px;
             height: 100%;
             width: 80px;
+
+            &:focus {
+              outline: none;
+            }
           }
         }
 

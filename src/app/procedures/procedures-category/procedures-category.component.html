@@ -11,7 +11,9 @@
   </div>
 </div>
 <br/>
-<app-category-list [categoryList]="categoryList"></app-category-list>
+<div class="categories-list-container">
+  <app-category-list [categoryList]="categoryList"></app-category-list>
+</div>
 
 <h2 *ngIf="proceduresList" class="procedures-title">{{ 'PROCEDURES.title' | translate }}:</h2>
 <app-procedures-list [proceduresList]="proceduresList"></app-procedures-list>

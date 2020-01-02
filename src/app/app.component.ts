@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
               'page_path': event.urlAfterRedirects
             }
           );
+          window.scrollTo(0, 0);
         }
       }
     );

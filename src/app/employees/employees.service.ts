@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {UrlHelperService} from '../helpers/url-helper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class EmployeesService {
   private apiUrl = environment.apiAddress + '/employees';
   private apiAdminUrl = environment.apiAddress + '/admin/employees';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              public urlHelperService: UrlHelperService) { }
 
   private employeesUpdated = new Subject<boolean>();
   employeesUpdated$ = this.employeesUpdated.asObservable();
@@ -23,8 +25,19 @@ export class EmployeesService {
 
   getItems(): any {
     return this.http.get(this.apiUrl).pipe(
-      map( res => res )
+      map( res => this.mapList(res) )
     );
+  }
+
+  mapList(list) {
+    if (!list.length) { return []; }
+    let formatedList = [];
+
+    list.forEach((item) => {
+      item.image = this.urlHelperService.getImageUrl(item.image);
+      formatedList.push(item);
+    });
+    return formatedList;
   }
 
   addItem(item): any {

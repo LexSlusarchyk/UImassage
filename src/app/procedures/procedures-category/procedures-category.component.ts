@@ -36,7 +36,7 @@ export class ProceduresCategoryComponent implements OnInit {
 
   getCategoryChildren(id) {
     this.categoriesService.getCategoryChildren(id).then((res) => {
-      this.categoryList = res;
+      this.categoryList = this.categoriesService.mapCategoriesList(res);
     });
   }
 

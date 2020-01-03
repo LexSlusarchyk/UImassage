@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {CategoriesService} from '../categories/categories.service';
 
 import {SwiperPaginationInterface} from 'ngx-swiper-wrapper';
@@ -7,10 +7,11 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  categoryList: [];
+  categoryList;
 
   private pagination: SwiperPaginationInterface = {
     el: '.swiper-pagination',
@@ -33,7 +34,8 @@ export class HomeComponent implements OnInit {
   };
 
 
-  constructor(private categoriesService: CategoriesService) {}
+  constructor(private categoriesService: CategoriesService,
+              private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.loadItemsList();
@@ -41,7 +43,8 @@ export class HomeComponent implements OnInit {
 
   loadItemsList() {
     this.categoriesService.getFavoriteCategories().then((response) => {
-      this.categoryList = response;
+      this.categoryList = this.categoriesService.mapCategoriesList(response);
+      this.cdr.detectChanges();
     });
   }
 }

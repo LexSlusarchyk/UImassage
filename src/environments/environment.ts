@@ -5,7 +5,8 @@
 export const environment = {
   apiAddress: 'api/',
   uploadsImgAddress: 'http://localhost:8000/public/uploads',
-  production: false
+  production: false,
+  fallbackImg: 'assets/img/default-img.png'
 };
 
 /*

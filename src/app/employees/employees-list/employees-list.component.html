@@ -9,8 +9,7 @@
             (click)="showDetails(item)">
 
     <h3 class="title">{{item.title}}</h3>
-    <img mat-card-image src="assets/img/default-img.png"  alt="default image" *ngIf="!item.image">
-    <img [src]="this.urlHelperService.getImageUrl(item.image)" alt="item image" *ngIf="item.image">
+    <img [src]="item.image" alt="item image">
     <mat-card-content>
     </mat-card-content>
     <mat-card-actions class="action-btns-container" *ngIf="editable">

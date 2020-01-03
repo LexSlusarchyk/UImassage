@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {UrlHelperService} from '../helpers/url-helper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CategoriesService {
   private apiUrl = environment.apiAddress + '/categories';
   private apiAdminUrl = environment.apiAddress + '/admin/categories';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              public urlHelperService: UrlHelperService) { }
 
   private categoriesUpdated = new Subject<boolean>();
   categoriesUpdated$ = this.categoriesUpdated.asObservable();
@@ -33,6 +35,17 @@ export class CategoriesService {
 
   getFavoriteCategories(): any {
     return this.http.get(this.apiUrl + '/favorite').toPromise();
+  }
+
+  mapCategoriesList(list) {
+    if (!list.length) { return []; }
+    let formatedList = [];
+
+    list.forEach((item) => {
+      item.image = this.urlHelperService.getImageUrl(item.image);
+      formatedList.push(item);
+    });
+    return formatedList;
   }
 
   getCategoriesTree(): any {

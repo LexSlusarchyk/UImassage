@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faPhone} from '@fortawesome/free-solid-svg-icons';
 import {EnrollModalService} from '../enrollment/enroll-modal/enroll-modal.service';
 import {LanguageService} from '../helpers/language.service';
@@ -7,7 +7,8 @@ import {LanguageService} from '../helpers/language.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements AfterViewInit {
   faPhone = faPhone;

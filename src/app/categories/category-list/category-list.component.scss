@@ -7,6 +7,7 @@
   justify-content: center;
 
   .category-card {
+    height: 270px;
     width: calc(25% - 10px);
     margin: 0 5px 10px 5px;
     display: flex;
@@ -127,6 +128,7 @@
   @media screen and (max-width: $break-small) {
     .category-card {
       margin-bottom: 2px;
+      height: 100px;
 
       img {
         height: 100px;
@@ -138,6 +140,3 @@
   }
 }
 
-@media screen and (max-width: $break-small) {
-
-}

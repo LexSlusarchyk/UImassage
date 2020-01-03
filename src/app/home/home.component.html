@@ -19,7 +19,7 @@
   </swiper>
 </div>
 
-<div class="categories-container-wrapper">
+<div class="categories-container-wrapper" *ngIf="categoryList">
   <app-category-list [categoryList]="categoryList"></app-category-list>
 </div>
 

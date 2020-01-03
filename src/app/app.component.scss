@@ -1,20 +1,10 @@
 @import "../variables";
+.header-container {
+  height: 94px;
+}
 
 .drawer-container {
-  margin-top: $header-height;
-  min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
-
-  .drawer {
-    position: fixed;
-    margin-top: inherit;
-    margin-bottom: $footer-height;
-    height: 100%;
-  }
-  .drawer.mobile {
-    width: 100%;
-  }
-  .content-container {
-  }
+  z-index: 1000;
 }
 
 .lang-container {

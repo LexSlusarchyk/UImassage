@@ -16,7 +16,7 @@ export class ProceduresCategoryListComponent implements OnInit {
 
   loadItemsList() {
     this.categoriesService.getItems().then((response) => {
-      this.items = response;
+      this.items = this.categoriesService.mapCategoriesList(response);
     });
   }
 }

@@ -1,6 +1,13 @@
-<app-header [sideNavOpened] = sideNavOpened (sideNavOpenedChange)="onSideNavOpenedChange($event)"></app-header>
-<mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer [ngClass]="{drawer: true, mobile: isMobile}" mode="side" [(opened)]="sideNavOpened">
+<div class="header-container">
+  <app-header [sideNavOpened] = sideNavOpened (sideNavOpenedChange)="onSideNavOpenedChange($event)"></app-header>
+</div>
+<mat-sidenav-container class="drawer-container">
+  <mat-sidenav [ngClass]="{drawer: true, mobile: isMobile}"
+               [fixedInViewport]="true"
+               [fixedTopGap]="94"
+               id="side-nav"
+               mode="over"
+               [(opened)]="sideNavOpened">
     <div class="menu-list-container">
       <app-header-nav-list (sideNavOpenedChange)="onSideNavOpenedChange($event)" [isVertical]="true"></app-header-nav-list>
     </div>
@@ -37,11 +44,13 @@
       </button>
     </div>
 
-  </mat-drawer>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div [ngClass]="{'content-container': true, mobile: isMobile}">
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
+  </mat-sidenav-content>
 
-  <div [ngClass]="{'content-container': true, mobile: isMobile}">
-    <router-outlet></router-outlet>
-  </div>
+</mat-sidenav-container>
 
-</mat-drawer-container>
-<app-footer></app-footer>

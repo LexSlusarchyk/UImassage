@@ -42,8 +42,20 @@ export class ProceduresCategoryComponent implements OnInit {
 
   getProceduresListByCategory(id) {
     this.proceduresService.getProceduresByCategoryId(id).then( (res) => {
-      this.proceduresList = res;
+      this.proceduresList = this.mapItemList(res);
     });
+  }
+
+  mapItemList(list) {
+    if (!list.length) { return []; }
+    let formatedList = [];
+
+    list.forEach((item) => {
+      const thumbnailName = `min${item.image}`;
+      item.image = this.urlHelperService.getImageUrl(thumbnailName);
+      formatedList.push(item);
+    });
+    return formatedList;
   }
 
   goBack() {

@@ -7,3 +7,10 @@
     cursor: pointer;
   }
 }
+
+.cropper {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  z-index: -1000;
+}

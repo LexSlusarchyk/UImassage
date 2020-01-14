@@ -42,7 +42,8 @@ export class CategoriesService {
     let formatedList = [];
 
     list.forEach((item) => {
-      item.image = this.urlHelperService.getImageUrl(item.image);
+      const thumbnailName = `min${item.image}`;
+      item.image = this.urlHelperService.getImageUrl(thumbnailName);
       formatedList.push(item);
     });
     return formatedList;

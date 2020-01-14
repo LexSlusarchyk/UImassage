@@ -15,6 +15,9 @@ export class FileUploadService {
   private fileUploaded = new Subject<string>();
   fileUploaded$ = this.fileUploaded.asObservable();
 
+  private createThumbnail = new Subject<string>();
+  createThumbnail$ = this.createThumbnail.asObservable();
+
   uploadFile(file) {
     console.log(file.size);
     // max file upload size 1 Mb
@@ -26,7 +29,21 @@ export class FileUploadService {
     formData.append('image', file );
     this.http.post(this.uploadsUrl + '/uploads', formData).subscribe((res) => {
       this.fileUploaded.next(res.toString());
+      this.createThumbnail.next(res.toString());
     });
+  }
+
+  uploadThumbnail(file, name) {
+    const formData = new FormData();
+
+    formData.append('image', file );
+    formData.append('name', this.generateThumbnailName(name));
+    this.http.post(this.uploadsUrl + '/uploads/thumbnail', formData).subscribe((res) => {});
+  }
+
+  generateThumbnailName(name): string {
+    const thumbName = `min${name}`;
+    return (thumbName);
   }
 
   uploadImage(file) {

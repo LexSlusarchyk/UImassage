@@ -5,6 +5,7 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../material.module';
 import {FileUploaderComponent} from './file-uploader.component';
+import {ImageCropperModule} from 'ngx-image-cropper';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {FileUploaderComponent} from './file-uploader.component';
     ReactiveFormsModule,
 
     CommonModule,
+    ImageCropperModule,
   ],
   declarations: [
     FileUploaderComponent

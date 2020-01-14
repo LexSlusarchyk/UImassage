@@ -10,7 +10,7 @@ export class UrlHelperService {
   constructor() { }
 
   getImageUrl(imageName: string): string {
-    console.log('getImageUrl');
+    // console.log('getImageUrl');
     return  imageName ? `${this.uploadsUrl}/${imageName}` : environment.fallbackImg;
   }
 }

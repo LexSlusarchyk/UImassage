@@ -15,11 +15,11 @@
           <span>{{langService.currentLanguage.title}}</span>
         </button>
         <mat-menu #menu="matMenu" [overlapTrigger]="false" class="lang-menu">
-        <span (mouseleave)="menuTrigger.closeMenu()">
-          <button mat-menu-item *ngFor="let item of langService.languages" (click)="selectLanguage(item)">
-            <span>{{item.title}}</span>
-          </button>
-        </span>
+          <span (mouseleave)="menuTrigger.closeMenu()" class="lang-list">
+            <button mat-menu-item *ngFor="let item of langService.languages" (click)="selectLanguage(item)">
+              <span>{{item.title}}</span>
+            </button>
+          </span>
         </mat-menu>
       </div>
 

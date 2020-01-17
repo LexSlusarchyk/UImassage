@@ -23,6 +23,11 @@ a {
 }
 
 .lang-menu {
-  min-width: 55px!important;
-  max-width: 55px!important;
+  min-width: 50px!important;
+  max-width: 50px!important;
+
+  .lang-list {
+    display: inline-block;
+    margin-top: 20px;
+  }
 }

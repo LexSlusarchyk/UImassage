@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
 import {EmployeesService} from '../../employees/employees.service';
 
 @Component({
@@ -10,8 +9,7 @@ import {EmployeesService} from '../../employees/employees.service';
 export class EmployeesManagementComponent implements OnInit {
   items = null;
 
-  constructor(private employeesService: EmployeesService,
-              public dialog: MatDialog) {
+  constructor(private employeesService: EmployeesService) {
 
     this.employeesService.employeesUpdated$.subscribe(() => {
       this.loadItemsList();

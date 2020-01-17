@@ -34,7 +34,9 @@ export class EmployeesService {
     let formatedList = [];
 
     list.forEach((item) => {
+      const thumbnailName = `min${item.image}`;
       item.image = this.urlHelperService.getImageUrl(item.image);
+      item.thumbnail = this.urlHelperService.getImageUrl(thumbnailName);
       formatedList.push(item);
     });
     return formatedList;

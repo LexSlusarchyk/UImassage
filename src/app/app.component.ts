@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       (event: any) => {
         if (event instanceof NavigationEnd) {
           this.defineLanguage();
-          gtag('config', 'UA-153625555-1',
+          gtag('config', 'UA-160918274-1',
             {
               'page_path': event.urlAfterRedirects
             }

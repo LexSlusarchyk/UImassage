@@ -9,6 +9,11 @@ body { margin: 0; font-family: EB Garamond, serif;}
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: urwgothic;
+  src: url(assets/urwgothic.ttf) format("opentype");
+}
+
 a {
   text-decoration: none;
 }

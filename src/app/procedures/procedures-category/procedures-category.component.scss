@@ -17,6 +17,11 @@
     }
 
     .text-container {
+      ::ng-deep {
+        p, span {
+          font-family: urwgothic;
+        }
+      }
     }
   }
 

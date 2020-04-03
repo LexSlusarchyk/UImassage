@@ -20,6 +20,7 @@ export class PriceAccordionComponent implements OnInit {
   getProceduresListByCategory(categoryId) {
     this.proceduresService.getProceduresByCategoryId(categoryId).then( (res) => {
       this.proceduresList = res;
+      this.proceduresList.sort((a, b) => (a.id - b.id));
     });
   }
 

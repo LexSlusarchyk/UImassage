@@ -48,6 +48,14 @@
   }
 }
 
+.text-container {
+  ::ng-deep {
+    p, span {
+      font-family: urwgothic;
+    }
+  }
+}
+
 @media screen and (max-width: $break-medium) {
   .title {
     font-size: 16px;

@@ -19,7 +19,7 @@ export class PriceComponent {
 
   loadCategoriesTree(): void {
     this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
-      this.categoriesTree = categoriesTree[0].children.reverse();
+      this.categoriesTree = categoriesTree[0].children;
     });
   }
 }

@@ -1,6 +1,8 @@
 
 <div class="categories-container">
-  <a class="category-card" routerLink="/procedures/category/{{category.id}}" *ngFor="let category of categoryList trackBy: trackByFn;">
+  <a class="category-card"
+     routerLink="/procedures/category/{{category.id}}/{{cyrillicToTranslitService.getTranslitFromCyrillic(category.title)}}"
+     *ngFor="let category of categoryList trackBy: trackByFn;">
     <h3 class="title">{{category.title}}</h3>
     <img src="assets/img/default-img.png"  alt="default image" *ngIf="!category.image">
     <img [src]="category.image" alt="item image" *ngIf="category.image">

@@ -4,6 +4,7 @@ import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {CategoriesService} from '../categories.service';
 import {CreateCategoryModalComponent} from '../../dashboard/modals/create-category-modal/create-category-modal.component';
 import {MatDialog} from '@angular/material/dialog';
+import {CyrillicToTranslitService} from '../../helpers/cyrillic-to-translit.service';
 
 /**
  * Food data with nested structure.
@@ -61,6 +62,7 @@ export class CategoriesTreeComponent implements OnChanges {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   constructor(private categoriesService: CategoriesService,
+              public cyrillicToTranslitService: CyrillicToTranslitService,
               public dialog: MatDialog) {
   }
 

@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiAddress: 'api/',
-  uploadsImgAddress: 'http://localhost:8000/public/uploads',
+  apiAddress: 'https://api.spa-delight.lviv.ua/public/api',
+  uploadsImgAddress: 'https://api.spa-delight.lviv.ua/public/uploads',
   production: false,
   fallbackImg: 'assets/img/default-img.png'
 };

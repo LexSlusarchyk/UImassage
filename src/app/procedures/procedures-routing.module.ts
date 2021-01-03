@@ -21,13 +21,13 @@ const proceduresRoutes: Routes = [
               category: ProceduresCategoryResolverService
             }
           },
-          { path: 'category/:id',
+          { path: 'category/:id/:title',
             component:  ProceduresCategoryComponent,
             resolve: {
               category: ProceduresCategoryResolverService
             }
           },
-          { path: 'category/:id/procedure/:id',
+          { path: 'category/:id/:title/procedure/:id/:title',
             component:  ProcedureDetailsComponent,
             resolve: {
               procedure: ProcedureDetailsResolverService

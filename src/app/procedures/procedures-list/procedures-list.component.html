@@ -1,5 +1,7 @@
 <div class="items-container">
-  <a class="card" routerLink="procedure/{{procedure.id}}" *ngFor="let procedure of proceduresList">
+  <a class="card"
+     routerLink="procedure/{{procedure.id}}/{{cyrillicToTranslitService.getTranslitFromCyrillic(procedure.title)}}"
+     *ngFor="let procedure of proceduresList">
     <h3 class="title">{{procedure.title}}</h3>
     <img src="assets/img/default-img.png"  alt="default image" *ngIf="!procedure.image">
     <img [src]="procedure.image" alt="item image" *ngIf="procedure.image">

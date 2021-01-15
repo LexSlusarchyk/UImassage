@@ -40,7 +40,7 @@ const dashboardRoutes: Routes = [
         path: '',
         // canActivateChild: [AuthGuard],
         children: [
-          { path: 'procedures-management/procedure/:id',
+          { path: 'procedures-management/procedure/:id/:title',
             component: EditProcedureComponent
           }
         ]

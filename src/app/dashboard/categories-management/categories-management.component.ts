@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {CategoriesService} from '../../categories/categories.service';
 
 @Component({
@@ -8,6 +8,7 @@ import {CategoriesService} from '../../categories/categories.service';
 })
 export class CategoriesManagementComponent implements AfterViewInit {
   categoryTree;
+  categoryTreeNotNested;
   constructor(private categoriesService: CategoriesService) {
     this.categoriesService.categoriesUpdated$.subscribe(() => {
       this.loadCategoriesTree();
@@ -21,6 +22,9 @@ export class CategoriesManagementComponent implements AfterViewInit {
   loadCategoriesTree(): void {
     this.categoriesService.getCategoriesTree().subscribe((categoriesTree: any) => {
       this.categoryTree = categoriesTree;
+    });
+    this.categoriesService.getAllCategoriesTreeNotNested().subscribe((categoriesTree: any) => {
+      this.categoryTreeNotNested = categoriesTree;
     });
   }
 }

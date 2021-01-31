@@ -39,7 +39,7 @@ export class CategoriesService {
 
   mapCategoriesList(list) {
     if (!list.length) { return []; }
-    let formatedList = [];
+    const formatedList = [];
 
     list.forEach((item) => {
       const thumbnailName = `min${item.image}`;
@@ -55,12 +55,18 @@ export class CategoriesService {
     );
   }
 
+  getAllCategoriesTreeNotNested(): any {
+    return this.http.get(this.apiUrl).pipe(
+      map(res => this.createTree(res, true) )
+    );
+  }
+
   getCategoryChildren(id) {
     return this.http.get(this.apiUrl + '/children/' + id).toPromise();
   }
 
-  createTree(categories) {
-    return this.unflatten(categories);
+  createTree(categories, notNested?: boolean) {
+    return notNested ? this.unflattenNotNested(categories) : this.unflatten(categories);
   }
 
   unflatten( array, parent?, tree? ) {
@@ -68,7 +74,7 @@ export class CategoriesService {
     tree = typeof tree !== 'undefined' ? tree : [];
     parent = typeof parent !== 'undefined' ? parent : { id: 0 };
 
-    let children = array.filter( function(child) {
+    const children = array.filter( function(child) {
       return +child.parent_id === +parent.id;
     });
 
@@ -84,6 +90,16 @@ export class CategoriesService {
       }
     }
 
+    return tree;
+  }
+
+  unflattenNotNested( array, parent?, tree? ) {
+    if (!array.length) { return; }
+    tree = [];
+    parent = array.shift();
+    parent.title = 'Всі категорії несортовані';
+    parent.children = array;
+    tree.push(parent);
     return tree;
   }
 

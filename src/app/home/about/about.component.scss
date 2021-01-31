@@ -41,14 +41,23 @@
 
     .text-title {
       text-align: center;
-      font-size: 30px;
+      font-size: 24px;
       margin: 0;
       font-weight: bold;
     }
 
-    p {
+    p, pre {
       text-align: center;
       margin: 10px 10px;
+
+      .mat-icon {
+        position: relative;
+        top: 6px;
+      }
+    }
+
+    pre {
+      font-family: EB Garamond, serif;
     }
   }
 
